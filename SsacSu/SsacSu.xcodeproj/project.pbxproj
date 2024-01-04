@@ -14,6 +14,7 @@
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
 		EAE4940C2B459B82007461C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE4940A2B459B82007461C0 /* LaunchScreen.storyboard */; };
 		EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494182B45DC69007461C0 /* Colors.xcassets */; };
+		EAE4941B2B45E32C007461C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE4941A2B45E32C007461C0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EAE4940B2B459B82007461C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE4940D2B459B82007461C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE494182B45DC69007461C0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EAE4941A2B45E32C007461C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				EAE494052B459B81007461C0 /* Main.storyboard */,
 				EAE494082B459B82007461C0 /* Assets.xcassets */,
 				EAE494182B45DC69007461C0 /* Colors.xcassets */,
+				EAE4941A2B45E32C007461C0 /* Images.xcassets */,
 				EAE4940A2B459B82007461C0 /* LaunchScreen.storyboard */,
 				EAE4940D2B459B82007461C0 /* Info.plist */,
 			);
@@ -86,6 +89,8 @@
 			dependencies = (
 			);
 			name = SsacSu;
+			packageProductDependencies = (
+			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +119,8 @@
 				Base,
 			);
 			mainGroup = EAE493F32B459B80007461C0;
+			packageReferences = (
+			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE4940C2B459B82007461C0 /* LaunchScreen.storyboard in Resources */,
+				EAE4941B2B45E32C007461C0 /* Images.xcassets in Resources */,
 				EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */,
 				EAE494092B459B82007461C0 /* Assets.xcassets in Resources */,
 				EAE494072B459B81007461C0 /* Main.storyboard in Resources */,
