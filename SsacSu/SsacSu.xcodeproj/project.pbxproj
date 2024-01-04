@@ -14,6 +14,7 @@
 		EAE4940C2B459B82007461C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE4940A2B459B82007461C0 /* LaunchScreen.storyboard */; };
 		EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494182B45DC69007461C0 /* Colors.xcassets */; };
 		EAE4941B2B45E32C007461C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE4941A2B45E32C007461C0 /* Images.xcassets */; };
+		EAE494322B473634007461C0 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494312B473634007461C0 /* Configurations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		EAE4940D2B459B82007461C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAE494182B45DC69007461C0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EAE4941A2B45E32C007461C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EAE494302B4733F1007461C0 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		EAE494312B473634007461C0 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,7 @@
 		EAE493F32B459B80007461C0 = {
 			isa = PBXGroup;
 			children = (
+				EAE494302B4733F1007461C0 /* Secrets.xcconfig */,
 				EAE493FE2B459B81007461C0 /* SsacSu */,
 				EAE493FD2B459B81007461C0 /* Products */,
 			);
@@ -70,6 +74,7 @@
 			children = (
 				EAE493FF2B459B81007461C0 /* AppDelegate.swift */,
 				EAE494012B459B81007461C0 /* SceneDelegate.swift */,
+				EAE494312B473634007461C0 /* Configurations.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			files = (
 				EAE494042B459B81007461C0 /* ViewController.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
+				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +333,7 @@
 		};
 		EAE494112B459B82007461C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAE494302B4733F1007461C0 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R5LJ29W6V2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SsacSu/Info.plist;
+				INFOPLIST_FILE = SsacSu/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -358,6 +365,7 @@
 		};
 		EAE494122B459B82007461C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAE494302B4733F1007461C0 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -365,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R5LJ29W6V2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SsacSu/Info.plist;
+				INFOPLIST_FILE = SsacSu/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
