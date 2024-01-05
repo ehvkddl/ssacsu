@@ -15,6 +15,9 @@
 		EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494182B45DC69007461C0 /* Colors.xcassets */; };
 		EAE4941B2B45E32C007461C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE4941A2B45E32C007461C0 /* Images.xcassets */; };
 		EAE494322B473634007461C0 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494312B473634007461C0 /* Configurations.swift */; };
+		EAE494352B4749B3007461C0 /* SSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494342B4749B3007461C0 /* SSFont.swift */; };
+		EAE494372B474E1C007461C0 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE494362B474E1B007461C0 /* SF-Pro.ttf */; };
+		EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4943A2B49D83C007461C0 /* UILabel+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		EAE4941A2B45E32C007461C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EAE494302B4733F1007461C0 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		EAE494312B473634007461C0 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		EAE494342B4749B3007461C0 /* SSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSFont.swift; sourceTree = "<group>"; };
+		EAE494362B474E1B007461C0 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		EAE4943A2B49D83C007461C0 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 		EAE4942C2B47338A007461C0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				EAE494382B49D806007461C0 /* Utils */,
 				EAE4942D2B473394007461C0 /* Scenes */,
 			);
 			path = Presentation;
@@ -100,6 +107,7 @@
 			children = (
 				EAE4940A2B459B82007461C0 /* LaunchScreen.storyboard */,
 				EAE4942F2B4733A6007461C0 /* Assets */,
+				EAE494332B47496A007461C0 /* Fonts */,
 				EAE4940D2B459B82007461C0 /* Info.plist */,
 			);
 			path = Resource;
@@ -113,6 +121,31 @@
 				EAE4941A2B45E32C007461C0 /* Images.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		EAE494332B47496A007461C0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EAE494362B474E1B007461C0 /* SF-Pro.ttf */,
+				EAE494342B4749B3007461C0 /* SSFont.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EAE494382B49D806007461C0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EAE494392B49D80D007461C0 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EAE494392B49D80D007461C0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAE4943A2B49D83C007461C0 /* UILabel+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +214,7 @@
 				EAE4941B2B45E32C007461C0 /* Images.xcassets in Resources */,
 				EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */,
 				EAE494092B459B82007461C0 /* Assets.xcassets in Resources */,
+				EAE494372B474E1C007461C0 /* SF-Pro.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,10 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EAE494042B459B81007461C0 /* ViewController.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
+				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

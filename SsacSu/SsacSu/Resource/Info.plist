@@ -6,6 +6,10 @@
 	<string>$(BASE_URL)</string>
 	<key>SeSAC_KEY</key>
 	<string>$(SeSAC_KEY)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Pro.ttf</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
