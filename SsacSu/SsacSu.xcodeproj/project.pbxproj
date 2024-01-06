@@ -18,6 +18,10 @@
 		EAE494352B4749B3007461C0 /* SSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494342B4749B3007461C0 /* SSFont.swift */; };
 		EAE494372B474E1C007461C0 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE494362B474E1B007461C0 /* SF-Pro.ttf */; };
 		EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4943A2B49D83C007461C0 /* UILabel+.swift */; };
+		EAE4943E2B49D9A9007461C0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EAE4943D2B49D9A9007461C0 /* SnapKit */; };
+		EAE494412B49DB91007461C0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494402B49DB91007461C0 /* Moya */; };
+		EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494432B49DC42007461C0 /* RxCocoa */; };
+		EAE494462B49DC42007461C0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494452B49DC42007461C0 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */,
+				EAE494412B49DB91007461C0 /* Moya in Frameworks */,
+				EAE494462B49DC42007461C0 /* RxSwift in Frameworks */,
+				EAE4943E2B49D9A9007461C0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +173,10 @@
 			);
 			name = SsacSu;
 			packageProductDependencies = (
+				EAE4943D2B49D9A9007461C0 /* SnapKit */,
+				EAE494402B49DB91007461C0 /* Moya */,
+				EAE494432B49DC42007461C0 /* RxCocoa */,
+				EAE494452B49DC42007461C0 /* RxSwift */,
 			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
@@ -195,6 +207,9 @@
 			);
 			mainGroup = EAE493F32B459B80007461C0;
 			packageReferences = (
+				EAE4943C2B49D9A9007461C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EAE4943F2B49DB91007461C0 /* XCRemoteSwiftPackageReference "Moya" */,
+				EAE494422B49DC42007461C0 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
@@ -453,6 +468,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EAE4943C2B49D9A9007461C0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		EAE4943F2B49DB91007461C0 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		EAE494422B49DC42007461C0 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EAE4943D2B49D9A9007461C0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAE4943C2B49D9A9007461C0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EAE494402B49DB91007461C0 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAE4943F2B49DB91007461C0 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		EAE494432B49DC42007461C0 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAE494422B49DC42007461C0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EAE494452B49DC42007461C0 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAE494422B49DC42007461C0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EAE493F42B459B80007461C0 /* Project object */;
 }
