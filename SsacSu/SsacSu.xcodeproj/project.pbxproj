@@ -23,6 +23,9 @@
 		EAE494462B49DC42007461C0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494452B49DC42007461C0 /* RxSwift */; };
 		EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494542B4AAD9B007461C0 /* OnboardingViewController.swift */; };
 		EAE494582B4AB503007461C0 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494572B4AB503007461C0 /* SSButton.swift */; };
+		EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */; };
+		EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */; };
+		EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		EAE4943A2B49D83C007461C0 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		EAE494542B4AAD9B007461C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EAE494572B4AB503007461C0 /* SSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
+		EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494392B49D80D007461C0 /* Extensions */,
+				EAE494592B4B1ECC007461C0 /* Base */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -173,6 +180,14 @@
 				EAE494572B4AB503007461C0 /* SSButton.swift */,
 			);
 			path = Components;
+		EAE494592B4B1ECC007461C0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */,
+				EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */,
+				EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
+				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
+				EAE494042B459B81007461C0 /* ViewController.swift in Sources */,
+				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
