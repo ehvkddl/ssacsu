@@ -180,6 +180,8 @@
 				EAE494572B4AB503007461C0 /* SSButton.swift */,
 			);
 			path = Components;
+            sourceTree = "<group>";
+        };
 		EAE494592B4B1ECC007461C0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
