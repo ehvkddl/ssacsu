@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
-		EAE494042B459B81007461C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494032B459B81007461C0 /* ViewController.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
 		EAE4940C2B459B82007461C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE4940A2B459B82007461C0 /* LaunchScreen.storyboard */; };
 		EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494182B45DC69007461C0 /* Colors.xcassets */; };
@@ -22,6 +21,7 @@
 		EAE494412B49DB91007461C0 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494402B49DB91007461C0 /* Moya */; };
 		EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494432B49DC42007461C0 /* RxCocoa */; };
 		EAE494462B49DC42007461C0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAE494452B49DC42007461C0 /* RxSwift */; };
+		EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494542B4AAD9B007461C0 /* OnboardingViewController.swift */; };
 		EAE494582B4AB503007461C0 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494572B4AB503007461C0 /* SSButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,6 @@
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EAE494032B459B81007461C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EAE494082B459B82007461C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAE4940B2B459B82007461C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAE4940D2B459B82007461C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		EAE494342B4749B3007461C0 /* SSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSFont.swift; sourceTree = "<group>"; };
 		EAE494362B474E1B007461C0 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		EAE4943A2B49D83C007461C0 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		EAE494542B4AAD9B007461C0 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EAE494572B4AB503007461C0 /* SSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 		EAE4942D2B473394007461C0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				EAE494032B459B81007461C0 /* ViewController.swift */,
+				EAE494532B4AAD3A007461C0 /* Onboarding */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -157,6 +157,14 @@
 				EAE4943A2B49D83C007461C0 /* UILabel+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAE494532B4AAD3A007461C0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EAE494542B4AAD9B007461C0 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		EAE494562B4AB3CF007461C0 /* Components */ = {
@@ -252,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
-				EAE494042B459B81007461C0 /* ViewController.swift in Sources */,
+				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
