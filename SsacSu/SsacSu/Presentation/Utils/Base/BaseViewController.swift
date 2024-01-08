@@ -28,7 +28,18 @@ class BaseViewController: UIViewController {
     func setConstraints() {}
     
     func configureNavigationBar() {
+        navigationController?.navigationBar.backgroundColor = .Brand.white
         navigationController?.navigationBar.tintColor = .Brand.black
+        
+        let divider = Divider()
+        
+        view.addSubview(divider)
+        
+        divider.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalTo(view)
+            make.height.equalTo(1)
+        }
     }
     
 }
