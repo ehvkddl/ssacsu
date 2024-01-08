@@ -26,6 +26,7 @@
 		EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */; };
 		EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */; };
 		EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */; };
+		EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInMethodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494532B4AAD3A007461C0 /* Onboarding */,
+				EAE494632B4B91D7007461C0 /* SignIn */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -190,6 +193,14 @@
 				EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		EAE494632B4B91D7007461C0 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
+				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
