@@ -36,6 +36,8 @@ class OnboardingViewController: BaseViewController {
     }
     
     override func configureView() {
+        startButton.addTarget(self, action: #selector(clickedStartButton), for: .touchUpInside)
+        
         [explainLabel,
          onboardingImageView,
          startButton
@@ -59,4 +61,29 @@ class OnboardingViewController: BaseViewController {
         }
     }
 
+}
+
+extension OnboardingViewController {
+    
+    @objc func clickedStartButton() {
+        let vc = SelectSignInMethodViewController()
+        
+        if let sheet = vc.sheetPresentationController {
+            var detent: UISheetPresentationController.Detent
+            
+            if #available(iOS 16.0, *) {
+                detent = UISheetPresentationController.Detent.custom { _ in
+                    return 270
+                }
+            } else {
+                detent = .medium()
+            }
+            
+            sheet.detents = [detent]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(vc, animated: true)
+    }
+    
 }
