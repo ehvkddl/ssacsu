@@ -11,6 +11,7 @@ enum SSButtonStyle {
     case plain // Yellow Color
     case cancel // Gray Color
     case image // Yellow Color
+    case imageWithTitle // Yellow Color
     case border // Black Color + Border
     case borderDestructive // Red Color + Border
     case custom // Custom Color
@@ -19,16 +20,16 @@ enum SSButtonStyle {
 class SSButton: UIButton {
     
     let image: UIImage?
-    let title: String
+    let title: String?
     let fgColor: UIColor?
     let bgColor: UIColor?
     let cornerRadius: CGFloat = 8
     let style: SSButtonStyle
     
     init(image: UIImage? = nil,
-         title: String,
+         title: String? = nil,
          fgColor: UIColor? = .black,
-         bgColor: UIColor? = nil,
+         bgColor: UIColor? = .clear,
          style: SSButtonStyle
     ) {
         self.image = image
@@ -71,7 +72,7 @@ class SSButton: UIButton {
             config.baseForegroundColor = .Brand.white
             config.baseBackgroundColor = .Brand.inactive
             
-        case .image:
+        case .imageWithTitle:
             config.baseForegroundColor = .Brand.white
             config.baseBackgroundColor = .Brand.yellow
             
@@ -90,6 +91,9 @@ class SSButton: UIButton {
         case .custom:
             config.baseForegroundColor = fgColor
             config.baseBackgroundColor = bgColor
+            
+        default:
+            break
         }
         
         configuration = config
