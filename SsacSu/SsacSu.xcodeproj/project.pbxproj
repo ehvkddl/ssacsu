@@ -26,8 +26,8 @@
 		EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */; };
 		EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */; };
 		EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */; };
-		EAE494672B4C618C007461C0 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494662B4C618C007461C0 /* Divider.swift */; };
 		EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */; };
+		EAE494672B4C618C007461C0 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494662B4C618C007461C0 /* Divider.swift */; };
 		EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494692B4C717C007461C0 /* SignUpViewController.swift */; };
 		EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */; };
 /* End PBXBuildFile section */
@@ -51,8 +51,8 @@
 		EAE4945A2B4B1EFE007461C0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EAE4945C2B4B1FA6007461C0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		EAE494662B4C618C007461C0 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInMethodViewController.swift; sourceTree = "<group>"; };
+		EAE494662B4C618C007461C0 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		EAE494692B4C717C007461C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */

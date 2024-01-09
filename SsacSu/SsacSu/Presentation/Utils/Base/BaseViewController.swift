@@ -31,6 +31,8 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .Brand.white
         navigationController?.navigationBar.tintColor = .Brand.black
         
+        guard navigationController != nil else { return }
+        
         let divider = Divider()
         
         view.addSubview(divider)
