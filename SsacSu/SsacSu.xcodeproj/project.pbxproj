@@ -28,6 +28,7 @@
 		EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */; };
 		EAE494672B4C618C007461C0 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494662B4C618C007461C0 /* Divider.swift */; };
 		EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */; };
+		EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		EAE4945E2B4B2058007461C0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EAE494662B4C618C007461C0 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInMethodViewController.swift; sourceTree = "<group>"; };
+		EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494572B4AB503007461C0 /* SSButton.swift */,
+				EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */,
 				EAE494662B4C618C007461C0 /* Divider.swift */,
 			);
 			path = Components;
@@ -293,6 +296,7 @@
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
+				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
