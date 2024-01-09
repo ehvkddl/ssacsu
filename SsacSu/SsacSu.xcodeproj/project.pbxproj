@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EAE493F32B459B80007461C0 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494392B49D80D007461C0 /* Extensions */,
+				EAB4014C2B4DC5C000C1A14A /* Protocols */,
 				EAE494592B4B1ECC007461C0 /* Base */,
 			);
 			path = Utils;
@@ -312,6 +323,7 @@
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
+				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
