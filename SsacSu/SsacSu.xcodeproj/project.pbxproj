@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
+		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
+		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
+		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
+		EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401592B4DEF6000C1A14A /* SignManager.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -35,6 +39,10 @@
 
 /* Begin PBXFileReference section */
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
+		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
+		EAB401592B4DEF6000C1A14A /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +90,23 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		EAB401512B4DE9B400C1A14A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */,
+				EAB401592B4DEF6000C1A14A /* SignManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EAB401542B4DEB9400C1A14A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EAE493F32B459B80007461C0 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				EAE4942B2B473381007461C0 /* App */,
+				EAB401512B4DE9B400C1A14A /* Network */,
+				EAB401542B4DEB9400C1A14A /* Data */,
 				EAE4942C2B47338A007461C0 /* Presentation */,
 				EAE4942E2B47339C007461C0 /* Resource */,
 			);
@@ -227,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494692B4C717C007461C0 /* SignUpViewController.swift */,
+				EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -317,6 +345,8 @@
 			files = (
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
+				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
+				EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
@@ -327,8 +357,10 @@
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
+				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
+				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

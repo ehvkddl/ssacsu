@@ -12,6 +12,8 @@ import RxSwift
 
 class SignUpViewController: BaseViewController {
 
+    let vm = SignUpViewModel()
+    
     let emailLabel = {
         let lbl = UILabel()
         lbl.text = "이메일"
@@ -58,8 +60,43 @@ class SignUpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
     }
 
+    func bind() {
+        let input = SignUpViewModel.Input(
+            email: emailTextField.rx.text.orEmpty,
+            nickname: nicknameTextField.rx.text.orEmpty,
+            phoneNumber: phoneNumberTextField.rx.text.orEmpty,
+            password: passwordTextField.rx.text.orEmpty,
+            passwordCheck: passwordCheckTextField.rx.text.orEmpty,
+            checkEmailValidationButtonTapped: checkEmailValidationButton.rx.tap
+        )
+        let output = vm.transform(input: input)
+        
+        output.canValidationCheck
+            .bind(to: checkEmailValidationButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.emailState
+            .subscribe(with: self) { owner, state in
+                // TODO: - Toast로 바꾸기
+                switch state {
+                case .alreadyCheck: print("[이미 검증] 사용 가능한 이메일입니다.")
+                case .invalid: print("이메일 형식이 올바르지 않습니다.")
+                case .usable: print("사용 가능한 이메일입니다.")
+                case .duplicated: print("중복 이메일입니다.")
+                default: break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        output.canSignUp
+            .bind(to: signUpButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
     override func configureNavigationBar() {
         super.configureNavigationBar()
         
