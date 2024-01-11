@@ -65,6 +65,7 @@ class SignUpViewModel: ViewModelType {
         let canValidationCheck = input.email
             .map { !$0.isEmpty }
         
+        // 이메일이 수정되면 중복확인 다시 진행돼야하기 때문에 변화 발생시 isUsableEmail을 false로 변경
         input.email
             .distinctUntilChanged()
             .subscribe { _ in
@@ -72,9 +73,11 @@ class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        // emailState 판별하기 위한 옵저버블
         let emailUsableState = Observable
             .combineLatest(isUsableEmail, input.email)
         
+        // 중복 확인 버튼 클릭시 이메일 유효성 판단
         input.checkEmailValidationButtonTapped
             .withLatestFrom(emailUsableState)
             .map { return (isUsable: $0, email: $1) }
@@ -88,6 +91,7 @@ class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        // 이메일이 유효하다면 중복 확인 진행
         emailState
             .filter { $0 == .valid }
             .withLatestFrom(input.email)
@@ -124,6 +128,7 @@ class SignUpViewModel: ViewModelType {
                 return true
             }
         
+        // 회원가입에 필요한 요소 모음
         let singUpData = Observable
             .combineLatest(isUsableEmail, 
                            input.email,
@@ -140,6 +145,7 @@ class SignUpViewModel: ViewModelType {
                                          passwordCheck: $5)
             ) }
         
+        // 버튼 클릭시 유효성 판단
         input.signUpButtonTapped
             .withLatestFrom(singUpData)
             .subscribe { singUpData in
@@ -161,6 +167,7 @@ class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
             
+        // 유효성 판단 후 회원가입이 가능한 상태면 가입 진행
         canSignUp
             .filter { $0 == true }
             .withLatestFrom(singUpData)
