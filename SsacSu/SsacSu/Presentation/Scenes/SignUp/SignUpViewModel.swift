@@ -18,6 +18,13 @@ enum EmailState  {
     case duplicated
 }
 
+struct InputData {
+    let email: String
+    let nickname: String
+    let phoneNumber: String
+    let password: String
+    let passwordCheck: String
+}
 
 class SignUpViewModel: ViewModelType {
     
@@ -30,12 +37,15 @@ class SignUpViewModel: ViewModelType {
         let password: ControlProperty<String>
         let passwordCheck: ControlProperty<String>
         let checkEmailValidationButtonTapped: ControlEvent<Void>
+        let signUpButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
         let canValidationCheck: Observable<Bool>
         let emailState: PublishRelay<EmailState>
         let formattedPhoneNumber: PublishRelay<String>
+        let isRequiredInputComplete: Observable<Bool>
+        let inputUsableState: BehaviorRelay<(Bool, Bool, Bool, Bool, Bool)>
     }
     
     func transform(input: Input) -> Output {
@@ -44,10 +54,19 @@ class SignUpViewModel: ViewModelType {
         
         let formattedPhoneNumber = PublishRelay<String>()
         
+        let inputUsableState = BehaviorRelay<(Bool, Bool, Bool, Bool, Bool)>(value: (email: true, 
+                                                                                     nickname: true,
+                                                                                     phone: true,
+                                                                                     pw: true,
+                                                                                     pwcheck: true))
+        
+        let canSignUp = BehaviorRelay<Bool>(value: false)
+        
         let canValidationCheck = input.email
             .map { !$0.isEmpty }
         
         input.email
+            .distinctUntilChanged()
             .subscribe { _ in
                 isUsableEmail.accept(false)
             }
@@ -105,10 +124,67 @@ class SignUpViewModel: ViewModelType {
                 return true
             }
         
+        let singUpData = Observable
+            .combineLatest(isUsableEmail, 
+                           input.email,
+                           input.nickname,
+                           input.phoneNumber,
+                           input.password,
+                           input.passwordCheck
+            )
+            .map { (isUsableEmail: $0, 
+                    inputData: InputData(email: $1,
+                                         nickname: $2,
+                                         phoneNumber: $3,
+                                         password: $4,
+                                         passwordCheck: $5)
+            ) }
+        
+        input.signUpButtonTapped
+            .withLatestFrom(singUpData)
+            .subscribe { singUpData in
+                guard let data = singUpData.element else { return }
+                
+                let isUsableEmail = data.isUsableEmail
+                let input = data.inputData
+                
+                let nickValidation = self.nicknameValidation(nickname: input.nickname)
+                let phnValidation = input.phoneNumber.isEmpty ? true : self.phoneNumberValidation(phoneNumber: input.phoneNumber.withoutHypen)
+                let pwValidation = self.passwordValidation(password: input.password)
+                let pwEqual = self.passwordEqual(password: input.password, passwordCheck: input.passwordCheck)
+                
+                inputUsableState.accept((isUsableEmail, nickValidation, phnValidation, pwValidation, pwEqual))
+                
+                let isWholeInputValid = isUsableEmail && nickValidation && phnValidation && pwValidation && pwEqual
+
+                canSignUp.accept(isWholeInputValid)
+            }
+            .disposed(by: disposeBag)
+            
+        canSignUp
+            .filter { $0 == true }
+            .withLatestFrom(singUpData)
+            .map { signUpData in
+                let input = signUpData.inputData
+                return User(email: input.email, 
+                            password: input.password,
+                            nickname: input.nickname,
+                            phone: input.phoneNumber)
+            }
+            .flatMap {
+                SignManager.shared.join(user: $0)
+            }
+            .subscribe { result in
+                print("[가입요청]", result)
+            }
+            .disposed(by: disposeBag)
+        
         return Output(
             canValidationCheck: canValidationCheck,
             emailState: emailState,
             formattedPhoneNumber: formattedPhoneNumber,
+            isRequiredInputComplete: isRequiredInputComplete,
+            inputUsableState: inputUsableState
         )
     }
     
@@ -119,6 +195,24 @@ extension SignUpViewModel {
     func emailValidation(email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.com"
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+    }
+    
+    func nicknameValidation(nickname: String) -> Bool {
+        return 1...30 ~= nickname.count
+    }
+    
+    func phoneNumberValidation(phoneNumber: String) -> Bool {
+        let phnRegex = "^01[0-1, 7][0-9]{7,8}$"
+        return NSPredicate(format: "SELF MATCHES %@", phnRegex).evaluate(with: phoneNumber)
+    }
+    
+    func passwordValidation(password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,20}"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+    
+    func passwordEqual(password: String, passwordCheck: String) -> Bool {
+        return password.compare(passwordCheck) == .orderedSame
     }
     
 }
