@@ -35,7 +35,6 @@ class SignUpViewModel: ViewModelType {
     struct Output {
         let canValidationCheck: Observable<Bool>
         let emailState: PublishRelay<EmailState>
-        let canSignUp: Observable<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -80,8 +79,13 @@ class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
-        let canSignUp = Observable<Bool>
-            .combineLatest(input.email, input.nickname, input.password, input.passwordCheck) {
+        // 필수 항목들이 다 입력 됐는지 확인
+        let isRequiredInputComplete = Observable<Bool>
+            .combineLatest(input.email, 
+                           input.nickname,
+                           input.password,
+                           input.passwordCheck
+            ) {
                 guard !$0.isEmpty else { return false }
                 guard !$1.isEmpty else { return false }
                 guard !$2.isEmpty else { return false }
@@ -93,7 +97,6 @@ class SignUpViewModel: ViewModelType {
         return Output(
             canValidationCheck: canValidationCheck,
             emailState: emailState,
-            canSignUp: canSignUp
         )
     }
     

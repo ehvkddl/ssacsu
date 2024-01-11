@@ -92,7 +92,7 @@ class SignUpViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.canSignUp
+        output.isRequiredInputComplete
             .bind(to: signUpButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
