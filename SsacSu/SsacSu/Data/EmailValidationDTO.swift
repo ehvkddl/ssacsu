@@ -10,7 +10,3 @@ import Foundation
 struct EmailValidationRequestDTO: Encodable {
     let email: String
 }
-
-struct EmailValidationResponseDTO: Decodable {
-    let errorCode: String
-}

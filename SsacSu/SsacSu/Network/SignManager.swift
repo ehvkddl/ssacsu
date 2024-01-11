@@ -25,7 +25,7 @@ class SignManager {
                 switch result {
                 case .success(let response):
                     guard 200...299 ~= response.statusCode else {
-                        let decodeResult = self.decode(EmailValidationResponseDTO.self, data: response.data)
+                        let decodeResult = self.decode(CommonErrorResponseDTO.self, data: response.data)
                         print(decodeResult)
                         return
                     }
