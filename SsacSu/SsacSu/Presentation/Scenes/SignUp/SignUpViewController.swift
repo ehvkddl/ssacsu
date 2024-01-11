@@ -230,9 +230,10 @@ class SignUpViewController: BaseViewController {
         
         signUpButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view).inset(24)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.height.equalTo(44)
         }
+        
+        signUpButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -12).isActive = true
     }
     
 }
@@ -241,6 +242,10 @@ extension SignUpViewController {
     
     @objc func clickedCloseButton() {
         dismiss(animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
