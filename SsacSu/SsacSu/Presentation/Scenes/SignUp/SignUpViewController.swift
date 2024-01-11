@@ -92,6 +92,10 @@ class SignUpViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.formattedPhoneNumber
+            .bind(to: phoneNumberTextField.rx.text)
+            .disposed(by: disposeBag)
+        
         output.isRequiredInputComplete
             .bind(to: signUpButton.rx.isEnabled)
             .disposed(by: disposeBag)

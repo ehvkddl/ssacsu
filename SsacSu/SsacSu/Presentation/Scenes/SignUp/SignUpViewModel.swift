@@ -35,11 +35,14 @@ class SignUpViewModel: ViewModelType {
     struct Output {
         let canValidationCheck: Observable<Bool>
         let emailState: PublishRelay<EmailState>
+        let formattedPhoneNumber: PublishRelay<String>
     }
     
     func transform(input: Input) -> Output {
         let emailState = PublishRelay<EmailState>()
         let isUsableEmail = BehaviorRelay<Bool>(value: false)
+        
+        let formattedPhoneNumber = PublishRelay<String>()
         
         let canValidationCheck = input.email
             .map { !$0.isEmpty }
@@ -79,6 +82,14 @@ class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        // 핸드폰 번호 형식
+        input.phoneNumber
+            .subscribe { value in
+                let result = value.withHypen
+                formattedPhoneNumber.accept(result)
+            }
+            .disposed(by: disposeBag)
+        
         // 필수 항목들이 다 입력 됐는지 확인
         let isRequiredInputComplete = Observable<Bool>
             .combineLatest(input.email, 
@@ -97,6 +108,7 @@ class SignUpViewModel: ViewModelType {
         return Output(
             canValidationCheck: canValidationCheck,
             emailState: emailState,
+            formattedPhoneNumber: formattedPhoneNumber,
         )
     }
     

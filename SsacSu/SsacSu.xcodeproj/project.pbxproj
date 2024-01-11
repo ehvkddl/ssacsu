@@ -12,7 +12,10 @@
 		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401592B4DEF6000C1A14A /* SignManager.swift */; };
+		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
+		EAB401622B4EF7F900C1A14A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* User.swift */; };
 		EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */; };
+		EAB401662B50590E00C1A14A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401652B50590E00C1A14A /* String+.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -44,7 +47,10 @@
 		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB401592B4DEF6000C1A14A /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
+		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
+		EAB401612B4EF7F900C1A14A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrorResponseDTO.swift; sourceTree = "<group>"; };
+		EAB401652B50590E00C1A14A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,8 +112,25 @@
 			children = (
 				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
 				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
+				EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		EAB4015F2B4EF7E500C1A14A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401602B4EF7EC00C1A14A /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EAB401602B4EF7EC00C1A14A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401612B4EF7F900C1A14A /* User.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		EAE493F32B459B80007461C0 = {
@@ -133,6 +156,7 @@
 				EAE4942B2B473381007461C0 /* App */,
 				EAB401512B4DE9B400C1A14A /* Network */,
 				EAB401542B4DEB9400C1A14A /* Data */,
+				EAB4015F2B4EF7E500C1A14A /* Domain */,
 				EAE4942C2B47338A007461C0 /* Presentation */,
 				EAE4942E2B47339C007461C0 /* Resource */,
 			);
@@ -213,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE4943A2B49D83C007461C0 /* UILabel+.swift */,
+				EAB401652B50590E00C1A14A /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,6 +375,7 @@
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
+				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
 				EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
@@ -365,7 +391,9 @@
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
+				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
+				EAB401622B4EF7F900C1A14A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
