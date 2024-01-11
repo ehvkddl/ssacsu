@@ -10,6 +10,7 @@ import Moya
 
 enum SsacsuAPI {
     case checkEmailValidation(email: EmailValidationRequestDTO)
+    case join(user: JoinRequestDTO)
 }
 
 extension SsacsuAPI: TargetType {
@@ -21,12 +22,13 @@ extension SsacsuAPI: TargetType {
     var path: String {
         switch self {
         case .checkEmailValidation: return "users/validation/email"
+        case .join: return "users/join"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .checkEmailValidation: return .post
+        case .checkEmailValidation, .join: return .post
         }
     }
     
@@ -34,6 +36,8 @@ extension SsacsuAPI: TargetType {
         switch self {
         case .checkEmailValidation(let email):
             return .requestJSONEncodable(email)
+        case .join(let user):
+            return .requestJSONEncodable(user)
         }
     }
     
