@@ -77,6 +77,7 @@ class SignUpViewController: BaseViewController {
         let output = vm.transform(input: input)
         
         output.canValidationCheck
+            .distinctUntilChanged()
             .bind(to: checkEmailValidationButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
@@ -98,6 +99,7 @@ class SignUpViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         output.isRequiredInputComplete
+            .distinctUntilChanged()
             .bind(to: signUpButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
