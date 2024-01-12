@@ -156,8 +156,11 @@ class SignUpViewController: BaseViewController {
                     // TODO: - 회원가입 실패 Toast
                     return
                 }
+
+                let vc = UINavigationController(rootViewController: WorkspaceInitialViewController())
                 
-                owner.dismiss(animated: true)
+                self.view.window?.rootViewController = vc
+                self.view.window?.makeKeyAndVisible()
             }
             .disposed(by: disposeBag)
     }
@@ -167,7 +170,7 @@ class SignUpViewController: BaseViewController {
         
         title = "회원가입"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(clickedCloseButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(closeButtonClicked))
     }
     
     override func configureView() {
@@ -270,7 +273,7 @@ class SignUpViewController: BaseViewController {
 
 extension SignUpViewController {
     
-    @objc func clickedCloseButton() {
+    @objc func closeButtonClicked() {
         dismiss(animated: true)
     }
     

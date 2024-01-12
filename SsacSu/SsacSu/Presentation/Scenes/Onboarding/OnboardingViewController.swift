@@ -9,13 +9,12 @@ import UIKit
 
 class OnboardingViewController: BaseViewController {
 
-    private let explainLabel = {
-        let lbl = UILabel()
-        lbl.setTextWithFont(text: "싹수를 사용하면 어디서나\n팀을 모을 수 있습니다", fontStyle: .title1)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 0
-        return lbl
-    }()
+    private let str = """
+싹수를 사용하면 어디서나
+팀을 모을 수 있습니다
+"""
+    private lazy var explainLabel = SSLabel(text: str, 
+                                            font: SSFont.style(.title1))
     
     private let onboardingImageView = {
         let imgView = UIImageView()
@@ -36,7 +35,7 @@ class OnboardingViewController: BaseViewController {
     }
     
     override func configureView() {
-        startButton.addTarget(self, action: #selector(clickedStartButton), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         
         [explainLabel,
          onboardingImageView,
@@ -65,7 +64,7 @@ class OnboardingViewController: BaseViewController {
 
 extension OnboardingViewController {
     
-    @objc func clickedStartButton() {
+    @objc func startButtonClicked() {
         let vc = SelectSignInMethodViewController()
         
         if let sheet = vc.sheetPresentationController {
