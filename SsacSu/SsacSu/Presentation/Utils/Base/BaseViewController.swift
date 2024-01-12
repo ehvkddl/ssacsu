@@ -28,7 +28,13 @@ class BaseViewController: UIViewController {
     func setConstraints() {}
     
     func configureNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = .Brand.white
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .Brand.white
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().isTranslucent = false
+        
         navigationController?.navigationBar.tintColor = .Brand.black
         
         guard navigationController != nil else { return }
