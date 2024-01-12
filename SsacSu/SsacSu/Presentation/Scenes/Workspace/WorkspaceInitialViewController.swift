@@ -9,27 +9,15 @@ import UIKit
 
 class WorkspaceInitialViewController: BaseViewController {
     
-    let completeLabel1 = {
-        let lbl = UILabel()
-        lbl.text = "출시 준비 완료!"
-        lbl.textColor = .Brand.black
-        lbl.font = SSFont.style(.title1)
-        lbl.textAlignment = .center
-        return lbl
-    }()
+    private let completeLabel1 = SSLabel(text: "출시 준비 완료!",
+                                 font: SSFont.style(.title1))
     
-    let completeLabel2 = {
-        let lbl = UILabel()
-        lbl.text = """
+    private let str = """
 옹골찬 고래밥님의 조직을 위해 새로운 싹수 워크스페이스를
 시작할 준비가 완료되었어요!
 """
-        lbl.textColor = .Brand.black
-        lbl.font = SSFont.style(.body)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 0
-        return lbl
-    }()
+    private lazy var completeLabel2 = SSLabel(text: str,
+                                 font: SSFont.style(.body))
     
     let LaunchingImageView = {
         let imgView = UIImageView()

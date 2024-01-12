@@ -17,6 +17,7 @@
 		EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */; };
 		EAB401662B50590E00C1A14A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401652B50590E00C1A14A /* String+.swift */; };
 		EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */; };
+		EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4016A2B51D2E400C1A14A /* SSLabel.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrorResponseDTO.swift; sourceTree = "<group>"; };
 		EAB401652B50590E00C1A14A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewController.swift; sourceTree = "<group>"; };
+		EAB4016A2B51D2E400C1A14A /* SSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLabel.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494572B4AB503007461C0 /* SSButton.swift */,
+				EAB4016A2B51D2E400C1A14A /* SSLabel.swift */,
 				EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */,
 				EAE494662B4C618C007461C0 /* Divider.swift */,
 			);
@@ -402,6 +405,7 @@
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
+				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
