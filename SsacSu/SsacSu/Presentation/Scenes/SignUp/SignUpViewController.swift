@@ -12,6 +12,8 @@ import RxSwift
 
 class SignUpViewController: BaseViewController {
 
+    let vm = SignUpViewModel()
+    
     let emailLabel = {
         let lbl = UILabel()
         lbl.text = "이메일"
@@ -58,8 +60,94 @@ class SignUpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
     }
 
+    func bind() {
+        let input = SignUpViewModel.Input(
+            email: emailTextField.rx.text.orEmpty,
+            nickname: nicknameTextField.rx.text.orEmpty,
+            phoneNumber: phoneNumberTextField.rx.text.orEmpty,
+            password: passwordTextField.rx.text.orEmpty,
+            passwordCheck: passwordCheckTextField.rx.text.orEmpty,
+            checkEmailValidationButtonTapped: checkEmailValidationButton.rx.tap,
+            signUpButtonTapped: signUpButton.rx.tap
+        )
+        let output = vm.transform(input: input)
+        
+        output.canValidationCheck
+            .distinctUntilChanged()
+            .bind(to: checkEmailValidationButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.emailState
+            .subscribe(with: self) { owner, state in
+                // TODO: - Toast로 바꾸기
+                switch state {
+                case .alreadyCheck: print("[이미 검증] 사용 가능한 이메일입니다.")
+                case .invalid: print("이메일 형식이 올바르지 않습니다.")
+                case .usable: print("사용 가능한 이메일입니다.")
+                case .duplicated: print("중복 이메일입니다.")
+                default: break
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        output.formattedPhoneNumber
+            .bind(to: phoneNumberTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.isRequiredInputComplete
+            .distinctUntilChanged()
+            .bind(to: signUpButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.inputUsableState
+            .map {
+                (email: $0, nickname: $1, phn: $2, pw: $3, pwcheck: $4)
+            }
+            .subscribe(with: self) { owner, state in
+                owner.emailLabel.textColor = state.email ? .Brand.black : . Brand.error
+                owner.nicknameLabel.textColor = state.nickname ? .Brand.black : . Brand.error
+                owner.phoneNumberLabel.textColor = state.phn ? .Brand.black : . Brand.error
+                owner.passwordLabel.textColor = state.pw ? .Brand.black : . Brand.error
+                owner.passwordCheckLabel.textColor = state.pwcheck ? .Brand.black : . Brand.error
+
+                // TODO: - Toast, textField focusing
+                guard state.email else {
+                    print("이메일 중복 확인을 진행해주세요.")
+                    owner.emailTextField.becomeFirstResponder()
+                    return
+                }
+                
+                guard state.nickname else {
+                    print("닉네임은 1글자 이상 30글자 이내로 부탁드려요.")
+                    owner.nicknameTextField.becomeFirstResponder()
+                    return
+                }
+                
+                guard state.phn else {
+                    print("잘못된 전화번호 형식입니다.")
+                    owner.phoneNumberTextField.becomeFirstResponder()
+                    return
+                }
+                
+                guard state.pw else {
+                    print("비밀번호는 최소 8자 이상, 하나 이상의 대소문자/숫자/특수 문자를 설정해주세요.")
+                    owner.passwordTextField.becomeFirstResponder()
+                    return
+                }
+                
+                guard state.pwcheck else {
+                    print("작성하신 비밀번호가 일치하지 않습니다.")
+                    owner.passwordCheckTextField.becomeFirstResponder()
+                    return
+                }
+            }
+            .disposed(by: disposeBag)
+    }
+    
     override func configureNavigationBar() {
         super.configureNavigationBar()
         
@@ -144,9 +232,10 @@ class SignUpViewController: BaseViewController {
         
         signUpButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view).inset(24)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
             make.height.equalTo(44)
         }
+        
+        signUpButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -12).isActive = true
     }
     
 }
@@ -155,6 +244,10 @@ extension SignUpViewController {
     
     @objc func clickedCloseButton() {
         dismiss(animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
