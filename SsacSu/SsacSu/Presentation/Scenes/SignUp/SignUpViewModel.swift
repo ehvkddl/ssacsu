@@ -46,6 +46,7 @@ class SignUpViewModel: ViewModelType {
         let formattedPhoneNumber: PublishRelay<String>
         let isRequiredInputComplete: Observable<Bool>
         let inputUsableState: BehaviorRelay<(Bool, Bool, Bool, Bool, Bool)>
+        let isSignUpComplete: BehaviorRelay<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -61,6 +62,7 @@ class SignUpViewModel: ViewModelType {
                                                                                      pwcheck: true))
         
         let canSignUp = BehaviorRelay<Bool>(value: false)
+        let isSignUpComplete = BehaviorRelay<Bool>(value: false)
         
         let canValidationCheck = input.email
             .map { !$0.isEmpty }
@@ -182,7 +184,7 @@ class SignUpViewModel: ViewModelType {
                 SignManager.shared.join(user: $0)
             }
             .subscribe { result in
-                print("[가입요청]", result)
+                isSignUpComplete.accept(true)
             }
             .disposed(by: disposeBag)
         
@@ -191,7 +193,8 @@ class SignUpViewModel: ViewModelType {
             emailState: emailState,
             formattedPhoneNumber: formattedPhoneNumber,
             isRequiredInputComplete: isRequiredInputComplete,
-            inputUsableState: inputUsableState
+            inputUsableState: inputUsableState,
+            isSignUpComplete: isSignUpComplete
         )
     }
     

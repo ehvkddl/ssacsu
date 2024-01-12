@@ -149,6 +149,17 @@ class SignUpViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        output.isSignUpComplete
+            .subscribe(with: self) { owner, value in
+                guard value else {
+                    // TODO: - 회원가입 실패 Toast
+                    return
+                }
+                
+                owner.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationBar() {
