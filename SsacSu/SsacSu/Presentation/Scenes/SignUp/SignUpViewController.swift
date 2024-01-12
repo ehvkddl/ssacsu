@@ -14,6 +14,9 @@ class SignUpViewController: BaseViewController {
 
     let vm = SignUpViewModel()
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let emailLabel = {
         let lbl = UILabel()
         lbl.text = "이메일"
@@ -157,19 +160,34 @@ class SignUpViewController: BaseViewController {
     }
     
     override func configureView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
         [emailLabel, emailTextField,
          checkEmailValidationButton,
          nicknameLabel, nicknameTextField,
          phoneNumberLabel, phoneNumberTextField,
          passwordLabel, passwordTextField,
-         passwordCheckLabel, passwordCheckTextField,
-         signUpButton
-        ].forEach { view.addSubview($0) }
+         passwordCheckLabel, passwordCheckTextField
+        ].forEach { contentView.addSubview($0) }
+        
+        view.addSubview(signUpButton)
     }
     
     override func setConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(signUpButton.snp.top).offset(-12)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
+            make.height.equalTo(500)
+        }
+        
         emailLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
+            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(24)
             make.horizontalEdges.equalTo(signUpButton)
         }
         
@@ -233,9 +251,8 @@ class SignUpViewController: BaseViewController {
         signUpButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view).inset(24)
             make.height.equalTo(44)
+            make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).offset(-12)
         }
-        
-        signUpButton.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -12).isActive = true
     }
     
 }
@@ -247,7 +264,7 @@ extension SignUpViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        self.scrollView.endEditing(true)
     }
     
 }
