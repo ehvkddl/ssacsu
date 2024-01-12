@@ -156,8 +156,11 @@ class SignUpViewController: BaseViewController {
                     // TODO: - 회원가입 실패 Toast
                     return
                 }
+
+                let vc = UINavigationController(rootViewController: WorkspaceInitialViewController())
                 
-                owner.dismiss(animated: true)
+                self.view.window?.rootViewController = vc
+                self.view.window?.makeKeyAndVisible()
             }
             .disposed(by: disposeBag)
     }
