@@ -35,7 +35,7 @@ class OnboardingViewController: BaseViewController {
     }
     
     override func configureView() {
-        startButton.addTarget(self, action: #selector(clickedStartButton), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(startButtonClicked), for: .touchUpInside)
         
         [explainLabel,
          onboardingImageView,
@@ -64,7 +64,7 @@ class OnboardingViewController: BaseViewController {
 
 extension OnboardingViewController {
     
-    @objc func clickedStartButton() {
+    @objc func startButtonClicked() {
         let vc = SelectSignInMethodViewController()
         
         if let sheet = vc.sheetPresentationController {

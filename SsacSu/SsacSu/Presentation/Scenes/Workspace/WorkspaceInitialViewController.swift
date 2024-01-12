@@ -37,7 +37,7 @@ class WorkspaceInitialViewController: BaseViewController {
         
         title = "시작하기"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(clickedCloseButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(closeButtonClicked))
     }
     
     override func configureView() {
@@ -75,7 +75,7 @@ class WorkspaceInitialViewController: BaseViewController {
 
 extension WorkspaceInitialViewController {
     
-    @objc func clickedCloseButton() {
+    @objc func closeButtonClicked() {
         dismiss(animated: true)
     }
     
