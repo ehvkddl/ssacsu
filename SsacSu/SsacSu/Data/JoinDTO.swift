@@ -23,7 +23,7 @@ struct JoinResponseDTO: Decodable {
     let phone: String?
     let vendor: String?
     let createdAt: String
-    let token: Token
+    let token: TokenDTO
     
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -35,9 +35,4 @@ struct JoinResponseDTO: Decodable {
         case createdAt
         case token
     }
-}
-
-struct Token: Decodable {
-    let accessToken: String
-    let refreshToken: String
 }
