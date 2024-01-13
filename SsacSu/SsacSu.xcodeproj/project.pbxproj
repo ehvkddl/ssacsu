@@ -19,6 +19,7 @@
 		EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */; };
 		EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4016A2B51D2E400C1A14A /* SSLabel.swift */; };
 		EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4016C2B52CE1500C1A14A /* EmailSignInViewController.swift */; };
+		EAB401772B5304AD00C1A14A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401762B5304AD00C1A14A /* Validation.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewController.swift; sourceTree = "<group>"; };
 		EAB4016A2B51D2E400C1A14A /* SSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLabel.swift; sourceTree = "<group>"; };
 		EAB4016C2B52CE1500C1A14A /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
+		EAB401762B5304AD00C1A14A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 				EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */,
 			);
 			path = Workspace;
+			sourceTree = "<group>";
+		};
+		EAB401752B53049D00C1A14A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401762B5304AD00C1A14A /* Validation.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EAE493F32B459B80007461C0 = {
@@ -243,6 +253,7 @@
 			children = (
 				EAE494392B49D80D007461C0 /* Extensions */,
 				EAB4014C2B4DC5C000C1A14A /* Protocols */,
+				EAB401752B53049D00C1A14A /* Helpers */,
 				EAE494592B4B1ECC007461C0 /* Base */,
 			);
 			path = Utils;
@@ -394,6 +405,7 @@
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
 				EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */,
+				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
