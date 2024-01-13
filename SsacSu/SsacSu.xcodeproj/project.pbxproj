@@ -13,7 +13,7 @@
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401592B4DEF6000C1A14A /* SignManager.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
-		EAB401622B4EF7F900C1A14A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* User.swift */; };
+		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
 		EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */; };
 		EAB401662B50590E00C1A14A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401652B50590E00C1A14A /* String+.swift */; };
 		EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */; };
@@ -53,7 +53,7 @@
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB401592B4DEF6000C1A14A /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
-		EAB401612B4EF7F900C1A14A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrorResponseDTO.swift; sourceTree = "<group>"; };
 		EAB401652B50590E00C1A14A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		EAB401602B4EF7EC00C1A14A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				EAB401612B4EF7F900C1A14A /* User.swift */,
+				EAB401612B4EF7F900C1A14A /* Join.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
-				EAB401622B4EF7F900C1A14A /* User.swift in Sources */,
+				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

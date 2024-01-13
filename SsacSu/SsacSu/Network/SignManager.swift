@@ -41,11 +41,11 @@ class SignManager {
         }
     }
     
-    func join(user: User) -> Single<JoinResponseDTO> {
-        let request = user.toRequest()
+    func join(join: Join) -> Single<JoinResponseDTO> {
+        let request = join.toRequest()
         
         return Single<JoinResponseDTO>.create { single in
-            self.provider.request(SsacsuAPI.join(user: request)) { result in
+            self.provider.request(SsacsuAPI.join(join: request)) { result in
                 switch result {
                 case .success(let response):
                     guard 200...299 ~= response.statusCode else {

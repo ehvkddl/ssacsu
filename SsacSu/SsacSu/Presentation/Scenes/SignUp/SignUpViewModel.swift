@@ -175,13 +175,13 @@ class SignUpViewModel: ViewModelType {
             .withLatestFrom(singUpData)
             .map { signUpData in
                 let input = signUpData.inputData
-                return User(email: input.email, 
+                return Join(email: input.email, 
                             password: input.password,
                             nickname: input.nickname,
                             phone: input.phoneNumber)
             }
             .flatMap {
-                SignManager.shared.join(user: $0)
+                SignManager.shared.join(join: $0)
             }
             .subscribe { result in
                 isSignUpComplete.accept(true)
