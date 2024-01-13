@@ -29,6 +29,7 @@ class SelectSignInMethodViewController: BaseViewController {
  
     override func configureView() {
         signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
+        emailSignInButton.addTarget(self, action: #selector(emailSignInButtonClicked), for: .touchUpInside)
         
         [appleSignInButton,
          kakaoSignInButton,
@@ -69,6 +70,11 @@ extension SelectSignInMethodViewController {
     
     @objc func signUpButtonClicked() {
         let vc = UINavigationController(rootViewController: SignUpViewController())
+        present(vc, animated: true)
+    }
+    
+    @objc func emailSignInButtonClicked() {
+        let vc = UINavigationController(rootViewController: EmailSignInViewController())
         present(vc, animated: true)
     }
     
