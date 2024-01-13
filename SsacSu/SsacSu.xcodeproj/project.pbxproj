@@ -18,6 +18,7 @@
 		EAB401662B50590E00C1A14A /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401652B50590E00C1A14A /* String+.swift */; };
 		EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */; };
 		EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4016A2B51D2E400C1A14A /* SSLabel.swift */; };
+		EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4016C2B52CE1500C1A14A /* EmailSignInViewController.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		EAB401652B50590E00C1A14A /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewController.swift; sourceTree = "<group>"; };
 		EAB4016A2B51D2E400C1A14A /* SSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLabel.swift; sourceTree = "<group>"; };
+		EAB4016C2B52CE1500C1A14A /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */,
+				EAB4016C2B52CE1500C1A14A /* EmailSignInViewController.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
+				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
