@@ -89,6 +89,7 @@
 		EAE494662B4C618C007461C0 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		EAE494692B4C717C007461C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SsacSu.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +210,7 @@
 		EAE493FE2B459B81007461C0 /* SsacSu */ = {
 			isa = PBXGroup;
 			children = (
+				EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */,
 				EAE4942B2B473381007461C0 /* App */,
 				EAB401512B4DE9B400C1A14A /* Network */,
 				EAB401542B4DEB9400C1A14A /* Data */,
@@ -616,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SsacSu/SsacSu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R5LJ29W6V2;
@@ -648,6 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SsacSu/SsacSu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R5LJ29W6V2;
