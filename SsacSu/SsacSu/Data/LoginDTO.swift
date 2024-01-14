@@ -1,21 +1,19 @@
 //
-//  JoinDTO.swift
+//  LoginDTO.swift
 //  SsacSu
 //
-//  Created by do hee kim on 2024/01/11.
+//  Created by do hee kim on 2024/01/14.
 //
 
 import Foundation
 
-struct JoinRequestDTO: Encodable {
+struct LoginRequestDTO: Encodable {
     let email: String
     let password: String
-    let nickname: String
-    let phone: String
     let deviceToken: String
 }
 
-struct JoinResponseDTO: Decodable {
+struct LoginResponseDTO: Decodable {
     let userID: Int
     let email: String
     let nickname: String

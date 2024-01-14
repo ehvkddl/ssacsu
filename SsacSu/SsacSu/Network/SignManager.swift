@@ -41,11 +41,11 @@ class SignManager {
         }
     }
     
-    func join(user: User) -> Single<JoinResponseDTO> {
-        let request = user.toRequest()
+    func join(join: Join) -> Single<JoinResponseDTO> {
+        let request = join.toRequest()
         
         return Single<JoinResponseDTO>.create { single in
-            self.provider.request(SsacsuAPI.join(user: request)) { result in
+            self.provider.request(SsacsuAPI.join(join: request)) { result in
                 switch result {
                 case .success(let response):
                     guard 200...299 ~= response.statusCode else {
@@ -71,6 +71,37 @@ class SignManager {
                 
             }
             
+            return Disposables.create()
+        }
+    }
+    
+    func login(with login: Login) -> Single<LoginResponseDTO> {
+        let request = login.toRequest()
+        
+        return Single<LoginResponseDTO>.create { single in
+            self.provider.request(SsacsuAPI.login(login: request)) { result in
+                switch result {
+                case .success(let response):
+                    guard 200...299 ~= response.statusCode else {
+                        let decodedResult = self.decode(CommonErrorResponseDTO.self, data: response.data)
+                        print(decodedResult)
+                        return
+                    }
+                    
+                    let decodedResult = self.decode(LoginResponseDTO.self, data: response.data)
+                    
+                    switch decodedResult {
+                    case .success(let success):
+                        return single(.success(success))
+                        
+                    case .failure(let failure):
+                        return single(.failure(failure))
+                    }
+                case .failure(let error):
+                    print(error)
+                    return single(.failure(error))
+                }
+            }
             return Disposables.create()
         }
     }

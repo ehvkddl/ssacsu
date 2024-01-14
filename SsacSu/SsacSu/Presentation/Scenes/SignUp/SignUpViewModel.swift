@@ -88,7 +88,7 @@ class SignUpViewModel: ViewModelType {
                     emailState.accept(.alreadyCheck)
                     return
                 }
-                let isValid = owner.emailValidation(email: value.email)
+                let isValid = Validation(string: value.email).isEmail
                 emailState.accept(isValid ? .valid : .invalid)
             }
             .disposed(by: disposeBag)
@@ -156,10 +156,10 @@ class SignUpViewModel: ViewModelType {
                 let isUsableEmail = data.isUsableEmail
                 let input = data.inputData
                 
-                let nickValidation = self.nicknameValidation(nickname: input.nickname)
-                let phnValidation = input.phoneNumber.isEmpty ? true : self.phoneNumberValidation(phoneNumber: input.phoneNumber.withoutHypen)
-                let pwValidation = self.passwordValidation(password: input.password)
-                let pwEqual = self.passwordEqual(password: input.password, passwordCheck: input.passwordCheck)
+                let nickValidation = (1...30 ~= input.nickname.count)
+                let phnValidation = input.phoneNumber.isEmpty ? true : Validation(string: input.phoneNumber.withoutHypen).isPhoneNumber
+                let pwValidation = Validation(string: input.password).isPassword
+                let pwEqual = input.password.compare(input.passwordCheck) == .orderedSame
                 
                 inputUsableState.accept((isUsableEmail, nickValidation, phnValidation, pwValidation, pwEqual))
                 
@@ -175,13 +175,13 @@ class SignUpViewModel: ViewModelType {
             .withLatestFrom(singUpData)
             .map { signUpData in
                 let input = signUpData.inputData
-                return User(email: input.email, 
+                return Join(email: input.email, 
                             password: input.password,
                             nickname: input.nickname,
                             phone: input.phoneNumber)
             }
             .flatMap {
-                SignManager.shared.join(user: $0)
+                SignManager.shared.join(join: $0)
             }
             .subscribe { result in
                 isSignUpComplete.accept(true)
@@ -196,33 +196,6 @@ class SignUpViewModel: ViewModelType {
             inputUsableState: inputUsableState,
             isSignUpComplete: isSignUpComplete
         )
-    }
-    
-}
-
-extension SignUpViewModel {
-    
-    func emailValidation(email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.com"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
-    }
-    
-    func nicknameValidation(nickname: String) -> Bool {
-        return 1...30 ~= nickname.count
-    }
-    
-    func phoneNumberValidation(phoneNumber: String) -> Bool {
-        let phnRegex = "^01[0-1, 7][0-9]{7,8}$"
-        return NSPredicate(format: "SELF MATCHES %@", phnRegex).evaluate(with: phoneNumber)
-    }
-    
-    func passwordValidation(password: String) -> Bool {
-        let passwordRegex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,20}"
-        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
-    }
-    
-    func passwordEqual(password: String, passwordCheck: String) -> Bool {
-        return password.compare(passwordCheck) == .orderedSame
     }
     
 }

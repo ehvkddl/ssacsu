@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct User {
+struct Join {
     let email: String
     let password: String
     let nickname: String
     let phone: String
 }
 
-extension User {
+extension Join {
     func toRequest() -> JoinRequestDTO {
         return .init(email: email,
                      password: password,
