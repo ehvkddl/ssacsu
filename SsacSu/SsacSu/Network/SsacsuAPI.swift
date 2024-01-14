@@ -21,8 +21,8 @@ extension SsacsuAPI: TargetType {
     
     var path: String {
         switch self {
-        case .checkEmailValidation: return "users/validation/email"
-        case .join: return "users/join"
+        case .checkEmailValidation: return "v1/users/validation/email"
+        case .join: return "v1/users/join"
         }
     }
     
