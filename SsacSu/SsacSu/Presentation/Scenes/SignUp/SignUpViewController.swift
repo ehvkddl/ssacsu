@@ -49,7 +49,9 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let passwordTextField = SSTextField(placeholder: "비밀번호를 입력하세요")
+    let passwordTextField = SSTextField(placeholder: "비밀번호를 입력하세요",
+                                        textContentType: .newPassword,
+                                        isSecureTextEntry: true)
     
     let passwordCheckLabel = {
         let lbl = UILabel()
@@ -57,7 +59,9 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let passwordCheckTextField = SSTextField(placeholder: "비밀번호를 한 번 더 입력하세요")
+    let passwordCheckTextField = SSTextField(placeholder: "비밀번호를 한 번 더 입력하세요",
+                                             textContentType: .password,
+                                             isSecureTextEntry: true)
     
     let signUpButton = SSButton(title: "가입하기", style: .plain)
     

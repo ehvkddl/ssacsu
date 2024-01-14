@@ -19,7 +19,9 @@ class EmailSignInViewController: BaseViewController {
     let passwordLabel = SSLabel(text: "비밀번호",
                                 font: SSFont.style(.title2),
                                 textAlignment: .left)
-    let passwordTextField = SSTextField(placeholder: "비밀번호를 입력하세요.")
+    let passwordTextField = SSTextField(placeholder: "비밀번호를 입력하세요.",
+                                        textContentType: .password,
+                                        isSecureTextEntry: true)
     
     let signInButton = SSButton(title: "로그인", style: .plain)
     
