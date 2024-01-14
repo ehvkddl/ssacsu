@@ -126,11 +126,7 @@
 		EAB401542B4DEB9400C1A14A /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
-				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
-				EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */,
-				EAB401782B53237000C1A14A /* LoginDTO.swift */,
-				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
+				EAFCB6362B547628004DA2CD /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -349,6 +345,18 @@
 				EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		EAFCB6362B547628004DA2CD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
+				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
+				EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */,
+				EAB401782B53237000C1A14A /* LoginDTO.swift */,
+				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
