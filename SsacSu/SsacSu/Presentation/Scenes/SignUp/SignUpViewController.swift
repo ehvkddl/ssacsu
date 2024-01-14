@@ -23,7 +23,11 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let emailTextField = SSTextField(placeholder: "이메일을 입력하세요")
+    let emailTextField = {
+        let tf = SSTextField(placeholder: "이메일을 입력하세요.")
+        tf.keyboardType = .emailAddress
+        return tf
+    }()
     
     let checkEmailValidationButton = SSButton(title: "중복 확인", style: .plain)
     
@@ -41,7 +45,11 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let phoneNumberTextField = SSTextField(placeholder: "전화번호를 입력하세요")
+    let phoneNumberTextField = {
+        let tf = SSTextField(placeholder: "전화번호를 입력하세요")
+        tf.keyboardType = .numberPad
+        return tf
+    }()
     
     let passwordLabel = {
         let lbl = UILabel()
@@ -49,9 +57,12 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let passwordTextField = SSTextField(placeholder: "비밀번호를 입력하세요",
-                                        textContentType: .newPassword,
-                                        isSecureTextEntry: true)
+    let passwordTextField = {
+        let tf = SSTextField(placeholder: "비밀번호를 입력하세요")
+        tf.textContentType = .newPassword
+        tf.isSecureTextEntry = true
+        return tf
+    }()
     
     let passwordCheckLabel = {
         let lbl = UILabel()
@@ -59,9 +70,12 @@ class SignUpViewController: BaseViewController {
         lbl.font = SSFont.style(.title2)
         return lbl
     }()
-    let passwordCheckTextField = SSTextField(placeholder: "비밀번호를 한 번 더 입력하세요",
-                                             textContentType: .password,
-                                             isSecureTextEntry: true)
+    let passwordCheckTextField = {
+        let tf = SSTextField(placeholder: "비밀번호를 한 번 더 입력하세요")
+        tf.textContentType = .password
+        tf.isSecureTextEntry = true
+        return tf
+    }()
     
     let signUpButton = SSButton(title: "가입하기", style: .plain)
     

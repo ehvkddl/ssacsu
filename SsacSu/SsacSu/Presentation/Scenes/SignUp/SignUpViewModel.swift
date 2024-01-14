@@ -111,6 +111,15 @@ class SignUpViewModel: ViewModelType {
         input.phoneNumber
             .subscribe { value in
                 let result = value.withHypen
+                
+                guard result.count < 13 else {
+                    let index = result.index(result.startIndex, offsetBy: 13)
+                    let newString = result[result.startIndex..<index]
+                    formattedPhoneNumber.accept(String(newString))
+                    
+                    return
+                }
+                
                 formattedPhoneNumber.accept(result)
             }
             .disposed(by: disposeBag)
