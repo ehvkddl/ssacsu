@@ -75,6 +75,37 @@ class SignManager {
         }
     }
     
+    func login(with login: Login) -> Single<LoginResponseDTO> {
+        let request = login.toRequest()
+        
+        return Single<LoginResponseDTO>.create { single in
+            self.provider.request(SsacsuAPI.login(login: request)) { result in
+                switch result {
+                case .success(let response):
+                    guard 200...299 ~= response.statusCode else {
+                        let decodedResult = self.decode(CommonErrorResponseDTO.self, data: response.data)
+                        print(decodedResult)
+                        return
+                    }
+                    
+                    let decodedResult = self.decode(LoginResponseDTO.self, data: response.data)
+                    
+                    switch decodedResult {
+                    case .success(let success):
+                        return single(.success(success))
+                        
+                    case .failure(let failure):
+                        return single(.failure(failure))
+                    }
+                case .failure(let error):
+                    print(error)
+                    return single(.failure(error))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
     private func decode<T: Decodable>(_ type: T.Type, data: Data) -> Result<T, Error> {
         do {
             let decoded = try JSONDecoder().decode(type, from: data)

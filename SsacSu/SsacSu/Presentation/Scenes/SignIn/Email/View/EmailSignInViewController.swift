@@ -9,6 +9,8 @@ import UIKit
 
 class EmailSignInViewController: BaseViewController {
     
+    let vm = EmailSignInViewModel()
+    
     let emailLabel = SSLabel(text: "이메일",
                              font: SSFont.style(.title2),
                              textAlignment: .left)
@@ -23,6 +25,42 @@ class EmailSignInViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
+    }
+    
+    private func bind() {
+        let input = EmailSignInViewModel.Input(
+            email: emailTextField.rx.text.orEmpty,
+            password: passwordTextField.rx.text.orEmpty,
+            signInButtonTapped: signInButton.rx.tap
+        )
+        let output = vm.transform(input: input)
+        
+        output.isRequiredInputComplete
+            .bind(to: signInButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.inputUsableState
+            .map { (email: $0.0, password: $0.1) }
+            .subscribe(with: self) { owner, state in
+                owner.emailLabel.textColor = state.email ? .Brand.black : .Brand.error
+                owner.passwordLabel.textColor = state.password ? .Brand.black : . Brand.error
+                
+                // TODO: - Toast
+                guard state.email else {
+                    print("이메일 형식이 올바르지 않습니다.")
+                    owner.emailTextField.becomeFirstResponder()
+                    return
+                }
+                
+                guard state.password else {
+                    print("비밀번호는 최소 8자 이상, 하나 이상의 대소문자/숫자/특수 문자입니다.")
+                    owner.passwordTextField.becomeFirstResponder()
+                    return
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureNavigationBar() {
