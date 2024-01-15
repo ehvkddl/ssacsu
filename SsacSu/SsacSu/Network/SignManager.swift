@@ -110,6 +110,41 @@ class SignManager {
         }
     }
     
+    func kakaoLogin(with login: KakaoLogin) -> Single<KakaoLoginResponseDTO> {
+        let request = login.toRequest()
+        
+        return Single<KakaoLoginResponseDTO>.create { single in
+            self.provider.request(SsacsuAPI.kakaoLogin(login: request)) { result in
+                switch result {
+                case .success(let response):
+                    guard 200...299 ~= response.statusCode else {
+                        let decodedResult = self.decode(CommonErrorResponseDTO.self, data: response.data)
+                        print(decodedResult)
+                        return
+                    }
+                    
+                    let decodedResult = self.decode(KakaoLoginResponseDTO.self, data: response.data)
+                    print(decodedResult)
+                    
+                    switch decodedResult {
+                    case .success(let success):
+                        print(success)
+                        return single(.success(success))
+                        
+                    case .failure(let failure):
+                        print(failure)
+                        return single(.failure(failure))
+                    }
+                case .failure(let error):
+                    print(error)
+                    return single(.failure(error))
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
     func login(with login: Login) -> Single<LoginResponseDTO> {
         let request = login.toRequest()
         

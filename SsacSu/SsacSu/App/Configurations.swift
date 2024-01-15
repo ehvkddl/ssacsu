@@ -16,6 +16,13 @@ enum Configurations {
         return key
     }()
     
+    static let KakaoKey: String = {
+        guard let key = Bundle.main.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String else {
+            fatalError("KakaoKey must not be empty in plist")
+        }
+        return key
+    }()
+    
     static let baseURL: String = {
         guard let key = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String else {
             fatalError("baseURL must not be empty in plist")

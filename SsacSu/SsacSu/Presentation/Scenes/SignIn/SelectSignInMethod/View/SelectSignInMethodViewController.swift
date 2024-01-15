@@ -30,7 +30,8 @@ class SelectSignInMethodViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vm = SelectSignInMethodViewModel(appleLoginRepository: AppleLoginRepository(presenter: self))
+        vm = SelectSignInMethodViewModel(appleLoginRepository: AppleLoginRepository(presenter: self),
+                                         kakaoLoginRepository: KakaoLoginRepository())
         
         bind()
     }
@@ -39,8 +40,8 @@ class SelectSignInMethodViewController: BaseViewController {
         guard let vm else { return }
         
         let input = SelectSignInMethodViewModel.Input(
-            vc: self,
-            appleSignInButtonTapped: appleSignInButton.rx.tap
+            appleSignInButtonTapped: appleSignInButton.rx.tap,
+            kakaoSignInButtonTapped: kakaoSignInButton.rx.tap
         )
         let output = vm.transform(input: input)
     }
