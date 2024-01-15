@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class SelectSignInMethodViewController: BaseViewController {
 
+    var vm: SelectSignInMethodViewModel?
+    
     private let appleSignInButton = SSButton(image: .SignIn.apple,
+                                             bgColor: .Brand.black,
                                              style:.image)
     
     private let kakaoSignInButton = SSButton(image: .SignIn.kakao,
@@ -25,6 +29,20 @@ class SelectSignInMethodViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vm = SelectSignInMethodViewModel(appleLoginRepository: AppleLoginRepository(presenter: self))
+        
+        bind()
+    }
+    
+    func bind() {
+        guard let vm else { return }
+        
+        let input = SelectSignInMethodViewModel.Input(
+            vc: self,
+            appleSignInButtonTapped: appleSignInButton.rx.tap
+        )
+        let output = vm.transform(input: input)
     }
  
     override func configureView() {
@@ -76,6 +94,14 @@ extension SelectSignInMethodViewController {
     @objc func emailSignInButtonClicked() {
         let vc = UINavigationController(rootViewController: EmailSignInViewController())
         present(vc, animated: true)
+    }
+    
+}
+
+extension SelectSignInMethodViewController: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
     
 }

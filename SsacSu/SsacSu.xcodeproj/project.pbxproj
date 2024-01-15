@@ -47,6 +47,10 @@
 		EAE494672B4C618C007461C0 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494662B4C618C007461C0 /* Divider.swift */; };
 		EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494692B4C717C007461C0 /* SignUpViewController.swift */; };
 		EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */; };
+		EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB62E2B546727004DA2CD /* SelectSignInMethodViewModel.swift */; };
+		EAFCB6352B54751B004DA2CD /* AppleLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */; };
+		EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */; };
+		EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,7 +93,11 @@
 		EAE494662B4C618C007461C0 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		EAE494692B4C717C007461C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		EAFCB62E2B546727004DA2CD /* SelectSignInMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInMethodViewModel.swift; sourceTree = "<group>"; };
+		EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRepository.swift; sourceTree = "<group>"; };
 		EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SsacSu.entitlements; sourceTree = "<group>"; };
+		EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDTO.swift; sourceTree = "<group>"; };
+		EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFCB6362B547628004DA2CD /* Network */,
+				EAFCB6332B54699B004DA2CD /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 			children = (
 				EAB401612B4EF7F900C1A14A /* Join.swift */,
 				EAB4017E2B532BCA00C1A14A /* Login.swift */,
+				EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -334,7 +344,7 @@
 		EAE494632B4B91D7007461C0 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */,
+				EAFCB6322B54673F004DA2CD /* SelectSignInMethod */,
 				EAB401722B52DCE500C1A14A /* Email */,
 			);
 			path = SignIn;
@@ -349,12 +359,46 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		EAFCB6302B54672B004DA2CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAE494642B4B91FB007461C0 /* SelectSignInMethodViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EAFCB6312B546730004DA2CD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EAFCB62E2B546727004DA2CD /* SelectSignInMethodViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EAFCB6322B54673F004DA2CD /* SelectSignInMethod */ = {
+			isa = PBXGroup;
+			children = (
+				EAFCB6302B54672B004DA2CD /* View */,
+				EAFCB6312B546730004DA2CD /* ViewModel */,
+			);
+			path = SelectSignInMethod;
+			sourceTree = "<group>";
+		};
+		EAFCB6332B54699B004DA2CD /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		EAFCB6362B547628004DA2CD /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
 				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
 				EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */,
+				EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */,
 				EAB401782B53237000C1A14A /* LoginDTO.swift */,
 				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
 			);
@@ -459,23 +503,27 @@
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAB401792B53237000C1A14A /* LoginDTO.swift in Sources */,
+				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
+				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
+				EAFCB6352B54751B004DA2CD /* AppleLoginRepository.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
+				EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

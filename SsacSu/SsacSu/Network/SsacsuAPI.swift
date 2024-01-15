@@ -12,6 +12,7 @@ enum SsacsuAPI {
     case checkEmailValidation(email: EmailValidationRequestDTO)
     case join(join: JoinRequestDTO)
     case login(login: LoginRequestDTO)
+    case appleLogin(login: AppleLoginRequestDTO)
 }
 
 extension SsacsuAPI: TargetType {
@@ -25,12 +26,13 @@ extension SsacsuAPI: TargetType {
         case .checkEmailValidation: return "v1/users/validation/email"
         case .join: return "v1/users/join"
         case .login: return "v2/users/login"
+        case .appleLogin: return "v1/users/login/apple"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .checkEmailValidation, .join, .login: return .post
+        case .checkEmailValidation, .join, .login, .appleLogin: return .post
         }
     }
     
@@ -41,6 +43,8 @@ extension SsacsuAPI: TargetType {
         case .join(let join):
             return .requestJSONEncodable(join)
         case .login(let login):
+            return .requestJSONEncodable(login)
+        case .appleLogin(let login):
             return .requestJSONEncodable(login)
         }
     }
