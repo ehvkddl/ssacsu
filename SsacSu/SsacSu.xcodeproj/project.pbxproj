@@ -54,6 +54,7 @@
 		EAFCB63E2B551F8D004DA2CD /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB63D2B551F8D004DA2CD /* KakaoSDKAuth */; };
 		EAFCB6402B551F8D004DA2CD /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB63F2B551F8D004DA2CD /* KakaoSDKCommon */; };
 		EAFCB6442B551F8D004DA2CD /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB6432B551F8D004DA2CD /* KakaoSDKUser */; };
+		EAFCB6462B5557C4004DA2CD /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SsacSu.entitlements; sourceTree = "<group>"; };
 		EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
+		EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */,
+				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
+				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepository.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */,

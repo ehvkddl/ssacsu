@@ -15,14 +15,18 @@ class SelectSignInMethodViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     private let appleLoginRepository: AppleLoginRepository
+    private let kakaoLoginRepository: KakaoLoginRepository
     
-    init(appleLoginRepository: AppleLoginRepository) {
+    init(appleLoginRepository: AppleLoginRepository,
+         kakaoLoginRepository: KakaoLoginRepository
+    ) {
         self.appleLoginRepository = appleLoginRepository
+        self.kakaoLoginRepository = kakaoLoginRepository
     }
     
     struct Input {
-        let vc: SelectSignInMethodViewController
         let appleSignInButtonTapped: ControlEvent<Void>
+        let kakaoSignInButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
@@ -41,6 +45,18 @@ class SelectSignInMethodViewModel: ViewModelType {
             .flatMap { SignManager.shared.appleLogin(with: $0) }
             .subscribe { value in
                 print(value)
+            }
+            .disposed(by: disposeBag)
+        
+        input.kakaoSignInButtonTapped
+            .subscribe(with: self) { owner, _ in
+                owner.kakaoLoginRepository.performKakaoLogin()
+            }
+            .disposed(by: disposeBag)
+        
+        kakaoLoginRepository.oauthToken
+            .subscribe(with: self) { owner, result in
+                print(result)
             }
             .disposed(by: disposeBag)
         
