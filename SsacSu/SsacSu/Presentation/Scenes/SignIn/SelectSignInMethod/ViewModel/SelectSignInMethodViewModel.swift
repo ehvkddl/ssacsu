@@ -55,6 +55,8 @@ class SelectSignInMethodViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         kakaoLoginRepository.oauthToken
+            .map { KakaoLogin(oauthToken: $0) }
+            .flatMap { SignManager.shared.kakaoLogin(with: $0) }
             .subscribe(with: self) { owner, result in
                 print(result)
             }

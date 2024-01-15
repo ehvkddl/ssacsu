@@ -55,6 +55,8 @@
 		EAFCB6402B551F8D004DA2CD /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB63F2B551F8D004DA2CD /* KakaoSDKCommon */; };
 		EAFCB6442B551F8D004DA2CD /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB6432B551F8D004DA2CD /* KakaoSDKUser */; };
 		EAFCB6462B5557C4004DA2CD /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */; };
+		EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */; };
+		EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
 		EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
+		EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginDTO.swift; sourceTree = "<group>"; };
+		EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				EAB401612B4EF7F900C1A14A /* Join.swift */,
 				EAB4017E2B532BCA00C1A14A /* Login.swift */,
 				EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */,
+				EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
 				EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */,
 				EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */,
+				EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */,
 				EAB401782B53237000C1A14A /* LoginDTO.swift */,
 				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
 			);
@@ -509,7 +515,9 @@
 				EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
+				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
 				EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */,
+				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
 				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
