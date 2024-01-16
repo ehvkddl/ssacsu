@@ -28,7 +28,12 @@ struct InputData {
 
 class SignUpViewModel: ViewModelType {
     
+    private let signRepository: SignRepository
     private let disposeBag = DisposeBag()
+    
+    init(signRepository: SignRepository) {
+        self.signRepository = signRepository
+    }
     
     struct Input {
         let email: ControlProperty<String>
@@ -98,12 +103,24 @@ class SignUpViewModel: ViewModelType {
             .filter { $0 == .valid }
             .withLatestFrom(input.email)
             .flatMap {
-                SignManager.shared.checkEmailValidation(email: $0)
+                self.signRepository.checkEmailValidation(email: $0)
             }
             .observe(on: MainScheduler.asyncInstance)
             .subscribe { result in
-                isUsableEmail.accept(true)
-                emailState.accept(.usable)
+                switch result {
+                case .success:
+                    isUsableEmail.accept(true)
+                    emailState.accept(.usable)
+                case .failure(let error):
+                    switch error {
+                    case .duplicatedData:
+                        isUsableEmail.accept(false)
+                        emailState.accept(.duplicated)
+                    case .invalidRequest:
+                        isUsableEmail.accept(false)
+                    default: break
+                    }
+                }
             }
             .disposed(by: disposeBag)
         
@@ -190,7 +207,7 @@ class SignUpViewModel: ViewModelType {
                             phone: input.phoneNumber)
             }
             .flatMap {
-                SignManager.shared.join(join: $0)
+                self.signRepository.join(join: $0)
             }
             .subscribe { result in
                 isSignUpComplete.accept(true)

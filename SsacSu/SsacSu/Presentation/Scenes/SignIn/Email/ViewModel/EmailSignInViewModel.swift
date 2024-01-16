@@ -12,7 +12,12 @@ import RxSwift
 
 class EmailSignInViewModel: ViewModelType {
     
+    private let signRepository: SignRepository
     private let disposeBag = DisposeBag()
+    
+    init(signRepository: SignRepository) {
+        self.signRepository = signRepository
+    }
     
     struct Input {
         let email: ControlProperty<String>
@@ -66,7 +71,7 @@ class EmailSignInViewModel: ViewModelType {
                 Login(email: $0.email, password: $0.password)
             }
             .flatMap {
-                SignManager.shared.login(with: $0)
+                self.signRepository.login(with: $0)
             }
             .subscribe { response in
                 dump(response)

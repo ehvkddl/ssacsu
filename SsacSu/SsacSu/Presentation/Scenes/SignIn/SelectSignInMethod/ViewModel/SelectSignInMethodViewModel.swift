@@ -12,14 +12,17 @@ import RxSwift
 
 class SelectSignInMethodViewModel: ViewModelType {
     
+    private let signRepository: SignRepository
     private let disposeBag = DisposeBag()
     
     private let appleLoginRepository: AppleLoginRepository
     private let kakaoLoginRepository: KakaoLoginRepository
     
-    init(appleLoginRepository: AppleLoginRepository,
+    init(signRepository: SignRepository,
+         appleLoginRepository: AppleLoginRepository,
          kakaoLoginRepository: KakaoLoginRepository
     ) {
+        self.signRepository = signRepository
         self.appleLoginRepository = appleLoginRepository
         self.kakaoLoginRepository = kakaoLoginRepository
     }
@@ -42,7 +45,7 @@ class SelectSignInMethodViewModel: ViewModelType {
         
         appleLoginRepository.idToken
             .map { AppleLogin(idToken: $0) }
-            .flatMap { SignManager.shared.appleLogin(with: $0) }
+            .flatMap { self.signRepository.appleLogin(with: $0) }
             .subscribe { value in
                 print(value)
             }
@@ -56,7 +59,7 @@ class SelectSignInMethodViewModel: ViewModelType {
         
         kakaoLoginRepository.oauthToken
             .map { KakaoLogin(oauthToken: $0) }
-            .flatMap { SignManager.shared.kakaoLogin(with: $0) }
+            .flatMap { self.signRepository.kakaoLogin(with: $0) }
             .subscribe(with: self) { owner, result in
                 print(result)
             }
