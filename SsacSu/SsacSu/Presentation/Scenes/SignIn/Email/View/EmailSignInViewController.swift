@@ -9,7 +9,7 @@ import UIKit
 
 class EmailSignInViewController: BaseViewController {
     
-    let vm = EmailSignInViewModel()
+    var vm: EmailSignInViewModel!
     
     let emailLabel = SSLabel(text: "이메일",
                              font: SSFont.style(.title2),
@@ -31,6 +31,14 @@ class EmailSignInViewController: BaseViewController {
     }()
     
     let signInButton = SSButton(title: "로그인", style: .plain)
+    
+    static func create(
+        with viewModel: EmailSignInViewModel
+    ) -> EmailSignInViewController {
+        let view = EmailSignInViewController()
+        view.vm = viewModel
+        return view
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

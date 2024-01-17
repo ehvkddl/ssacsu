@@ -10,7 +10,7 @@ import AuthenticationServices
 
 class SelectSignInMethodViewController: BaseViewController {
 
-    var vm: SelectSignInMethodViewModel?
+    var vm: SelectSignInMethodViewModel!
     
     private let appleSignInButton = SSButton(image: .SignIn.apple,
                                              bgColor: .Brand.black,
@@ -26,12 +26,17 @@ class SelectSignInMethodViewController: BaseViewController {
     private let signUpButton = SSButton(title: "또는 새롭게 회원가입 하기",
                                         fgColor: .Brand.black,
                                         style: .custom)
+  
+    static func create(
+        with viewModel: SelectSignInMethodViewModel
+    ) -> SelectSignInMethodViewController {
+        let view = SelectSignInMethodViewController()
+        view.vm = viewModel
+        return view
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        vm = SelectSignInMethodViewModel(appleLoginRepository: AppleLoginRepository(presenter: self),
-                                         kakaoLoginRepository: KakaoLoginRepository())
         
         bind()
     }

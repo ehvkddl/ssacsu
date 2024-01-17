@@ -11,6 +11,7 @@ import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let appDIContainer = AppDIContainer()
     var window: UIWindow?
 
 
