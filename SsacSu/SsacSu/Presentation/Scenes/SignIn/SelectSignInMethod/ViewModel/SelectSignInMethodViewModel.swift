@@ -10,7 +10,14 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+protocol SelectSignInMethodViewModelDelegate {
+    func signUp()
+    func emailSignIn()
+}
+
 class SelectSignInMethodViewModel: ViewModelType {
+    
+    var delegate: SelectSignInMethodViewModelDelegate?
     
     private let signRepository: SignRepository
     private let disposeBag = DisposeBag()
@@ -30,6 +37,8 @@ class SelectSignInMethodViewModel: ViewModelType {
     struct Input {
         let appleSignInButtonTapped: ControlEvent<Void>
         let kakaoSignInButtonTapped: ControlEvent<Void>
+        let emailSignInButtonTapped: ControlEvent<Void>
+        let signUpButtonTapped: ControlEvent<Void>
     }
     
     struct Output {
@@ -62,6 +71,18 @@ class SelectSignInMethodViewModel: ViewModelType {
             .flatMap { self.signRepository.kakaoLogin(with: $0) }
             .subscribe(with: self) { owner, result in
                 print(result)
+            }
+            .disposed(by: disposeBag)
+        
+        input.emailSignInButtonTapped
+            .subscribe(with: self) { owner, _ in
+                owner.delegate?.emailSignIn()
+            }
+            .disposed(by: disposeBag)
+        
+        input.signUpButtonTapped
+            .subscribe(with: self) { owner, _ in
+                owner.delegate?.signUp()
             }
             .disposed(by: disposeBag)
         

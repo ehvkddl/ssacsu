@@ -80,14 +80,6 @@ class EmailSignInViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func configureNavigationBar() {
-        super.configureNavigationBar()
-        
-        title = "이메일 로그인"
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(closeButtonClicked))
-    }
-    
     override func configureView() {
         [emailLabel, emailTextField,
          passwordLabel, passwordTextField,
@@ -123,14 +115,6 @@ class EmailSignInViewController: BaseViewController {
             make.height.equalTo(44)
             make.bottom.equalTo(self.view.keyboardLayoutGuide.snp.top).offset(-12)
         }
-    }
-    
-}
-
-extension EmailSignInViewController {
-    
-    @objc func closeButtonClicked() {
-        dismiss(animated: true)
     }
     
 }

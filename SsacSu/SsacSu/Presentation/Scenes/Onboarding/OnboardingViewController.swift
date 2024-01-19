@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol OnboardingViewControllerDelegate {
+    func startSsacsu()
+}
+
 class OnboardingViewController: BaseViewController {
 
+    var delegate: OnboardingViewControllerDelegate?
+    
     private let str = """
 싹수를 사용하면 어디서나
 팀을 모을 수 있습니다
@@ -27,8 +33,6 @@ class OnboardingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .Background.primary
         
         configureView()
         setConstraints()
@@ -65,24 +69,7 @@ class OnboardingViewController: BaseViewController {
 extension OnboardingViewController {
     
     @objc func startButtonClicked() {
-        let vc = SelectSignInMethodViewController()
-        
-        if let sheet = vc.sheetPresentationController {
-            var detent: UISheetPresentationController.Detent
-            
-            if #available(iOS 16.0, *) {
-                detent = UISheetPresentationController.Detent.custom { _ in
-                    return 270
-                }
-            } else {
-                detent = .medium()
-            }
-            
-            sheet.detents = [detent]
-            sheet.prefersGrabberVisible = true
-        }
-        
-        present(vc, animated: true)
+        self.delegate?.startSsacsu()
     }
     
 }
