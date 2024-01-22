@@ -20,6 +20,7 @@
 		EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */; };
 		EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */; };
 		EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */; };
+		EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7C2B5E605A00D5A0A3 /* Token.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
@@ -85,6 +86,7 @@
 		EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRepository.swift; sourceTree = "<group>"; };
 		EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
 		EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuError.swift; sourceTree = "<group>"; };
+		EA922D7C2B5E605A00D5A0A3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB401762B5304AD00C1A14A /* Validation.swift */,
+				EA922D7C2B5E605A00D5A0A3 /* Token.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
 				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
+				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,

@@ -73,8 +73,20 @@ class EmailSignInViewModel: ViewModelType {
             .flatMap {
                 self.signRepository.login(with: $0)
             }
-            .subscribe { response in
-                dump(response)
+            .subscribe { result in
+                switch result {
+                case .success(let response):
+                    let token = response.token
+                    
+                    Token.shared.save(account: .accessToken, value: token.accessToken)
+                    Token.shared.save(account: .refreshToken, value: token.refreshToken)
+                    
+                case .failure(let error):
+                    guard error == .authenticationFailure else { return }
+
+                    // TODO: - 로그인 실패 Toast
+                    print("로그인 실패")
+                }
             }
             .disposed(by: disposeBag)
         
