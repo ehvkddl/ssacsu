@@ -13,11 +13,18 @@ class Token {
     static let shared = Token()
     private init() { }
     
-    func save(_ service: String, account: String, value: String) {
+    private let service: String = "com.chap.SsacSu"
+    
+    enum accountType: String {
+        case accessToken
+        case refreshToken
+    }
+    
+    func save(account: accountType, value: String) {
         let keyChainQuery: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
-            kSecAttrAccount: account,
+            kSecAttrAccount: account.rawValue,
             kSecValueData: value.data(using: .utf8, allowLossyConversion: false)!
         ]
         
@@ -28,11 +35,11 @@ class Token {
         NSLog("status=\(status)")
     }
     
-    func load(_ service: String, account: String) -> String? {
+    func load(account: accountType) -> String? {
         let keyChainQuery: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
-            kSecAttrAccount: account,
+            kSecAttrAccount: account.rawValue,
             kSecReturnData: kCFBooleanTrue!,
             kSecMatchLimit: kSecMatchLimitOne
         ]
@@ -50,11 +57,11 @@ class Token {
         }
     }
     
-    func delete(_ service: String, account: String) {
+    func delete(account: accountType) {
         let keyChainQuery: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
-            kSecAttrAccount: account
+            kSecAttrAccount: account.rawValue
         ]
         
         let status = SecItemDelete(keyChainQuery)
