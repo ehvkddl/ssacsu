@@ -12,24 +12,23 @@ class OnboardingCoordinator: Coordinator, OnboardingViewControllerDelegate {
     var childCoordinators: [Coordinator] = []
     
     private var navigationController: UINavigationController!
-    private let appDIContainer: AppDIContainer
+    private let signSceneDIContainer: SignSceneDIContainer
     
     init(navigationController: UINavigationController,
-         appDIContainer: AppDIContainer
+         signSceneDIContainer: SignSceneDIContainer
     ) {
         self.navigationController = navigationController
-        self.appDIContainer = appDIContainer
+        self.signSceneDIContainer = signSceneDIContainer
     }
     
     func start() {
-        let viewController = OnboardingViewController()
+        let viewController = signSceneDIContainer.makeOnboardingViewController()
         viewController.delegate = self
         
         self.navigationController.viewControllers = [viewController]
     }
     
     func startSsacsu() {
-        let signSceneDIContainer = appDIContainer.makeSignSceneDIContainer()
         let coordinator = signSceneDIContainer.makeSelectSignInCoordinator(navigationController: navigationController)
         self.childCoordinators.append(coordinator)
         coordinator.start()

@@ -175,12 +175,57 @@
 		EA922D692B58617D00D5A0A3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				EA922D832B5EB11900D5A0A3 /* Sign */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		EA922D832B5EB11900D5A0A3 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
 				EA922D6C2B586E0E00D5A0A3 /* OnboardingCoordinator.swift */,
 				EA922D6E2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift */,
 				EA922D702B58764800D5A0A3 /* EmailSignInCoordinator.swift */,
 				EA922D722B59A81900D5A0A3 /* SignUpCoordinator.swift */,
 			);
-			path = Flows;
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		EA922D842B5EB12700D5A0A3 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D852B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift */,
+				EA922D932B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift */,
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
+		EA922D892B5EB25400D5A0A3 /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				EAB401682B51BC6300C1A14A /* WorkspaceInitialViewController.swift */,
+				EA922D872B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift */,
+			);
+			path = Initial;
+			sourceTree = "<group>";
+		};
+		EA922D8C2B5EBAA700D5A0A3 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D8D2B5EBAB400D5A0A3 /* SplashViewController.swift */,
+				EA922D8F2B5EC0B100D5A0A3 /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EA922D952B5ED3AA00D5A0A3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D7F2B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift */,
+				EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */,
+				EA922D982B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
