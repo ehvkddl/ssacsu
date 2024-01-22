@@ -10,7 +10,7 @@ import AuthenticationServices
 
 class SelectSignInMethodViewController: BaseViewController {
 
-    var vm: SelectSignInMethodViewModel?
+    var vm: SelectSignInMethodViewModel!
     
     private let appleSignInButton = SSButton(image: .SignIn.apple,
                                              bgColor: .Brand.black,
@@ -26,12 +26,17 @@ class SelectSignInMethodViewController: BaseViewController {
     private let signUpButton = SSButton(title: "또는 새롭게 회원가입 하기",
                                         fgColor: .Brand.black,
                                         style: .custom)
+  
+    static func create(
+        with viewModel: SelectSignInMethodViewModel
+    ) -> SelectSignInMethodViewController {
+        let view = SelectSignInMethodViewController()
+        view.vm = viewModel
+        return view
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        vm = SelectSignInMethodViewModel(appleLoginRepository: AppleLoginRepository(presenter: self),
-                                         kakaoLoginRepository: KakaoLoginRepository())
         
         bind()
     }
@@ -41,15 +46,14 @@ class SelectSignInMethodViewController: BaseViewController {
         
         let input = SelectSignInMethodViewModel.Input(
             appleSignInButtonTapped: appleSignInButton.rx.tap,
-            kakaoSignInButtonTapped: kakaoSignInButton.rx.tap
+            kakaoSignInButtonTapped: kakaoSignInButton.rx.tap,
+            emailSignInButtonTapped: emailSignInButton.rx.tap,
+            signUpButtonTapped: signUpButton.rx.tap
         )
         let output = vm.transform(input: input)
     }
  
     override func configureView() {
-        signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
-        emailSignInButton.addTarget(self, action: #selector(emailSignInButtonClicked), for: .touchUpInside)
-        
         [appleSignInButton,
          kakaoSignInButton,
          emailSignInButton,
@@ -81,28 +85,6 @@ class SelectSignInMethodViewController: BaseViewController {
             make.top.equalTo(emailSignInButton.snp.bottom).offset(16)
             make.height.equalTo(20)
         }
-    }
-    
-}
-
-extension SelectSignInMethodViewController {
-    
-    @objc func signUpButtonClicked() {
-        let vc = UINavigationController(rootViewController: SignUpViewController())
-        present(vc, animated: true)
-    }
-    
-    @objc func emailSignInButtonClicked() {
-        let vc = UINavigationController(rootViewController: EmailSignInViewController())
-        present(vc, animated: true)
-    }
-    
-}
-
-extension SelectSignInMethodViewController: ASAuthorizationControllerPresentationContextProviding {
-    
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
     }
     
 }

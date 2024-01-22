@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */; };
+		EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */; };
+		EA922D632B583A8200D5A0A3 /* SignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D622B583A8200D5A0A3 /* SignRepository.swift */; };
+		EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */; };
+		EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D672B585B3200D5A0A3 /* AppCoordinator.swift */; };
+		EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D6A2B5864FE00D5A0A3 /* AppDIContainer.swift */; };
+		EA922D6D2B586E0E00D5A0A3 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D6C2B586E0E00D5A0A3 /* OnboardingCoordinator.swift */; };
+		EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D6E2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift */; };
+		EA922D712B58764800D5A0A3 /* EmailSignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D702B58764800D5A0A3 /* EmailSignInCoordinator.swift */; };
+		EA922D732B59A81900D5A0A3 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D722B59A81900D5A0A3 /* SignUpCoordinator.swift */; };
+		EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */; };
+		EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */; };
+		EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
-		EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401592B4DEF6000C1A14A /* SignManager.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
 		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
 		EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */; };
@@ -48,23 +60,35 @@
 		EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494692B4C717C007461C0 /* SignUpViewController.swift */; };
 		EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */; };
 		EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB62E2B546727004DA2CD /* SelectSignInMethodViewModel.swift */; };
-		EAFCB6352B54751B004DA2CD /* AppleLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */; };
+		EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */; };
 		EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */; };
 		EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */; };
 		EAFCB63E2B551F8D004DA2CD /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB63D2B551F8D004DA2CD /* KakaoSDKAuth */; };
 		EAFCB6402B551F8D004DA2CD /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB63F2B551F8D004DA2CD /* KakaoSDKCommon */; };
 		EAFCB6442B551F8D004DA2CD /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = EAFCB6432B551F8D004DA2CD /* KakaoSDKUser */; };
-		EAFCB6462B5557C4004DA2CD /* KakaoLoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */; };
+		EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */; };
 		EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */; };
 		EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRepositoryImpl.swift; sourceTree = "<group>"; };
+		EA922D622B583A8200D5A0A3 /* SignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignRepository.swift; sourceTree = "<group>"; };
+		EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignSceneDIContainer.swift; sourceTree = "<group>"; };
+		EA922D672B585B3200D5A0A3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EA922D6A2B5864FE00D5A0A3 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		EA922D6C2B586E0E00D5A0A3 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		EA922D6E2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInCoordinator.swift; sourceTree = "<group>"; };
+		EA922D702B58764800D5A0A3 /* EmailSignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInCoordinator.swift; sourceTree = "<group>"; };
+		EA922D722B59A81900D5A0A3 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
+		EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRepository.swift; sourceTree = "<group>"; };
+		EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
+		EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuError.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
-		EAB401592B4DEF6000C1A14A /* SignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignManager.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
 		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonErrorResponseDTO.swift; sourceTree = "<group>"; };
@@ -100,11 +124,11 @@
 		EAE494692B4C717C007461C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
 		EAFCB62E2B546727004DA2CD /* SelectSignInMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSignInMethodViewModel.swift; sourceTree = "<group>"; };
-		EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRepository.swift; sourceTree = "<group>"; };
+		EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SsacSu.entitlements; sourceTree = "<group>"; };
 		EAFCB6382B5488FD004DA2CD /* AppleLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
-		EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepository.swift; sourceTree = "<group>"; };
+		EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +151,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA922D612B583A5600D5A0A3 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */,
+				EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */,
+				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		EA922D642B584D2700D5A0A3 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D6A2B5864FE00D5A0A3 /* AppDIContainer.swift */,
+				EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		EA922D692B58617D00D5A0A3 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				EA922D6C2B586E0E00D5A0A3 /* OnboardingCoordinator.swift */,
+				EA922D6E2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift */,
+				EA922D702B58764800D5A0A3 /* EmailSignInCoordinator.swift */,
+				EA922D722B59A81900D5A0A3 /* SignUpCoordinator.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */,
-				EAB401592B4DEF6000C1A14A /* SignManager.swift */,
+				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
+				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -157,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB401602B4EF7EC00C1A14A /* Entities */,
+				EA922D612B583A5600D5A0A3 /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -250,6 +306,8 @@
 				EAE493FF2B459B81007461C0 /* AppDelegate.swift */,
 				EAE494012B459B81007461C0 /* SceneDelegate.swift */,
 				EAE494312B473634007461C0 /* Configurations.swift */,
+				EA922D672B585B3200D5A0A3 /* AppCoordinator.swift */,
+				EA922D642B584D2700D5A0A3 /* DIContainer */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -267,6 +325,7 @@
 		EAE4942D2B473394007461C0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EA922D692B58617D00D5A0A3 /* Flows */,
 				EAE494532B4AAD3A007461C0 /* Onboarding */,
 				EAE494682B4C6F76007461C0 /* SignUp */,
 				EAE494632B4B91D7007461C0 /* SignIn */,
@@ -400,8 +459,9 @@
 		EAFCB6332B54699B004DA2CD /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				EAFCB6342B54751B004DA2CD /* AppleLoginRepository.swift */,
-				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepository.swift */,
+				EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */,
+				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */,
+				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -508,15 +568,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
-				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepository.swift in Sources */,
+				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
+				EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
+				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
+				EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */,
 				EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
 				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
-				EAB4015A2B4DEF6000C1A14A /* SignManager.swift in Sources */,
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
 				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
@@ -527,25 +590,34 @@
 				EAB401792B53237000C1A14A /* LoginDTO.swift in Sources */,
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
+				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
+				EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */,
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
+				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
+				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
-				EAFCB6352B54751B004DA2CD /* AppleLoginRepository.swift in Sources */,
+				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
+				EA922D632B583A8200D5A0A3 /* SignRepository.swift in Sources */,
+				EA922D732B59A81900D5A0A3 /* SignUpCoordinator.swift in Sources */,
 				EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */,
+				EA922D712B58764800D5A0A3 /* EmailSignInCoordinator.swift in Sources */,
+				EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */,
+				EA922D6D2B586E0E00D5A0A3 /* OnboardingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

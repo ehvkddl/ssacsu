@@ -11,7 +11,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import RxSwift
 
-class KakaoLoginRepository {
+class KakaoLoginRepositoryImpl: KakaoLoginRepository {
     
     var oauthToken = PublishSubject<String>()
     

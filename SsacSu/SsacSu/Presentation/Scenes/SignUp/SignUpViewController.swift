@@ -12,7 +12,7 @@ import RxSwift
 
 class SignUpViewController: BaseViewController {
 
-    let vm = SignUpViewModel()
+    private var vm: SignUpViewModel!
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -78,6 +78,14 @@ class SignUpViewController: BaseViewController {
     }()
     
     let signUpButton = SSButton(title: "가입하기", style: .plain)
+    
+    static func create(
+        with viewModel: SignUpViewModel
+    ) -> SignUpViewController {
+        let view = SignUpViewController()
+        view.vm = viewModel
+        return view
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,14 +191,6 @@ class SignUpViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    override func configureNavigationBar() {
-        super.configureNavigationBar()
-        
-        title = "회원가입"
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: .close, style: .plain, target: self, action: #selector(closeButtonClicked))
-    }
-    
     override func configureView() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -290,10 +290,6 @@ class SignUpViewController: BaseViewController {
 }
 
 extension SignUpViewController {
-    
-    @objc func closeButtonClicked() {
-        dismiss(animated: true)
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.scrollView.endEditing(true)

@@ -10,14 +10,9 @@ import UIKit
 
 import RxSwift
 
-class AppleLoginRepository: NSObject {
+class AppleLoginRepositoryImpl: NSObject, AppleLoginRepository {
     
-    private let presenter: SelectSignInMethodViewController
     var idToken = PublishSubject<String>()
-    
-    init(presenter: SelectSignInMethodViewController) {
-        self.presenter = presenter
-    }
     
     func performAppleLogin() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -26,13 +21,12 @@ class AppleLoginRepository: NSObject {
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
-        authorizationController.presentationContextProvider = presenter
         authorizationController.performRequests()
     }
     
 }
 
-extension AppleLoginRepository: ASAuthorizationControllerDelegate {
+extension AppleLoginRepositoryImpl: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // TODO: - Alert으로 수정하기
