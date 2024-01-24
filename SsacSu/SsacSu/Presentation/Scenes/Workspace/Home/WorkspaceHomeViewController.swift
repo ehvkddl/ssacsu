@@ -9,6 +9,8 @@ import UIKit
 
 class WorkspaceHomeViewController: BaseViewController {
     
+    var vm: WorkspaceHomeViewModel!
+    
     let workspaceImage = {
         let img = UIImageView()
         img.backgroundColor = .blue
@@ -34,6 +36,14 @@ class WorkspaceHomeViewController: BaseViewController {
     
     let emptyView = WorkspaceEmptyView()
     
+    static func create(
+        with viewModel: WorkspaceHomeViewModel
+    ) -> WorkspaceHomeViewController {
+        let view = WorkspaceHomeViewController()
+        view.vm = viewModel
+        return view
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -42,6 +52,15 @@ class WorkspaceHomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bind()
+    }
+    
+    func bind() {
+        let input = WorkspaceHomeViewModel.Input(
+            createWorkspaceButtonTapped: emptyView.createWorkspaceButton.rx.tap
+        )
+        let output = vm.transform(input: input)
     }
     
     override func configureView() {

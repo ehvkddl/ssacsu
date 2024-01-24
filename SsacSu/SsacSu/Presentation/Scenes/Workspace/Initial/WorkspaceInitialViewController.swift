@@ -9,6 +9,8 @@ import UIKit
 
 class WorkspaceInitialViewController: BaseViewController {
     
+    var vm: WorkspaceInitialViewModel!
+    
     private let completeLabel1 = SSLabel(text: "출시 준비 완료!",
                                  font: SSFont.style(.title1))
     
@@ -27,6 +29,14 @@ class WorkspaceInitialViewController: BaseViewController {
     }()
     
     let createWorkspaceButton = SSButton(title: "워크스페이스 생성", style: .plain)
+    
+    static func create(
+        with viewModel: WorkspaceInitialViewModel
+    ) -> WorkspaceInitialViewController {
+        let view = WorkspaceInitialViewController()
+        view.vm = viewModel
+        return view
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
