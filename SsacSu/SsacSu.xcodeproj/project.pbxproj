@@ -34,6 +34,7 @@
 		EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA02B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift */; };
 		EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA22B60010400D5A0A3 /* BaseAPI.swift */; };
 		EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */; };
+		EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */; };
 		EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */; };
 		EA922DAD2B60511600D5A0A3 /* TokenRefreshDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
@@ -115,6 +116,7 @@
 		EA922DA02B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListDTO.swift; sourceTree = "<group>"; };
 		EA922DA22B60010400D5A0A3 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
+		EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRefreshInterceptor.swift; sourceTree = "<group>"; };
 		EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshDTO.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */,
 				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
+				EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */,
 				EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */,
 				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EA922DA22B60010400D5A0A3 /* BaseAPI.swift */,
@@ -695,6 +698,7 @@
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
+				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
 				EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */,

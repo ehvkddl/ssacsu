@@ -37,6 +37,15 @@ final class AppDIContainer {
     }
     
     func getWorkspaceProvider() -> MoyaProvider<WorkspaceAPI> {
-        return MoyaProvider<WorkspaceAPI>()
+        let accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
+        
+        return MoyaProvider<WorkspaceAPI>(
+            session: Session(interceptor: accessTokenRefreshInterceptor)
+        )
     }
+    
+    func getAccessTokenRefreshInterceptor() -> AccessTokenRefreshInterceptor {
+        return AccessTokenRefreshInterceptor()
+    }
+    
 }
