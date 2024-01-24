@@ -46,4 +46,19 @@ final class WorkspaceSceneDIContainer {
         return WorkspaceRepositoryImpl(networkService: dependencies.networkService)
     }
     
+    // MARK: - Flow Coordinators
+    func makeWorkspaceInitialCoordinator(navigationController: UINavigationController) -> WorkspaceInitialCoordinator {
+        WorkspaceInitialCoordinator(
+            navigationController: navigationController,
+            workspaceSceneDIContainer: self
+        )
+    }
+    
+    func makeWorkspaceHomeCoordinator(navigationController: UINavigationController) -> WorkspaceHomeCoordinator {
+        WorkspaceHomeCoordinator(
+            navigationController: navigationController,
+            workspaceSceneDIContainer: self
+        )
+    }
+    
 }
