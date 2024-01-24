@@ -18,6 +18,8 @@ enum SsacsuError: String, Error {
     case overcall = "E98"
     case serverError = "E99"
     
+    case validToken = "E04"
+    
     case invalidRequest = "E11"
     case duplicatedData = "E12"
 }

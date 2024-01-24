@@ -266,9 +266,9 @@
 		EAB401512B4DE9B400C1A14A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */,
 				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
+				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
 			);
 			path = Network;
