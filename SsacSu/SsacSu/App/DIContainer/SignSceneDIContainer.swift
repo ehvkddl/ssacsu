@@ -19,6 +19,12 @@ final class SignSceneDIContainer {
         self.dependencies = dependencies
     }
     
+    // MARK: - Onboarding
+    func makeOnboardingViewController() -> OnboardingViewController {
+        OnboardingViewController.create()
+    }
+    
+    // MARK: - Select SignIn Method
     func makeSelectSignInMethodViewController() -> SelectSignInMethodViewController {
         SelectSignInMethodViewController.create(
             with: makeSelectSignInMethodViewModel()
@@ -33,6 +39,7 @@ final class SignSceneDIContainer {
         )
     }
     
+    // MARK: - Email SignIn
     func makeEmailSignInViewController() -> EmailSignInViewController {
         EmailSignInViewController.create(with: makeEmailSignInViewModel())
     }
@@ -43,6 +50,7 @@ final class SignSceneDIContainer {
         )
     }
     
+    // MARK: - Email SignUp
     func makeSignUpViewController() -> SignUpViewController {
         SignUpViewController.create(with: makeSignUpViewModel())
     }
@@ -53,12 +61,9 @@ final class SignSceneDIContainer {
         )
     }
     
-    func getSignUpViewModel() -> SignUpViewModel {
-        return .init(signRepository: getSignRepository())
-    }
-    
+    // MARK: - Repositories
     func getSignRepository() -> SignRepository {
-        return SignRepositoryImpl(networkService: dependencies.networkService as! NetworkServiceImpl<SsacsuAPI>)
+        return SignRepositoryImpl(networkService: dependencies.networkService)
     }
     
     func getAppleLoginRepository() -> AppleLoginRepository {
@@ -67,6 +72,14 @@ final class SignSceneDIContainer {
     
     func getKakaoLoginRepository() -> KakaoLoginRepository {
         return KakaoLoginRepositoryImpl()
+    }
+    
+    // MARK: - Flow Coordinators
+    func makeOnboardingCoordinator(navigationController: UINavigationController) -> OnboardingCoordinator {
+        OnboardingCoordinator(
+            navigationController: navigationController,
+            signSceneDIContainer: self
+        )
     }
     
     func makeSelectSignInCoordinator(navigationController: UINavigationController) -> SelectSignInCoordinator {

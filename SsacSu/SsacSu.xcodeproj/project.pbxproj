@@ -22,10 +22,27 @@
 		EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */; };
 		EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7C2B5E605A00D5A0A3 /* Token.swift */; };
 		EA922D802B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D7F2B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift */; };
+		EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */; };
+		EA922D862B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D852B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift */; };
+		EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D872B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift */; };
+		EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */; };
+		EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8D2B5EBAB400D5A0A3 /* SplashViewController.swift */; };
+		EA922D902B5EC0B100D5A0A3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8F2B5EC0B100D5A0A3 /* SplashViewModel.swift */; };
+		EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */; };
+		EA922D942B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D932B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift */; };
+		EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */; };
 		EA922D992B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D982B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift */; };
+		EA922D9B2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */; };
+		EA922D9D2B5F014200D5A0A3 /* WorkspaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */; };
+		EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA02B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift */; };
+		EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA22B60010400D5A0A3 /* BaseAPI.swift */; };
+		EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */; };
+		EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */; };
+		EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */; };
+		EA922DAD2B60511600D5A0A3 /* TokenRefreshDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
-		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
+		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
 		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
@@ -90,10 +107,27 @@
 		EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuError.swift; sourceTree = "<group>"; };
 		EA922D7C2B5E605A00D5A0A3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EA922D7F2B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHomeViewController.swift; sourceTree = "<group>"; };
+		EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceSceneDIContainer.swift; sourceTree = "<group>"; };
+		EA922D852B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialCoordinator.swift; sourceTree = "<group>"; };
+		EA922D872B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewModel.swift; sourceTree = "<group>"; };
+		EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		EA922D8D2B5EBAB400D5A0A3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EA922D8F2B5EC0B100D5A0A3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceRepository.swift; sourceTree = "<group>"; };
+		EA922D932B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHomeCoordinator.swift; sourceTree = "<group>"; };
+		EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHomeViewModel.swift; sourceTree = "<group>"; };
 		EA922D982B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEmptyView.swift; sourceTree = "<group>"; };
+		EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceRepositoryImpl.swift; sourceTree = "<group>"; };
+		EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceAPI.swift; sourceTree = "<group>"; };
+		EA922DA02B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListDTO.swift; sourceTree = "<group>"; };
+		EA922DA22B60010400D5A0A3 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
+		EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRefreshInterceptor.swift; sourceTree = "<group>"; };
+		EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshDTO.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
+		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
 		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
@@ -163,6 +197,7 @@
 				EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */,
 				EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */,
 				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
+				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -172,6 +207,7 @@
 			children = (
 				EA922D6A2B5864FE00D5A0A3 /* AppDIContainer.swift */,
 				EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */,
+				EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -179,7 +215,9 @@
 		EA922D692B58617D00D5A0A3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */,
 				EA922D832B5EB11900D5A0A3 /* Sign */,
+				EA922D842B5EB12700D5A0A3 /* Workspace */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -243,9 +281,14 @@
 		EAB401512B4DE9B400C1A14A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */,
-				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
+				EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */,
 				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
+				EA922DA82B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift */,
+				EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */,
+				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
+				EA922DA22B60010400D5A0A3 /* BaseAPI.swift */,
+				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
+				EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -379,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				EA922D692B58617D00D5A0A3 /* Flows */,
+				EA922D8C2B5EBAA700D5A0A3 /* Splash */,
 				EAE494532B4AAD3A007461C0 /* Onboarding */,
 				EAE494682B4C6F76007461C0 /* SignUp */,
 				EAE494632B4B91D7007461C0 /* SignIn */,
@@ -515,6 +559,7 @@
 				EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */,
 				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */,
 				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
+				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -529,6 +574,8 @@
 				EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */,
 				EAB401782B53237000C1A14A /* LoginDTO.swift */,
 				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
+				EA922DA02B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift */,
+				EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -622,10 +669,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
+				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */,
+				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
 				EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */,
@@ -637,43 +686,58 @@
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
 				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
+				EA922D942B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift in Sources */,
 				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
+				EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAB401792B53237000C1A14A /* LoginDTO.swift in Sources */,
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
+				EA922DAD2B60511600D5A0A3 /* TokenRefreshDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
+				EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */,
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
+				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
+				EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */,
 				EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */,
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
+				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
+				EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
+				EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */,
 				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
+				EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
-				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
+				EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
+				EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
+				EA922D902B5EC0B100D5A0A3 /* SplashViewModel.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
+				EA922D9D2B5F014200D5A0A3 /* WorkspaceAPI.swift in Sources */,
 				EA922D632B583A8200D5A0A3 /* SignRepository.swift in Sources */,
 				EA922D732B59A81900D5A0A3 /* SignUpCoordinator.swift in Sources */,
 				EA922D992B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift in Sources */,
+				EA922D862B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift in Sources */,
 				EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */,
 				EA922D712B58764800D5A0A3 /* EmailSignInCoordinator.swift in Sources */,
 				EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */,
 				EA922D6D2B586E0E00D5A0A3 /* OnboardingCoordinator.swift in Sources */,
+				EA922D9B2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
