@@ -34,7 +34,7 @@
 		EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA22B60010400D5A0A3 /* BaseAPI.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
-		EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */; };
+		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
 		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
@@ -111,7 +111,7 @@
 		EA922DA22B60010400D5A0A3 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SsacsuAPI.swift; sourceTree = "<group>"; };
+		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
 		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
@@ -264,9 +264,9 @@
 		EAB401512B4DE9B400C1A14A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EAB401522B4DEA1200C1A14A /* SsacsuAPI.swift */,
 				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
+				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -690,7 +690,7 @@
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
-				EAB401532B4DEA1200C1A14A /* SsacsuAPI.swift in Sources */,
+				EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum SsacsuAPI {
+enum UserAPI {
     case checkEmailValidation(email: EmailValidationRequestDTO)
     case join(join: JoinRequestDTO)
     case login(login: LoginRequestDTO)
@@ -16,11 +16,7 @@ enum SsacsuAPI {
     case kakaoLogin(login: KakaoLoginRequestDTO)
 }
 
-extension SsacsuAPI: TargetType {
-    
-    var baseURL: URL {
-        URL(string: Configurations.baseURL)!
-    }
+extension UserAPI: BaseAPI {
     
     var path: String {
         switch self {
@@ -51,13 +47,6 @@ extension SsacsuAPI: TargetType {
         case .kakaoLogin(let login):
             return .requestJSONEncodable(login)
         }
-    }
-    
-    var headers: [String : String]? {
-        [
-            "Content-Type": "application/json",
-            "SesacKey": Configurations.SeSACKey
-        ]
     }
     
 }
