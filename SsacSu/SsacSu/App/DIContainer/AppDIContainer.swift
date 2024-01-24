@@ -17,6 +17,7 @@ final class AppDIContainer {
         )
     }()
 
+    // MARK: - DIContainers of scenes
     func makeSignSceneDIContainer() -> SignSceneDIContainer {
         let dependencies = SignSceneDIContainer.Dependencies(
             networkService: networkService
@@ -31,6 +32,7 @@ final class AppDIContainer {
         return WorkspaceSceneDIContainer(dependencies: dependencies)
     }
     
+    // MARK: - Splash
     func makeSplashViewController() -> SplashViewController {
         return SplashViewController.create(with: makeSplashViewModel())
     }
