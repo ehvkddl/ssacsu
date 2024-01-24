@@ -11,4 +11,6 @@ import RxSwift
 
 protocol WorkspaceRepository {
     
+    func fetchWorkspace() -> Single<Result<WorkspaceList, SsacsuError>>
+    
 }

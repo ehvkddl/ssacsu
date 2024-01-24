@@ -24,6 +24,13 @@ final class AppDIContainer {
         return SignSceneDIContainer(dependencies: dependencies)
     }
     
+    func makeWorkspaceSceneDIContainer() -> WorkspaceSceneDIContainer {
+        let dependencies = WorkspaceSceneDIContainer.Dependencies(
+            networkService: networkService
+        )
+        return WorkspaceSceneDIContainer(dependencies: dependencies)
+    }
+    
     // MARK: - Providers
     func getUserProvider() -> MoyaProvider<UserAPI> {
         return MoyaProvider<UserAPI>()

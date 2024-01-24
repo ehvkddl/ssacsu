@@ -20,4 +20,12 @@ final class WorkspaceRepositoryImpl {
 
 extension WorkspaceRepositoryImpl: WorkspaceRepository {
     
+    func fetchWorkspace() -> Single<Result<WorkspaceList, SsacsuError>> {
+        print("workspace 조회")
+        return networkService.processResponse(
+            api: .workspace(WorkspaceAPI.fetchWorkspace),
+            responseType: WorkspaceList.self
+        )
+    }
+    
 }
