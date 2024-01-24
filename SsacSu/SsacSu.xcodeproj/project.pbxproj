@@ -32,6 +32,7 @@
 		EA922D9B2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */; };
 		EA922D9D2B5F014200D5A0A3 /* WorkspaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */; };
 		EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA22B60010400D5A0A3 /* BaseAPI.swift */; };
+		EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
@@ -109,6 +110,7 @@
 		EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceRepositoryImpl.swift; sourceTree = "<group>"; };
 		EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceAPI.swift; sourceTree = "<group>"; };
 		EA922DA22B60010400D5A0A3 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
+				EA922DA62B60351100D5A0A3 /* ResponseDecoder.swift */,
 				EA922D5D2B582DF400D5A0A3 /* NetworkService.swift */,
 				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
 			);
@@ -671,6 +674,7 @@
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
+				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
 				EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */,
 				EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */,

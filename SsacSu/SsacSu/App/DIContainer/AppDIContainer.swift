@@ -11,7 +11,10 @@ import Moya
 final class AppDIContainer {
     
     lazy var networkService: NetworkService = {
-        return NetworkServiceImpl(provider: MoyaProvider<SsacsuAPI>())
+        return NetworkServiceImpl(
+            userProvider: getUserProvider(),
+            workspaceProvider: getWorkspaceProvider()
+        )
     }()
 
     func makeSignSceneDIContainer() -> SignSceneDIContainer {
@@ -21,4 +24,12 @@ final class AppDIContainer {
         return SignSceneDIContainer(dependencies: dependencies)
     }
     
+    // MARK: - Providers
+    func getUserProvider() -> MoyaProvider<UserAPI> {
+        return MoyaProvider<UserAPI>()
+    }
+    
+    func getWorkspaceProvider() -> MoyaProvider<WorkspaceAPI> {
+        return MoyaProvider<WorkspaceAPI>()
+    }
 }

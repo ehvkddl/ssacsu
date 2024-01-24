@@ -53,12 +53,8 @@ final class SignSceneDIContainer {
         )
     }
     
-    func getSignUpViewModel() -> SignUpViewModel {
-        return .init(signRepository: getSignRepository())
-    }
-    
     func getSignRepository() -> SignRepository {
-        return SignRepositoryImpl(networkService: dependencies.networkService as! NetworkServiceImpl<SsacsuAPI>)
+        return SignRepositoryImpl(networkService: dependencies.networkService)
     }
     
     func getAppleLoginRepository() -> AppleLoginRepository {
