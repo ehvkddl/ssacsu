@@ -19,6 +19,10 @@ final class SignSceneDIContainer {
         self.dependencies = dependencies
     }
     
+    func makeOnboardingViewController() -> OnboardingViewController {
+        OnboardingViewController.create()
+    }
+    
     func makeSelectSignInMethodViewController() -> SelectSignInMethodViewController {
         SelectSignInMethodViewController.create(
             with: makeSelectSignInMethodViewModel()
@@ -63,6 +67,13 @@ final class SignSceneDIContainer {
     
     func getKakaoLoginRepository() -> KakaoLoginRepository {
         return KakaoLoginRepositoryImpl()
+    }
+    
+    func makeOnboardingCoordinator(navigationController: UINavigationController) -> OnboardingCoordinator {
+        OnboardingCoordinator(
+            navigationController: navigationController,
+            signSceneDIContainer: self
+        )
     }
     
     func makeSelectSignInCoordinator(navigationController: UINavigationController) -> SelectSignInCoordinator {

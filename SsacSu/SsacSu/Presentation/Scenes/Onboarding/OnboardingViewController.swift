@@ -31,6 +31,11 @@ class OnboardingViewController: BaseViewController {
     
     private let startButton = SSButton(title: "시작하기", style: .plain)
     
+    static func create() -> OnboardingViewController {
+        let view = OnboardingViewController()
+        return view
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
