@@ -25,6 +25,9 @@
 		EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */; };
 		EA922D862B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D852B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift */; };
 		EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D872B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift */; };
+		EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */; };
+		EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8D2B5EBAB400D5A0A3 /* SplashViewController.swift */; };
+		EA922D902B5EC0B100D5A0A3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D8F2B5EC0B100D5A0A3 /* SplashViewModel.swift */; };
 		EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */; };
 		EA922D942B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D932B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift */; };
 		EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */; };
@@ -107,6 +110,9 @@
 		EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceSceneDIContainer.swift; sourceTree = "<group>"; };
 		EA922D852B5EB14E00D5A0A3 /* WorkspaceInitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialCoordinator.swift; sourceTree = "<group>"; };
 		EA922D872B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceInitialViewModel.swift; sourceTree = "<group>"; };
+		EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		EA922D8D2B5EBAB400D5A0A3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EA922D8F2B5EC0B100D5A0A3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceRepository.swift; sourceTree = "<group>"; };
 		EA922D932B5ED2F000D5A0A3 /* WorkspaceHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHomeCoordinator.swift; sourceTree = "<group>"; };
 		EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHomeViewModel.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		EA922D692B58617D00D5A0A3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				EA922D8A2B5EBA2C00D5A0A3 /* SplashCoordinator.swift */,
 				EA922D832B5EB11900D5A0A3 /* Sign */,
 				EA922D842B5EB12700D5A0A3 /* Workspace */,
 			);
@@ -415,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				EA922D692B58617D00D5A0A3 /* Flows */,
+				EA922D8C2B5EBAA700D5A0A3 /* Splash */,
 				EAE494532B4AAD3A007461C0 /* Onboarding */,
 				EAE494682B4C6F76007461C0 /* SignUp */,
 				EAE494632B4B91D7007461C0 /* SignIn */,
@@ -689,6 +697,7 @@
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
 				EA922DAD2B60511600D5A0A3 /* TokenRefreshDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
+				EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */,
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
 				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
@@ -699,6 +708,7 @@
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
+				EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
 				EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */,
@@ -716,6 +726,7 @@
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
+				EA922D902B5EC0B100D5A0A3 /* SplashViewModel.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
 				EA922D9D2B5F014200D5A0A3 /* WorkspaceAPI.swift in Sources */,
 				EA922D632B583A8200D5A0A3 /* SignRepository.swift in Sources */,

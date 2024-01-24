@@ -5,7 +5,7 @@
 //  Created by do hee kim on 2024/01/18.
 //
 
-import Foundation
+import UIKit
 import Moya
 
 final class AppDIContainer {
@@ -29,6 +29,26 @@ final class AppDIContainer {
             networkService: networkService
         )
         return WorkspaceSceneDIContainer(dependencies: dependencies)
+    }
+    
+    func makeSplashViewController() -> SplashViewController {
+        return SplashViewController.create(with: makeSplashViewModel())
+    }
+    
+    func makeSplashViewModel() -> SplashViewModel {
+        let container = makeWorkspaceSceneDIContainer()
+        let repository = container.getWorkspaceRepository()
+        
+        return SplashViewModel(
+            workspaceRepository: repository
+        )
+    }
+    
+    func makeSplashCoordinator(navigationController: UINavigationController) -> SplashCoordinator {
+        return SplashCoordinator(
+            navigationController: navigationController,
+            appDIContainer: self
+        )
     }
     
     // MARK: - Providers

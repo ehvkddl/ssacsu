@@ -27,13 +27,12 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        self.showOnboardingViewController()
+        self.showSplashView()
     }
     
-    private func showOnboardingViewController() {
-        let coordinator = OnboardingCoordinator(
-            navigationController: self.navigationController,
-            appDIContainer: appDIContainer
+    private func showSplashView() {
+        let coordinator = appDIContainer.makeSplashCoordinator(
+            navigationController: navigationController
         )
         self.childCoordinators.append(coordinator)
         coordinator.start()
