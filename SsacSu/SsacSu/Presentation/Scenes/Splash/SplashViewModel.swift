@@ -21,8 +21,6 @@ class SplashViewModel {
     private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
     
-    private let isAccessTokenExpired = PublishSubject<Bool>()
-    
     init(workspaceRepository: WorkspaceRepository) {
         self.workspaceRepository = workspaceRepository
     }
@@ -42,17 +40,10 @@ class SplashViewModel {
                     owner.delegate?.showWorkspaceView()
                     
                 case .failure(let error):
-                    print("조회실패", error)
-                    
-                    guard error == .accessTokenExpired else { return }
-                    owner.isAccessTokenExpired.onNext(true)
+                    print("워크스페이스 조회실패", error)
+                    owner.delegate?.showOnboardingView()
                 }
-            }
-            .disposed(by: disposeBag)
-        
-        isAccessTokenExpired
-            .filter { $0 == true }
-            .subscribe(with: self) { owner, value in
+            } onError: { owner, result in
                 owner.delegate?.showOnboardingView()
             }
             .disposed(by: disposeBag)
