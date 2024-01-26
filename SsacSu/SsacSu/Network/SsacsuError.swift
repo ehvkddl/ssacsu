@@ -13,6 +13,7 @@ enum SsacsuError: String, Error {
     case accessPermission = "E01"
     case unknownRouterPath = "E97"
     case accessTokenExpired = "E05"
+    case refreshTokenExpired = "E06"
     case authenticationFailure = "E02"
     case unknownAccount = "E03"
     case overcall = "E98"

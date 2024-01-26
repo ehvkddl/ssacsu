@@ -66,9 +66,11 @@ class AuthManager {
                         guard let error = SsacsuError(rawValue: response.errorCode) else {
                             return
                         }
+                        completion(.failure(error))
                         return
                         
                     case .failure:
+                        completion(.failure(SsacsuError.decodingFailure))
                         return
                     }
                 }
