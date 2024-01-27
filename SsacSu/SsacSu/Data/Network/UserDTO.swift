@@ -20,3 +20,12 @@ struct UserResponseDTO: Decodable {
         case profileImage
     }
 }
+
+extension UserResponseDTO {
+    func toDomain() -> User {
+        return .init(userID: userID,
+                     email: email,
+                     nickname: nickname,
+                     profileImage: profileImage)
+    }
+}

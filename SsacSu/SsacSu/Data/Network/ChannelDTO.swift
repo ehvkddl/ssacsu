@@ -26,3 +26,15 @@ struct ChannelResponseDTO: Decodable {
         case createdAt
     }
 }
+
+extension ChannelResponseDTO {
+    func toDomain() -> Channel {
+        return .init(workspaceID: workspaceID,
+                     channelID: channelID,
+                     name: name,
+                     description: description,
+                     ownerID: ownerID,
+                     isPrivate: isPrivate == 0 ? false : true,
+                     createdAt: DateFormatter.ssacsuDateFormatter.date(from: createdAt) ?? Date())
+    }
+}

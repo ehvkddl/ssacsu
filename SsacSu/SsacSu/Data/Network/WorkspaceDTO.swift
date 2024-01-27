@@ -28,3 +28,17 @@ struct WorkspaceResponseDTO: Decodable {
         case workspaceMembers
     }
 }
+
+extension WorkspaceResponseDTO {
+    func toDomain() -> Workspace {
+        return .init(
+            workspaceID: workspaceID,
+            name: name,
+            description: description,
+            thumbnail: thumbnail,
+            ownerID: ownerID,
+            createdAt: DateFormatter.ssacsuDateFormatter.date(from: createdAt) ?? Date(),
+            channels: channels?.map { $0.toDomain() },
+            workspaceMembers: workspaceMembers?.map { $0.toDomain()} )
+    }
+}
