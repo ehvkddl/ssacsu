@@ -43,6 +43,8 @@
 		EA922DB32B63D59900D5A0A3 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB22B63D59900D5A0A3 /* Workspace.swift */; };
 		EA922DB52B63F0E600D5A0A3 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB42B63F0E600D5A0A3 /* DateFormatter+.swift */; };
 		EA922DB72B6431F300D5A0A3 /* WorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB62B6431F300D5A0A3 /* WorkspaceDTO.swift */; };
+		EA922DBC2B64572C00D5A0A3 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = EA922DBB2B64572C00D5A0A3 /* Differentiator */; };
+		EA922DBE2B64572C00D5A0A3 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = EA922DBD2B64572C00D5A0A3 /* RxDataSources */; };
 		EA922DC22B656CB900D5A0A3 /* ChannelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC12B656CB800D5A0A3 /* ChannelDTO.swift */; };
 		EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC32B656CD100D5A0A3 /* UserDTO.swift */; };
 		EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC52B656E0400D5A0A3 /* Channel.swift */; };
@@ -196,7 +198,9 @@
 				EAE494412B49DB91007461C0 /* Moya in Frameworks */,
 				EAE494462B49DC42007461C0 /* RxSwift in Frameworks */,
 				EAE4943E2B49D9A9007461C0 /* SnapKit in Frameworks */,
+				EA922DBC2B64572C00D5A0A3 /* Differentiator in Frameworks */,
 				EAFCB6442B551F8D004DA2CD /* KakaoSDKUser in Frameworks */,
+				EA922DBE2B64572C00D5A0A3 /* RxDataSources in Frameworks */,
 				EAFCB6402B551F8D004DA2CD /* KakaoSDKCommon in Frameworks */,
 				EAFCB63E2B551F8D004DA2CD /* KakaoSDKAuth in Frameworks */,
 			);
@@ -625,6 +629,8 @@
 				EAFCB63D2B551F8D004DA2CD /* KakaoSDKAuth */,
 				EAFCB63F2B551F8D004DA2CD /* KakaoSDKCommon */,
 				EAFCB6432B551F8D004DA2CD /* KakaoSDKUser */,
+				EA922DBB2B64572C00D5A0A3 /* Differentiator */,
+				EA922DBD2B64572C00D5A0A3 /* RxDataSources */,
 			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
@@ -659,6 +665,7 @@
 				EAE4943F2B49DB91007461C0 /* XCRemoteSwiftPackageReference "Moya" */,
 				EAE494422B49DC42007461C0 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EAFCB63C2B551F8D004DA2CD /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
@@ -992,6 +999,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		EAE4943C2B49D9A9007461C0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1027,6 +1042,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EA922DBB2B64572C00D5A0A3 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		EA922DBD2B64572C00D5A0A3 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		EAE4943D2B49D9A9007461C0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EAE4943C2B49D9A9007461C0 /* XCRemoteSwiftPackageReference "SnapKit" */;
