@@ -43,8 +43,10 @@
 		EA922DB32B63D59900D5A0A3 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB22B63D59900D5A0A3 /* Workspace.swift */; };
 		EA922DB52B63F0E600D5A0A3 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB42B63F0E600D5A0A3 /* DateFormatter+.swift */; };
 		EA922DB72B6431F300D5A0A3 /* WorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB62B6431F300D5A0A3 /* WorkspaceDTO.swift */; };
+		EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DB82B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift */; };
 		EA922DBC2B64572C00D5A0A3 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = EA922DBB2B64572C00D5A0A3 /* Differentiator */; };
 		EA922DBE2B64572C00D5A0A3 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = EA922DBD2B64572C00D5A0A3 /* RxDataSources */; };
+		EA922DC02B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DBF2B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift */; };
 		EA922DC22B656CB900D5A0A3 /* ChannelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC12B656CB800D5A0A3 /* ChannelDTO.swift */; };
 		EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC32B656CD100D5A0A3 /* UserDTO.swift */; };
 		EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC52B656E0400D5A0A3 /* Channel.swift */; };
@@ -137,6 +139,8 @@
 		EA922DB22B63D59900D5A0A3 /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		EA922DB42B63F0E600D5A0A3 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		EA922DB62B6431F300D5A0A3 /* WorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDTO.swift; sourceTree = "<group>"; };
+		EA922DB82B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA922DBF2B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHeaderReusableView.swift; sourceTree = "<group>"; };
 		EA922DC12B656CB800D5A0A3 /* ChannelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDTO.swift; sourceTree = "<group>"; };
 		EA922DC32B656CD100D5A0A3 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		EA922DC52B656E0400D5A0A3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -281,11 +285,21 @@
 		EA922D952B5ED3AA00D5A0A3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EA922DC92B65711100D5A0A3 /* Cell */,
 				EA922D7F2B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift */,
 				EA922D962B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift */,
 				EA922D982B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EA922DC92B65711100D5A0A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA922DB82B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift */,
+				EA922DBF2B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
@@ -699,9 +713,11 @@
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
+				EA922DC02B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift in Sources */,
 				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */,
+				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
