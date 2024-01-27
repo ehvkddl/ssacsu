@@ -7,9 +7,27 @@
 
 import UIKit
 
+import RxDataSources
+
+struct WorkspaceDataSection {
+    var header: String
+    var items: [Channel]
+}
+
+extension WorkspaceDataSection: SectionModelType {
+    typealias Item = Channel
+    
+    init(original: WorkspaceDataSection, items: [Channel]) {
+        self = original
+        self.items = items
+    }
+}
+
 class WorkspaceHomeViewController: BaseViewController {
     
     var vm: WorkspaceHomeViewModel!
+    
+    private lazy var dataSource = configureCollectionViewDataSource()
     
     let workspaceImage = {
         let img = UIImageView()
@@ -36,6 +54,15 @@ class WorkspaceHomeViewController: BaseViewController {
     
     let emptyView = WorkspaceEmptyView()
     
+    private lazy var workspaceCollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+        
+        view.register(WorkspaceChannelCollectionViewCell.self, forCellWithReuseIdentifier: WorkspaceChannelCollectionViewCell.description())
+        view.register(WorkspaceHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkspaceHeaderReusableView.description())
+        
+        return view
+    }()
+    
     static func create(
         with viewModel: WorkspaceHomeViewModel
     ) -> WorkspaceHomeViewController {
@@ -61,14 +88,40 @@ class WorkspaceHomeViewController: BaseViewController {
             createWorkspaceButtonTapped: emptyView.createWorkspaceButton.rx.tap
         )
         let output = vm.transform(input: input)
+        
+        output.workspace
+            .subscribe(with: self) { owner, workspace in
+                guard workspace != nil else {
+                    print("워크스페이스 없다")
+                    owner.emptyView.rx.isHidden.onNext(false)
+                    owner.workspaceCollectionView.rx.isHidden.onNext(true)
+                    return
+                }
+                
+                print("워크스페이스 있다")
+                owner.emptyView.rx.isHidden.onNext(true)
+                owner.workspaceCollectionView.rx.isHidden.onNext(false)
+            }
+            .disposed(by: disposeBag)
+        
+        output.workspace
+            .compactMap { $0 }
+            .map { $0.channels }
+            .compactMap { $0 }
+            .map { $0.sorted { lhs, rhs in
+                lhs.channelID < rhs.channelID
+            }}
+            .map { WorkspaceDataSection(header: "채널", items: $0) }
+            .map { [$0] }
+            .bind(to: workspaceCollectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     override func configureView() {
         [workspaceImage, workspaceName, profileImage,
-         divider
+         divider,
+         emptyView, workspaceCollectionView
         ].forEach { view.addSubview($0) }
-        
-        view.addSubview(emptyView)
     }
     
     override func setConstraints() {
@@ -99,6 +152,85 @@ class WorkspaceHomeViewController: BaseViewController {
             make.top.equalTo(divider.snp.bottom)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        workspaceCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(divider.snp.bottom)
+            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+}
+
+extension WorkspaceHomeViewController {
+    
+    private func configureCollectionViewDataSource() -> RxCollectionViewSectionedReloadDataSource<WorkspaceDataSection> {
+        let dataSource = RxCollectionViewSectionedReloadDataSource<WorkspaceDataSection> { dataSource, collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: WorkspaceChannelCollectionViewCell.description(),
+                for: indexPath
+            ) as? WorkspaceChannelCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.bind(item: item)
+            
+            return cell
+            
+        } configureSupplementaryView: { [unowned self] dataSource, collectionView, kind, indexPath in
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: WorkspaceHeaderReusableView.description(),
+                    for: indexPath
+                ) as? WorkspaceHeaderReusableView else { return UICollectionReusableView() }
+                
+                let sectionTitle = dataSource.sectionModels[indexPath.section].header
+                header.bind(title: sectionTitle)
+                
+                return header
+                
+            default:
+                fatalError()
+            }
+        }
+        
+        return dataSource
+    }
+    
+    private func configureCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { _, _ in
+            let headerFooterSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(56)
+            )
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerFooterSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(40)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: groupSize,
+                subitems: [item]
+            )
+            
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = [header]
+            
+            return section
+        }
+        
+        return layout
     }
     
 }

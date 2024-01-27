@@ -38,7 +38,9 @@ final class WorkspaceSceneDIContainer {
     }
     
     func makeWorkspaceHomeViewModel() -> WorkspaceHomeViewModel {
-        return WorkspaceHomeViewModel()
+        return WorkspaceHomeViewModel(
+            workspaceRepository: getWorkspaceRepository()
+        )
     }
     
     // MARK: - Repositories
