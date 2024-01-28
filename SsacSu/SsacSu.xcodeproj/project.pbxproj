@@ -51,6 +51,7 @@
 		EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC32B656CD100D5A0A3 /* UserDTO.swift */; };
 		EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC52B656E0400D5A0A3 /* Channel.swift */; };
 		EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC72B656E0F00D5A0A3 /* User.swift */; };
+		EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
@@ -145,6 +146,7 @@
 		EA922DC32B656CD100D5A0A3 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		EA922DC52B656E0400D5A0A3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		EA922DC72B656E0F00D5A0A3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadLabel.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 				EAB4016A2B51D2E400C1A14A /* SSLabel.swift */,
 				EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */,
 				EAE494662B4C618C007461C0 /* Divider.swift */,
+				EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */,
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
+				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
 				EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */,
