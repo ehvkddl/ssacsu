@@ -7,27 +7,15 @@
 
 import UIKit
 
+import RxCocoa
 import RxDataSources
-
-struct WorkspaceDataSection {
-    var header: String
-    var items: [Channel]
-}
-
-extension WorkspaceDataSection: SectionModelType {
-    typealias Item = Channel
-    
-    init(original: WorkspaceDataSection, items: [Channel]) {
-        self = original
-        self.items = items
-    }
-}
+import RxSwift
 
 class WorkspaceHomeViewController: BaseViewController {
     
     var vm: WorkspaceHomeViewModel!
     
-    private lazy var dataSource = configureCollectionViewDataSource()
+    private lazy var dataSource: RxCollectionViewSectionedReloadDataSource<WorkspaceSection> = configureCollectionViewDataSource()
     
     let workspaceImage = {
         let img = UIImageView()
@@ -58,7 +46,13 @@ class WorkspaceHomeViewController: BaseViewController {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
         
         view.register(WorkspaceChannelCollectionViewCell.self, forCellWithReuseIdentifier: WorkspaceChannelCollectionViewCell.description())
+        view.register(WorkspaceDmsCollectionViewCell.self, forCellWithReuseIdentifier: WorkspaceDmsCollectionViewCell.description())
+        view.register(WorkspaceAddCollectionViewCell.self, forCellWithReuseIdentifier: WorkspaceAddCollectionViewCell.description())
+        
         view.register(WorkspaceHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: WorkspaceHeaderReusableView.description())
+        view.register(WorkspaceFooterReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: WorkspaceFooterReusableView.description())
+        
+        view.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DummyHeaderView")
         
         return view
     }()
@@ -85,7 +79,9 @@ class WorkspaceHomeViewController: BaseViewController {
     
     func bind() {
         let input = WorkspaceHomeViewModel.Input(
-            createWorkspaceButtonTapped: emptyView.createWorkspaceButton.rx.tap
+            createWorkspaceButtonTapped: emptyView.createWorkspaceButton.rx.tap,
+            itemSelected: workspaceCollectionView.rx.itemSelected,
+            modelSelected: workspaceCollectionView.rx.modelSelected(WorkspaceSectionItem.self)
         )
         let output = vm.transform(input: input)
         
@@ -104,15 +100,7 @@ class WorkspaceHomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.workspace
-            .compactMap { $0 }
-            .map { $0.channels }
-            .compactMap { $0 }
-            .map { $0.sorted { lhs, rhs in
-                lhs.channelID < rhs.channelID
-            }}
-            .map { WorkspaceDataSection(header: "채널", items: $0) }
-            .map { [$0] }
+        output.workspaceSections
             .bind(to: workspaceCollectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
@@ -163,30 +151,74 @@ class WorkspaceHomeViewController: BaseViewController {
 
 extension WorkspaceHomeViewController {
     
-    private func configureCollectionViewDataSource() -> RxCollectionViewSectionedReloadDataSource<WorkspaceDataSection> {
-        let dataSource = RxCollectionViewSectionedReloadDataSource<WorkspaceDataSection> { dataSource, collectionView, indexPath, item in
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: WorkspaceChannelCollectionViewCell.description(),
-                for: indexPath
-            ) as? WorkspaceChannelCollectionViewCell else { return UICollectionViewCell() }
+    private func configureCollectionViewDataSource() -> RxCollectionViewSectionedReloadDataSource<WorkspaceSection> {
+        let dataSource = RxCollectionViewSectionedReloadDataSource<WorkspaceSection> { dataSource, collectionView, indexPath, item in
             
-            cell.bind(item: item)
+            switch item {
+            case .channel(let channel):
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: WorkspaceChannelCollectionViewCell.description(),
+                    for: indexPath
+                ) as? WorkspaceChannelCollectionViewCell else { return UICollectionViewCell() }
+                cell.bind(item: channel)
+                
+                return cell
+                
+            case .dm(let dm):
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: WorkspaceDmsCollectionViewCell.description(),
+                    for: indexPath
+                ) as? WorkspaceDmsCollectionViewCell else { return UICollectionViewCell() }
+                cell.bind(item: dm)
+                
+                return cell
             
-            return cell
+            case .add:
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: WorkspaceAddCollectionViewCell.description(),
+                    for: indexPath
+                ) as? WorkspaceAddCollectionViewCell else { return UICollectionViewCell() }
+                
+                switch indexPath.section {
+                case 0: cell.addTitleLabel.text = "채널 추가"
+                case 1: cell.addTitleLabel.text = "새 메시지 시작"
+                case 2: cell.addTitleLabel.text = "팀원 추가"
+                default: break
+                }
+                
+                return cell
+            }
             
-        } configureSupplementaryView: { [unowned self] dataSource, collectionView, kind, indexPath in
+        } configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
             switch kind {
             case UICollectionView.elementKindSectionHeader:
+                guard 0...1 ~= indexPath.section else {
+                    return collectionView.dequeueReusableSupplementaryView(
+                        ofKind: kind,
+                        withReuseIdentifier: "DummyHeaderView",
+                        for: indexPath
+                    )
+                }
+                
                 guard let header = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
                     withReuseIdentifier: WorkspaceHeaderReusableView.description(),
                     for: indexPath
                 ) as? WorkspaceHeaderReusableView else { return UICollectionReusableView() }
                 
-                let sectionTitle = dataSource.sectionModels[indexPath.section].header
-                header.bind(title: sectionTitle)
+                let sectionModel = dataSource.sectionModels[indexPath.section]
+                header.bind(title: sectionModel.header)
                 
                 return header
+                
+            case UICollectionView.elementKindSectionFooter:
+                guard let footer = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: WorkspaceFooterReusableView.description(),
+                    for: indexPath
+                ) as? WorkspaceFooterReusableView else { return UICollectionReusableView() }
+                
+                return footer
                 
             default:
                 fatalError()
@@ -197,35 +229,45 @@ extension WorkspaceHomeViewController {
     }
     
     private func configureCollectionViewLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { _, _ in
-            let headerFooterSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(56)
-            )
-            let header = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerFooterSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            
+        let layout = UICollectionViewCompositionalLayout { sec, env in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(40)
+                heightDimension: .absolute(sec == 1 ? 44 : 41)
             )
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)
+                heightDimension: .estimated(41)
             )
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: groupSize,
                 subitems: [item]
             )
             
-            
             let section = NSCollectionLayoutSection(group: group)
-            section.boundarySupplementaryItems = [header]
+            
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(sec == 2 ? 5 : 56)
+            )
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            
+            let footerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(sec == 2 ? 0 : 6)
+            )
+            let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: footerSize,
+                elementKind: UICollectionView.elementKindSectionFooter,
+                alignment: .bottom
+            )
+            
+            section.boundarySupplementaryItems = [header, footer]
             
             return section
         }

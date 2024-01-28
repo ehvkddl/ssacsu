@@ -51,7 +51,11 @@
 		EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC32B656CD100D5A0A3 /* UserDTO.swift */; };
 		EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC52B656E0400D5A0A3 /* Channel.swift */; };
 		EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DC72B656E0F00D5A0A3 /* User.swift */; };
+		EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DCA2B658C6600D5A0A3 /* Dms.swift */; };
+		EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DCC2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift */; };
 		EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */; };
+		EA922DD12B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DD02B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift */; };
+		EA922DD32B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DD22B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
@@ -146,7 +150,11 @@
 		EA922DC32B656CD100D5A0A3 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		EA922DC52B656E0400D5A0A3 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		EA922DC72B656E0F00D5A0A3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA922DCA2B658C6600D5A0A3 /* Dms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dms.swift; sourceTree = "<group>"; };
+		EA922DCC2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDmsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadLabel.swift; sourceTree = "<group>"; };
+		EA922DD02B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceAddCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA922DD22B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceFooterReusableView.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -299,7 +307,10 @@
 			isa = PBXGroup;
 			children = (
 				EA922DB82B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift */,
+				EA922DCC2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift */,
+				EA922DD02B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift */,
 				EA922DBF2B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift */,
+				EA922DD22B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -355,6 +366,7 @@
 				EA922DB22B63D59900D5A0A3 /* Workspace.swift */,
 				EA922DC72B656E0F00D5A0A3 /* User.swift */,
 				EA922DC52B656E0400D5A0A3 /* Channel.swift */,
+				EA922DCA2B658C6600D5A0A3 /* Dms.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -716,14 +728,17 @@
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
+				EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */,
 				EA922DC02B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift in Sources */,
 				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922D6F2B5873CA00D5A0A3 /* SelectSignInCoordinator.swift in Sources */,
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
+				EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
+				EA922DD32B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift in Sources */,
 				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
 				EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */,
 				EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */,
@@ -732,6 +747,7 @@
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
 				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
+				EA922DD12B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift in Sources */,
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
 				EAB401772B5304AD00C1A14A /* Validation.swift in Sources */,
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,

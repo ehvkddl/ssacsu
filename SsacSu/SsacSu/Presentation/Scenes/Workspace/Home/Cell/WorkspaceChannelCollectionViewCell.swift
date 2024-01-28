@@ -19,10 +19,8 @@ class WorkspaceChannelCollectionViewCell: BaseCollectionViewCell {
     }()
     
     let unreadCountLabel = {
-        let lbl = UILabel()
-        lbl.textColor = .Brand.white
-        lbl.backgroundColor = .Brand.yellow
-        lbl.layer.cornerRadius = 8
+        let lbl = UnreadLabel()
+        lbl.text = "7"
         return lbl
     }()
     
