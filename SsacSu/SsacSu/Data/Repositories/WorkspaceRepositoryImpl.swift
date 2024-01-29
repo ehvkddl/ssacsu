@@ -28,4 +28,12 @@ extension WorkspaceRepositoryImpl: WorkspaceRepository {
         )
     }
     
+    func fetchSingleWorkspace(id: Int) -> Single<Result<WorkspaceResponseDTO, SsacsuError>> {
+        print(#function)
+        return networkService.processResponse(
+            api: .workspace(WorkspaceAPI.fetchSingleWorkspace(id: id)),
+            responseType: WorkspaceResponseDTO.self
+        )
+    }
+    
 }
