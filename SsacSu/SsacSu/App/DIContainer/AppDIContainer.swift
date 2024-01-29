@@ -25,11 +25,11 @@ final class AppDIContainer {
         return SignSceneDIContainer(dependencies: dependencies)
     }
     
-    func makeWorkspaceSceneDIContainer() -> WorkspaceSceneDIContainer {
-        let dependencies = WorkspaceSceneDIContainer.Dependencies(
+    func makeTabBarDIContainer() -> TabBarDIContainer {
+        let dependencies = TabBarDIContainer.Dependencies(
             networkService: networkService
         )
-        return WorkspaceSceneDIContainer(dependencies: dependencies)
+        return TabBarDIContainer(dependencies: dependencies)
     }
     
     // MARK: - Splash
