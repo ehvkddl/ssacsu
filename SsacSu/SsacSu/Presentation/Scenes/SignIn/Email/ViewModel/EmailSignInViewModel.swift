@@ -10,7 +10,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+protocol EmailSignInViewModelDelegate {
+    func login()
+}
+
 class EmailSignInViewModel: ViewModelType {
+    
+    var delegate: EmailSignInViewModelDelegate?
     
     private let signRepository: SignRepository
     private let disposeBag = DisposeBag()
@@ -73,13 +79,17 @@ class EmailSignInViewModel: ViewModelType {
             .flatMap {
                 self.signRepository.login(with: $0)
             }
-            .subscribe { result in
+            .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let response):
                     let token = response.token
                     
                     Token.shared.save(account: .accessToken, value: token.accessToken)
                     Token.shared.save(account: .refreshToken, value: token.refreshToken)
+                    
+                    // 워크스페이스로 넘어가기
+                    print("로그인 성공 메인뷰로 넘어가요옹")
+                    owner.delegate?.login()
                     
                 case .failure(let error):
                     guard error == .authenticationFailure else { return }

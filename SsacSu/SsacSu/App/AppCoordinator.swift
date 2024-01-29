@@ -36,4 +36,11 @@ class AppCoordinator: Coordinator {
         coordinator.start()
     }
     
+    private func showSignFlow() {
+        let signSceneDIContainer = appDIContainer.makeSignSceneDIContainer()
+        let coordinator = signSceneDIContainer.makeSignCoordinator(navigationController: navigationController)
+        self.childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
 }
