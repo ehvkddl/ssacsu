@@ -7,15 +7,13 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
-    var childCoordinators : [Coordinator] { get set }
-    func start()
-}
-
 class AppCoordinator: Coordinator {
+    weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
+    var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    private var navigationController: UINavigationController!
+
+    let type: CoordinatorType = .app
     
     private let appDIContainer: AppDIContainer
     
