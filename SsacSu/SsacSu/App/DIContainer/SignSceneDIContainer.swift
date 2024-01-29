@@ -75,29 +75,8 @@ final class SignSceneDIContainer {
     }
     
     // MARK: - Flow Coordinators
-    func makeOnboardingCoordinator(navigationController: UINavigationController) -> OnboardingCoordinator {
-        OnboardingCoordinator(
-            navigationController: navigationController,
-            signSceneDIContainer: self
-        )
-    }
-    
-    func makeSelectSignInCoordinator(navigationController: UINavigationController) -> SelectSignInCoordinator {
-        SelectSignInCoordinator(
-            navigationController: navigationController, 
-            signSceneDIContainer: self
-        )
-    }
-    
-    func makeSignUpCoordinator(navigationController: UINavigationController) -> SignUpCoordinator {
-        SignUpCoordinator(
-            navigationController: navigationController,
-            signSceneDIContainer: self
-        )
-    }
-    
-    func makeEmailSignInCoordinator(navigationController: UINavigationController) -> EmailSignInCoordinator {
-        EmailSignInCoordinator(
+    func makeSignCoordinator(navigationController: UINavigationController) -> SignCoordinator {
+        SignCoordinator(
             navigationController: navigationController,
             signSceneDIContainer: self
         )

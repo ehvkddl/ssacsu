@@ -49,15 +49,8 @@ final class WorkspaceSceneDIContainer {
     }
     
     // MARK: - Flow Coordinators
-    func makeWorkspaceInitialCoordinator(navigationController: UINavigationController) -> WorkspaceInitialCoordinator {
-        WorkspaceInitialCoordinator(
-            navigationController: navigationController,
-            workspaceSceneDIContainer: self
-        )
-    }
-    
-    func makeWorkspaceHomeCoordinator(navigationController: UINavigationController) -> WorkspaceHomeCoordinator {
-        WorkspaceHomeCoordinator(
+    func makeWorkspaceCoordinator(navigationController: UINavigationController) -> WorkspaceCoordinator {
+        return WorkspaceCoordinator(
             navigationController: navigationController,
             workspaceSceneDIContainer: self
         )

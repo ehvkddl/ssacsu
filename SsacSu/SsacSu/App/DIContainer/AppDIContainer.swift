@@ -25,11 +25,11 @@ final class AppDIContainer {
         return SignSceneDIContainer(dependencies: dependencies)
     }
     
-    func makeWorkspaceSceneDIContainer() -> WorkspaceSceneDIContainer {
-        let dependencies = WorkspaceSceneDIContainer.Dependencies(
+    func makeTabBarDIContainer() -> TabBarDIContainer {
+        let dependencies = TabBarDIContainer.Dependencies(
             networkService: networkService
         )
-        return WorkspaceSceneDIContainer(dependencies: dependencies)
+        return TabBarDIContainer(dependencies: dependencies)
     }
     
     // MARK: - Splash
@@ -38,12 +38,7 @@ final class AppDIContainer {
     }
     
     func makeSplashViewModel() -> SplashViewModel {
-        let container = makeWorkspaceSceneDIContainer()
-        let repository = container.getWorkspaceRepository()
-        
-        return SplashViewModel(
-            workspaceRepository: repository
-        )
+        return SplashViewModel()
     }
     
     func makeSplashCoordinator(navigationController: UINavigationController) -> SplashCoordinator {

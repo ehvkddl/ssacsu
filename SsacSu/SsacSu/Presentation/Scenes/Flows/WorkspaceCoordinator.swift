@@ -1,18 +1,21 @@
 //
-//  WorkspaceHomeCoordinator.swift
+//  WorkspaceCoordinator.swift
 //  SsacSu
 //
-//  Created by do hee kim on 2024/01/23.
+//  Created by do hee kim on 2024/01/30.
 //
 
 import UIKit
 
-class WorkspaceHomeCoordinator: Coordinator {
+class WorkspaceCoordinator: Coordinator {
+    var finishDelegate: CoordinatorFinishDelegate?
     
+    var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
-    
-    private var navigationController: UINavigationController!
+
     private let workspaceSceneDIContainer: WorkspaceSceneDIContainer
+
+    var type: CoordinatorType = .workspace
     
     init(navigationController: UINavigationController!,
          workspaceSceneDIContainer: WorkspaceSceneDIContainer
@@ -22,8 +25,17 @@ class WorkspaceHomeCoordinator: Coordinator {
     }
     
     func start() {
+        showWorkspaceHomeView()
+    }
+    
+}
+
+extension WorkspaceCoordinator {
+    
+    func showWorkspaceHomeView() {
         let viewController = workspaceSceneDIContainer.makeWorkspaceHomeViewController()
         
+        self.navigationController.isNavigationBarHidden = true
         self.navigationController.viewControllers = [viewController]
     }
     

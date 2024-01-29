@@ -8,10 +8,13 @@
 import UIKit
 
 class SplashCoordinator: Coordinator {
+    var finishDelegate: CoordinatorFinishDelegate?
     
+    var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    private var navigationController: UINavigationController!
+    var type: CoordinatorType = .splash
+    
     private let appDIContainer: AppDIContainer
     
     init(navigationController: UINavigationController,
@@ -25,7 +28,7 @@ class SplashCoordinator: Coordinator {
         let viewController = appDIContainer.makeSplashViewController()
         viewController.vm.delegate = self
         
-        self.navigationController.navigationBar.isHidden = true
+        self.navigationController.isNavigationBarHidden = true
         self.navigationController.viewControllers = [viewController]
     }
     
@@ -33,18 +36,14 @@ class SplashCoordinator: Coordinator {
 
 extension SplashCoordinator: SplashViewModelDelegate {
     
-    func showWorkspaceView() {
-        let workspaceSceneContainer = appDIContainer.makeWorkspaceSceneDIContainer()
-        let coordinator = workspaceSceneContainer.makeWorkspaceHomeCoordinator(navigationController: navigationController)
-        self.childCoordinators.append(coordinator)
-        coordinator.start()
+    func logout() {
+        print("logout")
+        self.finish(next: .sign)
     }
     
-    func showOnboardingView() {
-        let signSceneDIContainer = appDIContainer.makeSignSceneDIContainer()
-        let coordinator = signSceneDIContainer.makeOnboardingCoordinator(navigationController: navigationController)
-        self.childCoordinators.append(coordinator)
-        coordinator.start()
+    func login() {
+        print("login")
+        self.finish(next: .main)
     }
     
 }
