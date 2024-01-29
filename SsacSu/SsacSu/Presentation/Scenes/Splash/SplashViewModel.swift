@@ -10,41 +10,39 @@ import Foundation
 import RxSwift
 
 protocol SplashViewModelDelegate {
-    func showOnboardingView()
-    func showWorkspaceView()
+    func logout()
+    func login()
 }
 
 class SplashViewModel {
     
     var delegate: SplashViewModelDelegate?
     
-    private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
-    
-    init(workspaceRepository: WorkspaceRepository) {
-        self.workspaceRepository = workspaceRepository
-    }
     
     func showAppropriateView() {
         guard Token.shared.load(account: .accessToken) != nil else {
-            delegate?.showOnboardingView()
+            delegate?.logout()
             return
         }
         
         Observable.just(())
-            .flatMap { self.workspaceRepository.fetchWorkspace() }
-            .subscribe(with: self) { owner, result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    owner.delegate?.showWorkspaceView()
-                    
-                case .failure(let error):
-                    print("워크스페이스 조회실패", error)
-                    owner.delegate?.showOnboardingView()
+            .subscribe(with: self) { owner, _ in
+                AuthManager.shared.refreshAccessToken { result in
+                    switch result {
+                    case .success:
+                        owner.delegate?.login()
+                        
+                    case .failure(let error):
+                        guard error == .validToken else {
+                            owner.delegate?.logout()
+                            
+                            return
+                        }
+                        
+                        owner.delegate?.login()
+                    }
                 }
-            } onError: { owner, result in
-                owner.delegate?.showOnboardingView()
             }
             .disposed(by: disposeBag)
     }

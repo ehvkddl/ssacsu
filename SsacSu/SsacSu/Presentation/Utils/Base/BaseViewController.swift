@@ -38,7 +38,7 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .Brand.black
         
         guard let bar = navigationController,
-                bar.isNavigationBarHidden == true else { return }
+                bar.isNavigationBarHidden == false else { return }
         
         let divider = Divider()
         

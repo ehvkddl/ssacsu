@@ -38,12 +38,7 @@ final class AppDIContainer {
     }
     
     func makeSplashViewModel() -> SplashViewModel {
-        let container = makeWorkspaceSceneDIContainer()
-        let repository = container.getWorkspaceRepository()
-        
-        return SplashViewModel(
-            workspaceRepository: repository
-        )
+        return SplashViewModel()
     }
     
     func makeSplashCoordinator(navigationController: UINavigationController) -> SplashCoordinator {
