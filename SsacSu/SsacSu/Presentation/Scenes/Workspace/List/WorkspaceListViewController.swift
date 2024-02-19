@@ -12,6 +12,8 @@ import RxSwift
 
 class WorkspaceListViewController: BaseViewController {
     
+    var vm: WorkspaceListViewModel!
+    
     let backgroundView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -55,10 +57,42 @@ class WorkspaceListViewController: BaseViewController {
                               title: "도움말",
                               style: .custom)
     
+    static func create(
+        with viewModel: WorkspaceListViewModel
+    ) -> WorkspaceListViewController {
+        let view = WorkspaceListViewController()
+        view.vm = viewModel
+        return view
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .clear
+        
+        bind()
+    }
+    
+    func bind() {
+        let input = WorkspaceListViewModel.Input(
+            backgroundTapGesture: backgroundTapGesture.rx.event,
+            itemSelected: tableView.rx.itemSelected,
+            modelSelected: tableView.rx.modelSelected(Workspace.self)
+        )
+        let output = vm.transform(input: input)
+        
+        output.workspaceList
+            .bind(to: tableView.rx.items) { tableView, row, element in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkspaceListTableViewCell.description()) as? WorkspaceListTableViewCell else { return UITableViewCell() }
+
+                cell.selectionStyle = .none
+                
+                cell.nameLabel.text = element.name
+                cell.createdAtLabel.text = DateFormatter.dateWithDots.string(from: element.createdAt)
+                
+                return cell
+            }
+            .disposed(by: disposeBag)
     }
     
     override func configureView() {

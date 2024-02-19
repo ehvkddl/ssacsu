@@ -43,6 +43,19 @@ final class WorkspaceSceneDIContainer {
         )
     }
     
+    // MARK: List
+    func makeWorkspaceListViewController() -> WorkspaceListViewController {
+        return WorkspaceListViewController.create(
+            with: makeWorkspaceListViewModel()
+        )
+    }
+    
+    func makeWorkspaceListViewModel() -> WorkspaceListViewModel {
+        return WorkspaceListViewModel(
+            workspaceRepository: getWorkspaceRepository()
+        )
+    }
+    
     // MARK: - Repositories
     func getWorkspaceRepository() -> WorkspaceRepository {
         return WorkspaceRepositoryImpl(networkService: dependencies.networkService)

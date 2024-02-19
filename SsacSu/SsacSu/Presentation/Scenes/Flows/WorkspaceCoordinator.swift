@@ -39,4 +39,18 @@ extension WorkspaceCoordinator {
         self.navigationController.viewControllers = [viewController]
     }
     
+extension WorkspaceCoordinator {
+    
+    func showWorkspaceListView() {
+        let viewController = workspaceSceneDIContainer.makeWorkspaceListViewController()
+        viewController.modalPresentationStyle = .overFullScreen
+        
+        self.navigationController.isNavigationBarHidden = true
+        self.navigationController.present(viewController, animated: true) {
+            viewController.backgroundView.backgroundColor = .View.alpha
+        }
+    }
+    
+    }
+    
 }

@@ -57,6 +57,7 @@
 		EA922DDD2B68454500D5A0A3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DDC2B68454500D5A0A3 /* Coordinator.swift */; };
 		EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DDF2B69791200D5A0A3 /* WorkspaceListViewController.swift */; };
 		EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE22B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift */; };
+		EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
@@ -157,6 +158,7 @@
 		EA922DDC2B68454500D5A0A3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EA922DDF2B69791200D5A0A3 /* WorkspaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewController.swift; sourceTree = "<group>"; };
 		EA922DE22B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListTableViewCell.swift; sourceTree = "<group>"; };
+		EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewModel.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
+				EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */,
 				EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EA922DDD2B68454500D5A0A3 /* Coordinator.swift in Sources */,
