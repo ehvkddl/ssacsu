@@ -46,9 +46,11 @@ extension WorkspaceCoordinator: WorkspaceHomeViewModelDelegate {
     
 }
 
+extension WorkspaceCoordinator: workspaceListViewModelDelegate {
     
     func showWorkspaceListView() {
         let viewController = workspaceSceneDIContainer.makeWorkspaceListViewController()
+        viewController.vm.delegate = self
         viewController.modalPresentationStyle = .overFullScreen
         
         self.navigationController.isNavigationBarHidden = true
@@ -57,6 +59,8 @@ extension WorkspaceCoordinator: WorkspaceHomeViewModelDelegate {
         }
     }
     
+    func closeWorkspaceList() {
+        navigationController.dismiss(animated: true)
     }
     
 }
