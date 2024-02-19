@@ -35,6 +35,6 @@ extension ChannelResponseDTO {
                      description: description,
                      ownerID: ownerID,
                      isPrivate: isPrivate == 0 ? false : true,
-                     createdAt: DateFormatter.ssacsuDateFormatter.date(from: createdAt) ?? Date())
+                     createdAt: DateFormatter.iso8601.date(from: createdAt) ?? Date())
     }
 }

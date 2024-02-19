@@ -5,11 +5,15 @@
 //  Created by do hee kim on 2024/01/23.
 //
 
-import Foundation
+import UIKit
 
 import RxCocoa
 import RxDataSources
 import RxSwift
+
+protocol WorkspaceHomeViewModelDelegate {
+    func navigationBarTapped()
+}
 
 enum WorkspaceSectionType {
     case channel
@@ -51,6 +55,9 @@ extension WorkspaceSection: SectionModelType {
 
 class WorkspaceHomeViewModel: ViewModelType {
     
+    var workspaceID = BehaviorSubject<Int?>(value: nil)
+    var delegate: WorkspaceHomeViewModelDelegate?
+    
     private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
     
@@ -60,6 +67,7 @@ class WorkspaceHomeViewModel: ViewModelType {
     
     struct Input {
         let createWorkspaceButtonTapped: ControlEvent<Void>
+        let navigationBarTapped: ControlEvent<UITapGestureRecognizer>
         let itemSelected: ControlEvent<IndexPath>
         let modelSelected: ControlEvent<WorkspaceSectionItem>
     }
@@ -75,6 +83,14 @@ class WorkspaceHomeViewModel: ViewModelType {
         let dmsItems = PublishSubject<[WorkspaceSectionItem]>()
         
         let workspaceSections = PublishRelay<[WorkspaceSection]>()
+        
+        input.navigationBarTapped
+            .subscribe(with: self) { owner, _ in
+                print("워크스페이스 리스트로 보여줘용")
+                
+                owner.delegate?.navigationBarTapped()
+            }
+            .disposed(by: disposeBag)
         
         Observable.combineLatest(channelItems, dmsItems)
             .map { channelItems, dmsItems in
@@ -92,15 +108,32 @@ class WorkspaceHomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         // 채널 정보
-        Observable.just(182)
+        workspaceID
+            .compactMap { $0 }
+            .map { id in
+                UserDefaults.standard.set(id, forKey: "WorkspaceID")
+                
+                return id
+            }
             .flatMap { self.workspaceRepository.fetchSingleWorkspace(id: $0) }
-            .debug()
             .subscribe { result in
-                dump(result)
                 switch result {
                 case .success(let response):
                     workspace.onNext(response.toDomain())
                     
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        workspaceID
+            .filter { $0 == nil }
+            .flatMap { _ in self.workspaceRepository.fetchWorkspace() }
+            .subscribe(with: self) { owner, result in
+                switch result {
+                case .success(let success):
+                    owner.workspaceID.onNext(success.first?.workspaceID)
                 case .failure(let error):
                     print(error)
                 }
@@ -162,6 +195,14 @@ class WorkspaceHomeViewModel: ViewModelType {
             workspace: workspace,
             workspaceSections: workspaceSections
         )
+    }
+    
+}
+
+extension WorkspaceHomeViewModel {
+    
+    func updateWorkspace(workspaceID: Int?) {
+        self.workspaceID.onNext(workspaceID)
     }
     
 }

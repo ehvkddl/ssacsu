@@ -55,6 +55,9 @@
 		EA922DD92B682FAC00D5A0A3 /* TabBarDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DD82B682FAC00D5A0A3 /* TabBarDIContainer.swift */; };
 		EA922DDB2B683F8500D5A0A3 /* WorkspaceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DDA2B683F8500D5A0A3 /* WorkspaceCoordinator.swift */; };
 		EA922DDD2B68454500D5A0A3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DDC2B68454500D5A0A3 /* Coordinator.swift */; };
+		EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DDF2B69791200D5A0A3 /* WorkspaceListViewController.swift */; };
+		EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE22B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift */; };
+		EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
 		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
@@ -153,6 +156,9 @@
 		EA922DD82B682FAC00D5A0A3 /* TabBarDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDIContainer.swift; sourceTree = "<group>"; };
 		EA922DDA2B683F8500D5A0A3 /* WorkspaceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCoordinator.swift; sourceTree = "<group>"; };
 		EA922DDC2B68454500D5A0A3 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EA922DDF2B69791200D5A0A3 /* WorkspaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewController.swift; sourceTree = "<group>"; };
+		EA922DE22B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListTableViewCell.swift; sourceTree = "<group>"; };
+		EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewModel.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -295,6 +301,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		EA922DDE2B6978EB00D5A0A3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				EA922DE12B699A2000D5A0A3 /* Cell */,
+				EA922DDF2B69791200D5A0A3 /* WorkspaceListViewController.swift */,
+				EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		EA922DE12B699A2000D5A0A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA922DE22B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +381,7 @@
 			children = (
 				EA922D892B5EB25400D5A0A3 /* Initial */,
 				EA922D952B5ED3AA00D5A0A3 /* Home */,
+				EA922DDE2B6978EB00D5A0A3 /* List */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -752,9 +777,11 @@
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */,
+				EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
 				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
+				EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */,
 				EA922D8E2B5EBAB400D5A0A3 /* SplashViewController.swift in Sources */,
 				EAFCB62F2B546727004DA2CD /* SelectSignInMethodViewModel.swift in Sources */,
 				EA922DDD2B68454500D5A0A3 /* Coordinator.swift in Sources */,
@@ -768,6 +795,7 @@
 				EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */,
+				EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,

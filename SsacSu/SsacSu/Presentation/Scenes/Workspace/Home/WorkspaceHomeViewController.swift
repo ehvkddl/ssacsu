@@ -28,8 +28,10 @@ class WorkspaceHomeViewController: BaseViewController {
         let lbl = UILabel()
         lbl.text = "No Workspace"
         lbl.font = SSFont.style(.title1)
+        lbl.isUserInteractionEnabled = true
         return lbl
     }()
+    let recognizer = UITapGestureRecognizer()
     
     let profileImage = {
         let img = UIImageView()
@@ -74,12 +76,15 @@ class WorkspaceHomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        workspaceName.addGestureRecognizer(recognizer)
+        
         bind()
     }
     
     func bind() {
         let input = WorkspaceHomeViewModel.Input(
             createWorkspaceButtonTapped: emptyView.createWorkspaceButton.rx.tap,
+            navigationBarTapped: recognizer.rx.event,
             itemSelected: workspaceCollectionView.rx.itemSelected,
             modelSelected: workspaceCollectionView.rx.modelSelected(WorkspaceSectionItem.self)
         )
@@ -87,16 +92,21 @@ class WorkspaceHomeViewController: BaseViewController {
         
         output.workspace
             .subscribe(with: self) { owner, workspace in
-                guard workspace != nil else {
+                guard let workspace else {
                     print("워크스페이스 없다")
+                    owner.workspaceName.text = "No Workspace"
+                    
                     owner.emptyView.rx.isHidden.onNext(false)
                     owner.workspaceCollectionView.rx.isHidden.onNext(true)
+                    
                     return
                 }
                 
                 print("워크스페이스 있다")
                 owner.emptyView.rx.isHidden.onNext(true)
                 owner.workspaceCollectionView.rx.isHidden.onNext(false)
+                
+                owner.workspaceName.text = workspace.name
             }
             .disposed(by: disposeBag)
         
