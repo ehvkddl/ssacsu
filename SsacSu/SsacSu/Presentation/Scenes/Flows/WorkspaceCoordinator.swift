@@ -30,16 +30,22 @@ class WorkspaceCoordinator: Coordinator {
     
 }
 
-extension WorkspaceCoordinator {
+extension WorkspaceCoordinator: WorkspaceHomeViewModelDelegate {
     
     func showWorkspaceHomeView() {
         let viewController = workspaceSceneDIContainer.makeWorkspaceHomeViewController()
+        viewController.vm.delegate = self
         
         self.navigationController.isNavigationBarHidden = true
         self.navigationController.viewControllers = [viewController]
     }
     
-extension WorkspaceCoordinator {
+    func navigationBarTapped() {
+        showWorkspaceListView()
+    }
+    
+}
+
     
     func showWorkspaceListView() {
         let viewController = workspaceSceneDIContainer.makeWorkspaceListViewController()

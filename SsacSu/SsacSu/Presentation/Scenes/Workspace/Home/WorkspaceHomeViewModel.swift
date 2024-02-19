@@ -5,11 +5,15 @@
 //  Created by do hee kim on 2024/01/23.
 //
 
-import Foundation
+import UIKit
 
 import RxCocoa
 import RxDataSources
 import RxSwift
+
+protocol WorkspaceHomeViewModelDelegate {
+    func navigationBarTapped()
+}
 
 enum WorkspaceSectionType {
     case channel
@@ -51,6 +55,8 @@ extension WorkspaceSection: SectionModelType {
 
 class WorkspaceHomeViewModel: ViewModelType {
     
+    var delegate: WorkspaceHomeViewModelDelegate?
+    
     private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
     
@@ -60,6 +66,7 @@ class WorkspaceHomeViewModel: ViewModelType {
     
     struct Input {
         let createWorkspaceButtonTapped: ControlEvent<Void>
+        let navigationBarTapped: ControlEvent<UITapGestureRecognizer>
         let itemSelected: ControlEvent<IndexPath>
         let modelSelected: ControlEvent<WorkspaceSectionItem>
     }
@@ -75,6 +82,14 @@ class WorkspaceHomeViewModel: ViewModelType {
         let dmsItems = PublishSubject<[WorkspaceSectionItem]>()
         
         let workspaceSections = PublishRelay<[WorkspaceSection]>()
+        
+        input.navigationBarTapped
+            .subscribe(with: self) { owner, _ in
+                print("워크스페이스 리스트로 보여줘용")
+                
+                owner.delegate?.navigationBarTapped()
+            }
+            .disposed(by: disposeBag)
         
         Observable.combineLatest(channelItems, dmsItems)
             .map { channelItems, dmsItems in
