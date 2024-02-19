@@ -19,6 +19,13 @@ final class WorkspaceSceneDIContainer {
         self.dependencies = dependencies
     }
     
+    func makeChattingSceneDIContainer() -> ChattingSceneDIContainer {
+        let dependencies = ChattingSceneDIContainer.Dependencies(
+            networkService: dependencies.networkService
+        )
+        return ChattingSceneDIContainer(dependencies: dependencies)
+    }
+    
     // MARK: - Initial
     func makeWorkspaceInitialViewController() -> WorkspaceInitialViewController {
         WorkspaceInitialViewController.create(

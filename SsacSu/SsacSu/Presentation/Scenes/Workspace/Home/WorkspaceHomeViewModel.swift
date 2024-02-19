@@ -13,6 +13,7 @@ import RxSwift
 
 protocol WorkspaceHomeViewModelDelegate {
     func navigationBarTapped()
+    func channelTapped()
 }
 
 enum WorkspaceSectionType {
@@ -186,8 +187,10 @@ class WorkspaceHomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         Observable.zip(input.itemSelected, input.modelSelected)
-            .subscribe { indexPath, model in
+            .subscribe { [unowned self] indexPath, model in
                 print("[cell click]", indexPath, model)
+                
+                delegate?.channelTapped()
             }
             .disposed(by: disposeBag)
         

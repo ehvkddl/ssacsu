@@ -107,8 +107,12 @@
 		EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */; };
 		EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */; };
 		EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */; };
+		EAFD0DBE2B837242007906A2 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */; };
+		EAFD0DC02B837E20007906A2 /* ChattingSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */; };
+		EAFD0DC22B837EA2007906A2 /* ChattingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */; };
 		EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */; };
 		EAFD0DC62B8389A2007906A2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC52B8389A2007906A2 /* BaseView.swift */; };
+		EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,8 +211,12 @@
 		EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
+		EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingSceneDIContainer.swift; sourceTree = "<group>"; };
+		EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCoordinator.swift; sourceTree = "<group>"; };
 		EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationBar.swift; sourceTree = "<group>"; };
 		EAFD0DC52B8389A2007906A2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +257,7 @@
 				EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */,
 				EA922DD82B682FAC00D5A0A3 /* TabBarDIContainer.swift */,
 				EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */,
+				EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -260,6 +269,7 @@
 				EA922DD42B680ABC00D5A0A3 /* SignCoordinator.swift */,
 				EA922DD62B6813AD00D5A0A3 /* TabCoordinator.swift */,
 				EA922DDA2B683F8500D5A0A3 /* WorkspaceCoordinator.swift */,
+				EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -486,6 +496,7 @@
 				EAE494682B4C6F76007461C0 /* SignUp */,
 				EAE494632B4B91D7007461C0 /* SignIn */,
 				EAB401672B51BBF600C1A14A /* Workspace */,
+				EAFD0DBC2B837211007906A2 /* Chatting */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -646,6 +657,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		EAFD0DBC2B837211007906A2 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */,
+				EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -746,6 +766,7 @@
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */,
+				EAFD0DC02B837E20007906A2 /* ChattingSceneDIContainer.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
@@ -757,6 +778,7 @@
 				EA922DB52B63F0E600D5A0A3 /* DateFormatter+.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
+				EAFD0DC22B837EA2007906A2 /* ChattingCoordinator.swift in Sources */,
 				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
 				EA922DD12B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift in Sources */,
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
@@ -773,6 +795,7 @@
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,
 				EA922DAD2B60511600D5A0A3 /* TokenRefreshDTO.swift in Sources */,
 				EAE4945F2B4B2058007461C0 /* BaseCollectionViewCell.swift in Sources */,
+				EAFD0DBE2B837242007906A2 /* ChattingViewController.swift in Sources */,
 				EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */,
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
 				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
@@ -798,6 +821,7 @@
 				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
+				EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
