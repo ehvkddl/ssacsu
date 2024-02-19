@@ -16,6 +16,7 @@ extension UILabel {
             switch fontStyle {
             case .title1: lineHeight = 30
             case .title2: lineHeight = 20
+            case .navTitle: lineHeight = 24
             case .bodyBold: lineHeight = 18
             case .body: lineHeight = 18
             case .caption: lineHeight = 18

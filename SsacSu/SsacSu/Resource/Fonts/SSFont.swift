@@ -10,6 +10,7 @@ import UIKit
 enum SSFontStyle {
     case title1
     case title2
+    case navTitle
     case bodyBold
     case body
     case caption
@@ -18,6 +19,7 @@ enum SSFontStyle {
 enum SSFont: String {
     
     case Regular = "SFPro-Regular"
+    case semiBold = "SFPro-Semibold"
     case Bold = "SFPro-Bold"
 
     func of(size: CGFloat) -> UIFont {
@@ -30,6 +32,8 @@ enum SSFont: String {
             return SSFont.Bold.of(size: 22)
         case .title2:
             return SSFont.Bold.of(size: 14)
+        case .navTitle:
+            return SSFont.semiBold.of(size: 17)
         case .bodyBold:
             return SSFont.Bold.of(size: 13)
         case .body:
