@@ -13,7 +13,7 @@ import RxSwift
 
 protocol WorkspaceHomeViewModelDelegate {
     func navigationBarTapped()
-    func channelTapped()
+    func channelTapped(channel: Channel)
 }
 
 enum WorkspaceSectionType {
@@ -190,7 +190,12 @@ class WorkspaceHomeViewModel: ViewModelType {
             .subscribe { [unowned self] indexPath, model in
                 print("[cell click]", indexPath, model)
                 
-                delegate?.channelTapped()
+                switch model {
+                case .channel(let channel):
+                    delegate?.channelTapped(channel: channel)
+                    
+                default: break
+                }
             }
             .disposed(by: disposeBag)
         

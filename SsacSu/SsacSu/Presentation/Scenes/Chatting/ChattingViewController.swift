@@ -37,6 +37,13 @@ final class ChattingViewController: BaseViewController {
             backButtonTapped: navigationBar.leftItem.rx.tap
         )
         let output = vm.transform(input: input)
+        
+        vm.channel
+            .compactMap { $0 }
+            .map { "#\($0.name)" }
+            .asDriver(onErrorJustReturn: "채널명")
+            .drive(navigationBar.title.rx.text)
+            .disposed(by: disposeBag)
     }
     
     override func configureView() {

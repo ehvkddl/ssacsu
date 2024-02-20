@@ -16,6 +16,7 @@ protocol ChattingViewModelDelegate {
 
 final class ChattingViewModel: ViewModelType {
     
+    var channel = BehaviorRelay<Channel?>(value: nil)
     var delegate: ChattingViewModelDelegate?
     
     private let disposeBag = DisposeBag()

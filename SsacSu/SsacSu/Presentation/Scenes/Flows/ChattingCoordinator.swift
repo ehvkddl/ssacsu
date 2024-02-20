@@ -25,6 +25,8 @@ class ChattingCoordinator: Coordinator {
         self.chattingSceneDIContainer = chattingSceneDIContainer
     }
     
+    var channel: Channel?
+    
     func start() {
         showChattingView()
     }
@@ -36,6 +38,9 @@ extension ChattingCoordinator: ChattingViewModelDelegate {
     func showChattingView() {
         let vc = chattingSceneDIContainer.makeChattingViewController()
         vc.vm.delegate = self
+        
+        guard let channel else { return }
+        vc.vm.channel.accept(channel)
         
         vc.hidesBottomBarWhenPushed = true
         
