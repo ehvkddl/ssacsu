@@ -19,6 +19,8 @@ final class ChattingViewModel: ViewModelType {
     var channel = BehaviorRelay<Channel?>(value: nil)
     var delegate: ChattingViewModelDelegate?
     
+    let loginUserID = LoginUser.shared.load()?.userID
+    
     private let disposeBag = DisposeBag()
     
     struct Input {

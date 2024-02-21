@@ -20,6 +20,7 @@ extension UILabel {
             case .bodyBold: lineHeight = 18
             case .body: lineHeight = 18
             case .caption: lineHeight = 18
+            case .timeCaption: lineHeight = 18
             }
             
             font = SSFont.style(fontStyle)

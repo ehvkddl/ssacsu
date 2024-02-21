@@ -14,6 +14,7 @@ enum SSFontStyle {
     case bodyBold
     case body
     case caption
+    case timeCaption
 }
 
 enum SSFont: String {
@@ -40,6 +41,8 @@ enum SSFont: String {
             return SSFont.Regular.of(size: 13)
         case .caption:
             return SSFont.Regular.of(size: 12)
+        case .timeCaption:
+            return SSFont.Regular.of(size: 11)
         }
     }
     

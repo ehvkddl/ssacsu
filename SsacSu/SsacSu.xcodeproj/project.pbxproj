@@ -113,6 +113,11 @@
 		EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */; };
 		EAFD0DC62B8389A2007906A2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC52B8389A2007906A2 /* BaseView.swift */; };
 		EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */; };
+		EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DCA2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift */; };
+		EAFD0DCD2B854298007906A2 /* ChatBubbleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DCC2B854298007906A2 /* ChatBubbleLabel.swift */; };
+		EAFD0DCF2B854858007906A2 /* ChannelChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */; };
+		EAFD0DD12B8549BA007906A2 /* ChannelChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */; };
+		EAFD0DD32B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */; };
 		EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD42B86099D007906A2 /* LoginUser.swift */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +223,11 @@
 		EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationBar.swift; sourceTree = "<group>"; };
 		EAFD0DC52B8389A2007906A2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		EAFD0DCA2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChattingBubbleTableViewCell.swift; sourceTree = "<group>"; };
+		EAFD0DCC2B854298007906A2 /* ChatBubbleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleLabel.swift; sourceTree = "<group>"; };
+		EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatDTO.swift; sourceTree = "<group>"; };
+		EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChat.swift; sourceTree = "<group>"; };
+		EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		EAFD0DD42B86099D007906A2 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -387,6 +397,7 @@
 				EA922DB22B63D59900D5A0A3 /* Workspace.swift */,
 				EA922DC72B656E0F00D5A0A3 /* User.swift */,
 				EA922DC52B656E0400D5A0A3 /* Channel.swift */,
+				EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */,
 				EA922DCA2B658C6600D5A0A3 /* Dms.swift */,
 			);
 			path = Entities;
@@ -571,6 +582,7 @@
 				EAE4946C2B4C7EDD007461C0 /* SSTextField.swift */,
 				EAE494662B4C618C007461C0 /* Divider.swift */,
 				EA922DCE2B668BDE00D5A0A3 /* UnreadLabel.swift */,
+				EAFD0DCC2B854298007906A2 /* ChatBubbleLabel.swift */,
 				EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */,
 			);
 			path = Components;
@@ -655,6 +667,7 @@
 				EA922DB62B6431F300D5A0A3 /* WorkspaceDTO.swift */,
 				EA922DC32B656CD100D5A0A3 /* UserDTO.swift */,
 				EA922DC12B656CB800D5A0A3 /* ChannelDTO.swift */,
+				EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */,
 				EA922DAC2B60511600D5A0A3 /* TokenRefreshDTO.swift */,
 			);
 			path = Network;
@@ -663,10 +676,20 @@
 		EAFD0DBC2B837211007906A2 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				EAFD0DC92B853F37007906A2 /* Cell */,
 				EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */,
 				EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */,
 			);
 			path = Chatting;
+			sourceTree = "<group>";
+		};
+		EAFD0DC92B853F37007906A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0DCA2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift */,
+				EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -766,7 +789,9 @@
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */,
 				EA922DC02B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift in Sources */,
+				EAFD0DD12B8549BA007906A2 /* ChannelChat.swift in Sources */,
 				EAFCB6462B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift in Sources */,
+				EAFD0DCD2B854298007906A2 /* ChatBubbleLabel.swift in Sources */,
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */,
@@ -822,6 +847,7 @@
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
 				EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */,
 				EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */,
+				EAFD0DD32B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift in Sources */,
 				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
@@ -834,6 +860,7 @@
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
+				EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */,
 				EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */,
@@ -852,6 +879,7 @@
 				EA922DB32B63D59900D5A0A3 /* Workspace.swift in Sources */,
 				EA922DD72B6813AD00D5A0A3 /* TabCoordinator.swift in Sources */,
 				EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */,
+				EAFD0DCF2B854858007906A2 /* ChannelChatDTO.swift in Sources */,
 				EA922D9B2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
