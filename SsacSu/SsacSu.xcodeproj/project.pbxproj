@@ -113,6 +113,7 @@
 		EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */; };
 		EAFD0DC62B8389A2007906A2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC52B8389A2007906A2 /* BaseView.swift */; };
 		EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */; };
+		EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD42B86099D007906A2 /* LoginUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +218,7 @@
 		EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationBar.swift; sourceTree = "<group>"; };
 		EAFD0DC52B8389A2007906A2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		EAFD0DD42B86099D007906A2 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +432,7 @@
 			children = (
 				EAB401762B5304AD00C1A14A /* Validation.swift */,
 				EA922D7C2B5E605A00D5A0A3 /* Token.swift */,
+				EAFD0DD42B86099D007906A2 /* LoginUser.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */,
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,

@@ -63,6 +63,13 @@ class SelectSignInMethodViewModel: ViewModelType {
                     Token.shared.save(account: .accessToken, value: token.accessToken)
                     Token.shared.save(account: .refreshToken, value: token.refreshToken)
                     
+                    let user = User(userID: response.userID,
+                                    email: response.email,
+                                    nickname: response.nickname,
+                                    profileImage: response.profileImage)
+                    
+                    LoginUser.shared.store(value: user)
+                    
                 case .failure(let error):
                     guard error == .authenticationFailure else { return }
 
@@ -88,6 +95,13 @@ class SelectSignInMethodViewModel: ViewModelType {
                     
                     Token.shared.save(account: .accessToken, value: token.accessToken)
                     Token.shared.save(account: .refreshToken, value: token.refreshToken)
+                    
+                    let user = User(userID: response.userID,
+                                    email: response.email,
+                                    nickname: response.nickname,
+                                    profileImage: response.profileImage)
+                    
+                    LoginUser.shared.store(value: user)
                     
                 case .failure(let error):
                     guard error == .authenticationFailure else { return }
