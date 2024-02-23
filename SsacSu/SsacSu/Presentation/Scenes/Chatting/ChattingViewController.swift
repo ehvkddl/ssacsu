@@ -85,6 +85,8 @@ final class ChattingViewController: BaseViewController {
     
     func bind() {
         let input = ChattingViewModel.Input(
+            chat: textView.rx.text.orEmpty,
+            sendButtonTapped: sendButton.rx.tap,
             backButtonTapped: navigationBar.leftItem.rx.tap
         )
         let output = vm.transform(input: input)
@@ -122,6 +124,16 @@ final class ChattingViewController: BaseViewController {
             }
         }
         .disposed(by: disposeBag)
+        
+        output.scrollToBottom
+            .bind(with: self) { owner, _ in
+                owner.chatTableView.scrollToRow(at: IndexPath(row: output.chats.value.count - 1, section: 0), at: .none, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        output.textViewText
+            .bind(to: textView.rx.text)
+            .disposed(by: disposeBag)
         
         textView.rx.didChange
             .bind(with: self) { owner, _ in

@@ -27,11 +27,14 @@ struct ChannelChatResponseDTO: Decodable {
     }
 }
 
+struct ChannelChatRequestDTO: Codable {
+    let content: String?
+    let files: [Data]?
+}
+
 extension ChannelChatResponseDTO {
     func toDomain() -> ChannelChat {
-        return .init(channelId: channelId,
-                     channelName: channelName,
-                     chatId: chatId,
+        return .init(chatId: chatId,
                      content: content,
                      createdAt: DateFormatter.iso8601.date(from: createdAt) ?? Date(),
                      files: files,

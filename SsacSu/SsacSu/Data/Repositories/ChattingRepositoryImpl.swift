@@ -58,7 +58,31 @@ extension ChattingRepositoryImpl: ChattingRepository {
 
     }
     
+    func createChat(of channelID: Int, chat: ChannelChatRequestDTO, completion: @escaping (ChannelChat) -> Void) {
+        guard let channel = realmManager.fetchSingleChannel(of: channelID) else {
+            print("#### 채널 정보 없음")
+            return
+        }
+        
+        networkService.processResponse(
+            api: .channel(.createChat(workspaceID: channel.workspaceID,
+                                      channelName: channel.name,
+                                      chat: chat)),
+            responseType: ChannelChatResponseDTO.self) { [unowned self] response in
+            switch response {
+            case .success(let success):
+                print(success)
+                
+                realmManager.addChat(to: channelID, success)
+                
+                completion(success.toDomain())
+                
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
+    
     
 }
 
