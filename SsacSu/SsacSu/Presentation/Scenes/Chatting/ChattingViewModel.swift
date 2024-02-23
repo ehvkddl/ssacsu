@@ -43,6 +43,8 @@ final class ChattingViewModel: ViewModelType {
                 guard let channel = owner.channel.value else { return }
                 
                 owner.chattingRepository.fetchChat(of: channel.channelID) { response in
+                    chats.accept(response)
+                    scrollToBottom.accept(true)
                 }
             }
             .disposed(by: disposeBag)

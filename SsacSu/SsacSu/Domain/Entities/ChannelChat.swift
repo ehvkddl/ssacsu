@@ -8,8 +8,6 @@
 import Foundation
 
 struct ChannelChat {
-    let channelId: Int
-    let channelName: String
     let chatId: Int
     let content: String?
     let createdAt: Date
