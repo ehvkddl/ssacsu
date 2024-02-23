@@ -9,6 +9,10 @@ import UIKit
 
 final class TabBarDIContainer {
     
+    lazy var realmManager: RealmManager = {
+        return RealmManagerImpl()
+    }()
+    
     struct Dependencies {
         let networkService: NetworkService
     }
@@ -21,6 +25,7 @@ final class TabBarDIContainer {
  
     func makeWorkspaceSceneDIContainer() -> WorkspaceSceneDIContainer {
         let dependencies = WorkspaceSceneDIContainer.Dependencies(
+            realmManager: realmManager,
             networkService: dependencies.networkService
         )
         return WorkspaceSceneDIContainer(dependencies: dependencies)

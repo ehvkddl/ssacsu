@@ -87,6 +87,13 @@ class EmailSignInViewModel: ViewModelType {
                     Token.shared.save(account: .accessToken, value: token.accessToken)
                     Token.shared.save(account: .refreshToken, value: token.refreshToken)
                     
+                    let user = User(userID: response.userID,
+                                    email: response.email,
+                                    nickname: response.nickname,
+                                    profileImage: response.profileImage)
+                    
+                    LoginUser.shared.store(value: user)
+                    
                     // 워크스페이스로 넘어가기
                     print("로그인 성공 메인뷰로 넘어가요옹")
                     owner.delegate?.login()

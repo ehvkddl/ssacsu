@@ -47,6 +47,17 @@ extension WorkspaceCoordinator: WorkspaceHomeViewModelDelegate {
         showWorkspaceListView()
     }
     
+    func channelTapped(channel: Channel) {
+        let container = workspaceSceneDIContainer.makeChattingSceneDIContainer()
+        
+        let coordinator = container.makeChattingCoordinator(navigationController: navigationController)
+        coordinator.channel = channel
+        
+        self.childCoordinators.append(coordinator)
+
+        coordinator.start()
+    }
+    
 }
 
 extension WorkspaceCoordinator: workspaceListViewModelDelegate {
