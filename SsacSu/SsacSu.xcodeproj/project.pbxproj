@@ -125,6 +125,7 @@
 		EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */; };
 		EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */; };
 		EAFD0DEC2B865E64007906A2 /* UserTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEB2B865E64007906A2 /* UserTB.swift */; };
+		EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +240,7 @@
 		EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatTB.swift; sourceTree = "<group>"; };
 		EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTB.swift; sourceTree = "<group>"; };
 		EAFD0DEB2B865E64007906A2 /* UserTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTB.swift; sourceTree = "<group>"; };
+		EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +379,7 @@
 				EA922DA22B60010400D5A0A3 /* BaseAPI.swift */,
 				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
 				EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */,
+				EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
+				EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,

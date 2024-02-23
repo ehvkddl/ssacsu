@@ -13,6 +13,7 @@ import Moya
 enum API {
     case user(UserAPI)
     case workspace(WorkspaceAPI)
+    case channel(ChannelAPI)
 }
 
 protocol NetworkService {
@@ -23,12 +24,15 @@ protocol NetworkService {
 class NetworkServiceImpl: NetworkService {
     let userProvider: MoyaProvider<UserAPI>
     let workspaceProvider: MoyaProvider<WorkspaceAPI>
+    let channelProvider: MoyaProvider<ChannelAPI>
 
     init(userProvider: MoyaProvider<UserAPI>,
-         workspaceProvider: MoyaProvider<WorkspaceAPI>
+         workspaceProvider: MoyaProvider<WorkspaceAPI>,
+         channelProvider: MoyaProvider<ChannelAPI>
     ) {
         self.userProvider = userProvider
         self.workspaceProvider = workspaceProvider
+        self.channelProvider = channelProvider
     }
 }
 
@@ -107,6 +111,8 @@ extension NetworkServiceImpl {
                 self.request(userAPI, single: single, responseType: responseType)
             case .workspace(let workspaceAPI):
                 self.request(workspaceAPI, single: single, responseType: responseType)
+            case .channel(let channelAPI):
+                self.request(channelAPI, single: single, responseType: responseType)
             }
             
             return Disposables.create()
@@ -165,6 +171,8 @@ extension NetworkServiceImpl {
             return userProvider as! MoyaProvider<T>
         case is WorkspaceAPI:
             return workspaceProvider as! MoyaProvider<T>
+        case is ChannelAPI:
+            return channelProvider as! MoyaProvider<T>
         default:
             fatalError("Unsupported type")
         }
