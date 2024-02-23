@@ -11,15 +11,6 @@ import RxCocoa
 import RxSwift
 
 final class ChattingViewController: BaseViewController {
-
-    let chatDummy: [ChannelChat] = [
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "안녕하세요", createdAt: Date(), files: [], user: User(userID: 100, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil)),
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "반갑습니다~", createdAt: Date(timeIntervalSinceNow: 1), files: [], user: User(userID: 200, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil)),
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "저희 수료식이 언제였죠? 1/20 맞나요? 영등포 캠퍼스가 어디에 있었죠?", createdAt: Date(timeIntervalSinceNow: 1), files: [], user: User(userID: 200, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil)),
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "방가방가", createdAt: Date(timeIntervalSinceNow: 1), files: [], user: User(userID: 100, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil)),
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "잘부탁드려요", createdAt: Date(timeIntervalSinceNow: 2), files: [], user: User(userID: 100, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil)),
-        ChannelChat(channelId: 348, channelName: "일반", chatId: 5265, content: "문래역 근처 맛집 추천 받습니다~ 창작촌이 있어서 생각보다 맛집 많을거 같은데 막상 어디를 가야할지 잘 모르겠.. 맛잘알 계신가요?", createdAt: Date(timeIntervalSinceNow: 2), files: [], user: User(userID: 100, email: "chap@sesac.com", nickname: "찹쌀", profileImage: nil))
-    ]
     
     var vm: ChattingViewModel!
     
@@ -105,8 +96,7 @@ final class ChattingViewController: BaseViewController {
             .drive(navigationBar.title.rx.text)
             .disposed(by: disposeBag)
         
-        let chats: Observable<[ChannelChat]> = Observable.of(chatDummy)
-        chats.bind(to: chatTableView.rx.items) { [unowned self] (tableView, indexPath, element) -> UITableViewCell in
+        output.chats.bind(to: chatTableView.rx.items) { [unowned self] (tableView, row, element) -> UITableViewCell in
             let loginUserID = vm.loginUserID
             let chatUserID = element.user.userID
             

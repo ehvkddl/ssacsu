@@ -13,7 +13,8 @@ final class AppDIContainer {
     lazy var networkService: NetworkService = {
         return NetworkServiceImpl(
             userProvider: getUserProvider(),
-            workspaceProvider: getWorkspaceProvider()
+            workspaceProvider: getWorkspaceProvider(),
+            channelProvider: getChannelProvider()
         )
     }()
 
@@ -57,6 +58,14 @@ final class AppDIContainer {
         let accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
         
         return MoyaProvider<WorkspaceAPI>(
+            session: Session(interceptor: accessTokenRefreshInterceptor)
+        )
+    }
+    
+    func getChannelProvider() -> MoyaProvider<ChannelAPI> {
+        let accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
+        
+        return MoyaProvider<ChannelAPI>(
             session: Session(interceptor: accessTokenRefreshInterceptor)
         )
     }

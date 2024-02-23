@@ -10,6 +10,7 @@ import UIKit
 final class ChattingSceneDIContainer {
     
     struct Dependencies {
+        let realmManager: RealmManager
         let networkService: NetworkService
     }
     
@@ -27,7 +28,17 @@ final class ChattingSceneDIContainer {
     }
     
     func makeChattingViewModel() -> ChattingViewModel {
-        return ChattingViewModel()
+        return ChattingViewModel(
+            chattingRepository: getChattingRepository()
+        )
+    }
+    
+    // MARK: - Repositories
+    func getChattingRepository() -> ChattingRepository {
+        return ChattingRepositoryImpl(
+            realmManager: dependencies.realmManager,
+            networkService: dependencies.networkService
+        )
     }
     
     // MARK: - Flow Coordinators

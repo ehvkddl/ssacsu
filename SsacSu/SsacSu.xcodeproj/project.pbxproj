@@ -125,6 +125,8 @@
 		EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */; };
 		EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */; };
 		EAFD0DEC2B865E64007906A2 /* UserTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEB2B865E64007906A2 /* UserTB.swift */; };
+		EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */; };
+		EAFD0DF02B866B67007906A2 /* ChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */; };
 		EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +242,8 @@
 		EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatTB.swift; sourceTree = "<group>"; };
 		EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTB.swift; sourceTree = "<group>"; };
 		EAFD0DEB2B865E64007906A2 /* UserTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTB.swift; sourceTree = "<group>"; };
+		EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepositoryImpl.swift; sourceTree = "<group>"; };
+		EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepository.swift; sourceTree = "<group>"; };
 		EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +276,7 @@
 				EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */,
 				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
 				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
+				EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 			children = (
 				EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */,
 				EAE4942B2B473381007461C0 /* App */,
+				EAFD0DE22B863744007906A2 /* Database */,
 				EAB401512B4DE9B400C1A14A /* Network */,
 				EAB401542B4DEB9400C1A14A /* Data */,
 				EAB4015F2B4EF7E500C1A14A /* Domain */,
@@ -665,6 +671,7 @@
 				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */,
 				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
 				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
+				EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -865,6 +872,7 @@
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */,
 				EAFD0DC02B837E20007906A2 /* ChattingSceneDIContainer.swift in Sources */,
+				EAFD0DF02B866B67007906A2 /* ChattingRepository.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
@@ -884,6 +892,7 @@
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
 				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
 				EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */,
+				EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
