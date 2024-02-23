@@ -121,6 +121,10 @@
 		EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD42B86099D007906A2 /* LoginUser.swift */; };
 		EAFD0DD82B862D8D007906A2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0DD72B862D8D007906A2 /* Realm */; };
 		EAFD0DDA2B862D8D007906A2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0DD92B862D8D007906A2 /* RealmSwift */; };
+		EAFD0DE42B863AE2007906A2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE32B863AE2007906A2 /* RealmManager.swift */; };
+		EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */; };
+		EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */; };
+		EAFD0DEC2B865E64007906A2 /* UserTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEB2B865E64007906A2 /* UserTB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +235,10 @@
 		EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChat.swift; sourceTree = "<group>"; };
 		EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingBubbleTableViewCell.swift; sourceTree = "<group>"; };
 		EAFD0DD42B86099D007906A2 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		EAFD0DE32B863AE2007906A2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatTB.swift; sourceTree = "<group>"; };
+		EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTB.swift; sourceTree = "<group>"; };
+		EAFD0DEB2B865E64007906A2 /* UserTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +384,7 @@
 		EAB401542B4DEB9400C1A14A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EAFD0DE12B863732007906A2 /* Database */,
 				EAFCB6362B547628004DA2CD /* Network */,
 				EAFCB6332B54699B004DA2CD /* Repositories */,
 			);
@@ -728,6 +737,24 @@
 			path = Channel;
 			sourceTree = "<group>";
 		};
+		EAFD0DE12B863732007906A2 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */,
+				EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */,
+				EAFD0DEB2B865E64007906A2 /* UserTB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		EAFD0DE22B863744007906A2 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0DE32B863AE2007906A2 /* RealmManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -867,10 +894,12 @@
 				EA922D8B2B5EBA2C00D5A0A3 /* SplashCoordinator.swift in Sources */,
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
 				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
+				EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */,
 				EA922DDB2B683F8500D5A0A3 /* WorkspaceCoordinator.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
 				EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */,
 				EA922D792B59C2A500D5A0A3 /* KakaoLoginRepository.swift in Sources */,
+				EAFD0DEC2B865E64007906A2 /* UserTB.swift in Sources */,
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */,
@@ -890,6 +919,7 @@
 				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
 				EAB401692B51BC6300C1A14A /* WorkspaceInitialViewController.swift in Sources */,
+				EAFD0DE42B863AE2007906A2 /* RealmManager.swift in Sources */,
 				EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */,
@@ -914,6 +944,7 @@
 				EA922DB72B6431F300D5A0A3 /* WorkspaceDTO.swift in Sources */,
 				EA922D992B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift in Sources */,
 				EA922DD92B682FAC00D5A0A3 /* TabBarDIContainer.swift in Sources */,
+				EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */,
 				EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */,
 				EA922DB32B63D59900D5A0A3 /* Workspace.swift in Sources */,
 				EA922DD72B6813AD00D5A0A3 /* TabCoordinator.swift in Sources */,
