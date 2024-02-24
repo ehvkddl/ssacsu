@@ -59,10 +59,15 @@ class WorkspaceHomeViewModel: ViewModelType {
     var workspaceID = BehaviorSubject<Int?>(value: nil)
     var delegate: WorkspaceHomeViewModelDelegate?
     
+    private let userRepository: UserRepository
     private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
     
-    init(workspaceRepository: WorkspaceRepository) {
+    init(
+        userRepository: UserRepository,
+        workspaceRepository: WorkspaceRepository
+    ) {
+        self.userRepository = userRepository
         self.workspaceRepository = workspaceRepository
     }
     

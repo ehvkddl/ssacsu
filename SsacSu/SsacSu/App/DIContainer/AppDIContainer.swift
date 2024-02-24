@@ -13,10 +13,13 @@ final class AppDIContainer {
     lazy var networkService: NetworkService = {
         return NetworkServiceImpl(
             signProvider: getSignProvider(),
+            userProvider: getUserProvider(),
             workspaceProvider: getWorkspaceProvider(),
             channelProvider: getChannelProvider()
         )
     }()
+    
+    lazy var accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
 
     // MARK: - DIContainers of scenes
     func makeSignSceneDIContainer() -> SignSceneDIContainer {
@@ -54,17 +57,19 @@ final class AppDIContainer {
         return MoyaProvider<SignAPI>()
     }
     
+    func getUserProvider() -> MoyaProvider<UserAPI> {
+        return MoyaProvider<UserAPI>(
+            session: Session(interceptor: accessTokenRefreshInterceptor)
+        )
+    }
+    
     func getWorkspaceProvider() -> MoyaProvider<WorkspaceAPI> {
-        let accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
-        
         return MoyaProvider<WorkspaceAPI>(
             session: Session(interceptor: accessTokenRefreshInterceptor)
         )
     }
     
     func getChannelProvider() -> MoyaProvider<ChannelAPI> {
-        let accessTokenRefreshInterceptor = getAccessTokenRefreshInterceptor()
-        
         return MoyaProvider<ChannelAPI>(
             session: Session(interceptor: accessTokenRefreshInterceptor)
         )

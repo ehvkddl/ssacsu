@@ -48,6 +48,7 @@ final class WorkspaceSceneDIContainer {
     
     func makeWorkspaceHomeViewModel() -> WorkspaceHomeViewModel {
         return WorkspaceHomeViewModel(
+            userRepository: getUserRepository(),
             workspaceRepository: getWorkspaceRepository()
         )
     }
@@ -66,8 +67,17 @@ final class WorkspaceSceneDIContainer {
     }
     
     // MARK: - Repositories
+    func getUserRepository() -> UserRepository {
+        return UserRepositoryImpl(
+            networkService: dependencies.networkService
+        )
+    }
+    
     func getWorkspaceRepository() -> WorkspaceRepository {
-        return WorkspaceRepositoryImpl(networkService: dependencies.networkService)
+        return WorkspaceRepositoryImpl(
+            realmManager: dependencies.realmManager,
+            networkService: dependencies.networkService
+        )
     }
     
     // MARK: - Flow Coordinators
