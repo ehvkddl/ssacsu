@@ -12,6 +12,6 @@ import RxSwift
 protocol WorkspaceRepository {
     
     func fetchWorkspace() -> Single<Result<WorkspaceList, SsacsuError>>
-    func fetchSingleWorkspace(id: Int) -> Single<Result<WorkspaceResponseDTO, SsacsuError>>
+    func fetchSingleWorkspace(id: Int, completion: @escaping (Workspace) -> Void)
     
 }

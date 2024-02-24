@@ -48,7 +48,7 @@ extension ChattingRepositoryImpl: ChattingRepository {
                 case .success(let success):
                     success.forEach { realmManager.addChat(to: channelID, $0) }
                     
-                    let chats = realmManager.fetchChat(of: channelID)
+                    let chats = realmManager.fetchChat(of: channelID, 30)
                     completion(chats)
                     
                 case .failure(let failure):
@@ -71,6 +71,7 @@ extension ChattingRepositoryImpl: ChattingRepository {
             responseType: ChannelChatResponseDTO.self) { [unowned self] response in
             switch response {
             case .success(let success):
+                print("@@@ 채팅 생성 성공!!")
                 print(success)
                 
                 realmManager.addChat(to: channelID, success)
@@ -78,6 +79,7 @@ extension ChattingRepositoryImpl: ChattingRepository {
                 completion(success.toDomain())
                 
             case .failure(let failure):
+                print("@@@ 채팅 생성 실패!!", failure)
                 print(failure)
             }
         }

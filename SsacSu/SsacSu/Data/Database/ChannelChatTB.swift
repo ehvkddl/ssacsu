@@ -14,15 +14,15 @@ final class ChannelChatTB: Object {
     @Persisted var content: String?
     @Persisted var createdAt: Date
     @Persisted var files: List<String>
+    @Persisted var channel: ChannelTB?
     @Persisted var user: UserTB?
-    
-    @Persisted(originProperty: "channelChats") var channel: LinkingObjects<ChannelTB>
     
     convenience init(
         chatID: Int,
         content: String?,
         createdAt: Date,
         files: List<String>,
+        channel: ChannelTB,
         user: UserTB
     ) {
         self.init()
@@ -31,6 +31,7 @@ final class ChannelChatTB: Object {
         self.content = content
         self.createdAt = createdAt
         self.files = files
+        self.channel = channel
         self.user = user
     }
 }
