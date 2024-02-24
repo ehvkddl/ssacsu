@@ -11,7 +11,7 @@ import RxSwift
 import Moya
 
 enum API {
-    case user(UserAPI)
+    case sign(SignAPI)
     case workspace(WorkspaceAPI)
     case channel(ChannelAPI)
 }
@@ -22,15 +22,15 @@ protocol NetworkService {
 }
 
 class NetworkServiceImpl: NetworkService {
-    let userProvider: MoyaProvider<UserAPI>
+    let signProvider: MoyaProvider<SignAPI>
     let workspaceProvider: MoyaProvider<WorkspaceAPI>
     let channelProvider: MoyaProvider<ChannelAPI>
 
-    init(userProvider: MoyaProvider<UserAPI>,
+    init(signProvider: MoyaProvider<SignAPI>,
          workspaceProvider: MoyaProvider<WorkspaceAPI>,
          channelProvider: MoyaProvider<ChannelAPI>
     ) {
-        self.userProvider = userProvider
+        self.signProvider = signProvider
         self.workspaceProvider = workspaceProvider
         self.channelProvider = channelProvider
     }
@@ -44,8 +44,8 @@ extension NetworkServiceImpl {
         completion: @escaping (Result<U, SsacsuError>) -> Void
     ) {
         switch api {
-        case .user(let userAPI):
-            request(userAPI, responseType: responseType, completion: completion)
+        case .sign(let signAPI):
+            request(signAPI, responseType: responseType, completion: completion)
         case .workspace(let workspaceAPI):
             request(workspaceAPI, responseType: responseType, completion: completion)
         case .channel(let channelAPI):
@@ -107,8 +107,8 @@ extension NetworkServiceImpl {
     ) -> Single<Result<U, SsacsuError>> {
         return Single<Result<U, SsacsuError>>.create { single in
             switch api {
-            case .user(let userAPI):
-                self.request(userAPI, single: single, responseType: responseType)
+            case .sign(let signAPI):
+                self.request(signAPI, single: single, responseType: responseType)
             case .workspace(let workspaceAPI):
                 self.request(workspaceAPI, single: single, responseType: responseType)
             case .channel(let channelAPI):
@@ -167,8 +167,8 @@ extension NetworkServiceImpl {
 
     private func getProvider<T: TargetType>(for target: T) -> MoyaProvider<T> {
         switch target {
-        case is UserAPI:
-            return userProvider as! MoyaProvider<T>
+        case is SignAPI:
+            return signProvider as! MoyaProvider<T>
         case is WorkspaceAPI:
             return workspaceProvider as! MoyaProvider<T>
         case is ChannelAPI:

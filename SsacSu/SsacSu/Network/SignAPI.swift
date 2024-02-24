@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-enum UserAPI {
+enum SignAPI {
     case checkEmailValidation(email: EmailValidationRequestDTO)
     case join(join: JoinRequestDTO)
     case login(login: LoginRequestDTO)
@@ -16,7 +16,7 @@ enum UserAPI {
     case kakaoLogin(login: KakaoLoginRequestDTO)
 }
 
-extension UserAPI: BaseAPI {
+extension SignAPI: BaseAPI {
     
     var path: String {
         switch self {
@@ -24,7 +24,7 @@ extension UserAPI: BaseAPI {
         case .join: return "v1/users/join"
         case .login: return "v2/users/login"
         case .appleLogin: return "v1/users/login/apple"
-        case  .kakaoLogin: return "v1/users/login/kakao"
+        case .kakaoLogin: return "v1/users/login/kakao"
         }
     }
     

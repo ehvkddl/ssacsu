@@ -60,7 +60,7 @@
 		EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
-		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
+		EAB401532B4DEA1200C1A14A /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SignAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
 		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
@@ -182,7 +182,7 @@
 		EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewModel.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		EAB401522B4DEA1200C1A14A /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
 		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepository.swift; sourceTree = "<group>"; };
 		EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
+		EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +276,7 @@
 				EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */,
 				EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */,
 				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
+				EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */,
 				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
 				EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */,
 			);
@@ -382,7 +384,7 @@
 				EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */,
 				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EA922DA22B60010400D5A0A3 /* BaseAPI.swift */,
-				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
+				EAB401522B4DEA1200C1A14A /* SignAPI.swift */,
 				EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */,
 				EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */,
 			);
@@ -670,6 +672,7 @@
 				EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */,
 				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */,
 				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
+				EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */,
 				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
 				EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */,
 			);
@@ -681,7 +684,7 @@
 			children = (
 				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
 				EAFD0DDD2B8634A6007906A2 /* Auth */,
-				EAFD0DDB2B8633FF007906A2 /* User */,
+				EAFD0DDB2B8633FF007906A2 /* Sign */,
 				EAFD0DDC2B863418007906A2 /* Workspace */,
 				EAFD0DDE2B8634B8007906A2 /* Channel */,
 			);
@@ -707,7 +710,7 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		EAFD0DDB2B8633FF007906A2 /* User */ = {
+		EAFD0DDB2B8633FF007906A2 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
 				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
@@ -718,7 +721,7 @@
 				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
 				EA922DC32B656CD100D5A0A3 /* UserDTO.swift */,
 			);
-			path = User;
+			path = Sign;
 			sourceTree = "<group>";
 		};
 		EAFD0DDC2B863418007906A2 /* Workspace */ = {
@@ -861,6 +864,7 @@
 			files = (
 				EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */,
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
+				EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */,
@@ -945,7 +949,7 @@
 				EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */,
-				EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */,
+				EAB401532B4DEA1200C1A14A /* SignAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */,
 				EA922DD52B680ABC00D5A0A3 /* SignCoordinator.swift in Sources */,

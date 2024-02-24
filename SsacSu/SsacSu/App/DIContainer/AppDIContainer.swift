@@ -12,7 +12,7 @@ final class AppDIContainer {
     
     lazy var networkService: NetworkService = {
         return NetworkServiceImpl(
-            userProvider: getUserProvider(),
+            signProvider: getSignProvider(),
             workspaceProvider: getWorkspaceProvider(),
             channelProvider: getChannelProvider()
         )
@@ -50,8 +50,8 @@ final class AppDIContainer {
     }
     
     // MARK: - Providers
-    func getUserProvider() -> MoyaProvider<UserAPI> {
-        return MoyaProvider<UserAPI>()
+    func getSignProvider() -> MoyaProvider<SignAPI> {
+        return MoyaProvider<SignAPI>()
     }
     
     func getWorkspaceProvider() -> MoyaProvider<WorkspaceAPI> {
