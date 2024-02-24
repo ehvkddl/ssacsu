@@ -12,6 +12,7 @@ import Moya
 enum WorkspaceAPI {
     case fetchWorkspace
     case fetchSingleWorkspace(id: Int)
+    case fetchMyChannels(id: Int)
 }
 
 extension WorkspaceAPI: BaseAPI {
@@ -24,18 +25,19 @@ extension WorkspaceAPI: BaseAPI {
         switch self {
         case .fetchWorkspace: return "v1/workspaces"
         case .fetchSingleWorkspace(let id): return "v1/workspaces/\(id)"
+        case .fetchMyChannels(let id): return "v1/workspaces/\(id)/channels/my"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchWorkspace, .fetchSingleWorkspace: return .get
+        case .fetchWorkspace, .fetchSingleWorkspace, .fetchMyChannels: return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .fetchWorkspace, .fetchSingleWorkspace:
+        case .fetchWorkspace, .fetchSingleWorkspace, .fetchMyChannels:
             return .requestPlain
         }
     }

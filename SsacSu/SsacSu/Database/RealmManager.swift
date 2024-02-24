@@ -11,6 +11,7 @@ import RealmSwift
 protocol RealmManager {
     func checkLastDate(of channelID: Int) -> Date?
     func fetchSingleChannel(of channelID: Int) -> ChannelTB?
+    func addChannelInfo(_ channel: Channel)
     func fetchChat(of channelID: Int) -> Results<ChannelChatTB>?
     func fetchChat(of channelID: Int, _ count: Int) -> [ChannelChat]
     func addChat(to channelID: Int, _ item: ChannelChatResponseDTO)
@@ -44,6 +45,28 @@ final class RealmManagerImpl: RealmManager {
         guard let realm else { return nil }
         
         return realm.object(ofType: ChannelTB.self, forPrimaryKey: channelID)
+    }
+    
+    // MARK: - 채널 정보 저장
+    func addChannelInfo(_ channel: Channel) {
+        guard let realm else { return }
+        
+        let channel = ChannelTB(channelID: channel.channelID,
+                                workspaceID: channel.workspaceID,
+                                name: channel.name,
+                                _description: channel.description,
+                                ownerID: channel.ownerID,
+                                isPrivate: channel.isPrivate,
+                                createdAt: channel.createdAt)
+        
+        do {
+            try realm.write {
+                realm.add(channel, update: .modified)
+                print("채널 정보 저장", channel)
+            }
+        } catch {
+            print("채널 정보 저장 실패", error)
+        }
     }
     
     // MARK: - channelID의 채널 모든 채팅 가져오기
