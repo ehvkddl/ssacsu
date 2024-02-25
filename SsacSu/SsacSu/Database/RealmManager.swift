@@ -99,19 +99,11 @@ final class RealmManagerImpl: RealmManager {
         
         let files = List<String>()
         item.files.forEach(files.append)
-        
-        let user: UserTB = {
-            guard let existUser = realm.object(ofType: UserTB.self, forPrimaryKey: item.user.userID) else {
-                return UserTB(userID: item.user.userID,
-                              email: item.user.email,
-                              nickname: item.user.nickname,
-                              profileImage: item.user.profileImage)
-            }
-            
-            return existUser
-        }()
 
-        guard realm.object(ofType: ChannelChatTB.self, forPrimaryKey: item.chatId) == nil else { return }
+        let user = UserTB(userID: item.user.userID,
+                          email: item.user.email,
+                          nickname: item.user.nickname,
+                          profileImage: item.user.profileImage)
         
         let chat = ChannelChatTB(
             chatID: item.chatId,
