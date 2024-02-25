@@ -23,7 +23,7 @@ extension SignRepositoryImpl: SignRepository {
         let request = EmailValidationRequestDTO(email: email)
         
         return networkService.processResponse(
-            api: .user(UserAPI.checkEmailValidation(email: request)),
+            api: .sign(SignAPI.checkEmailValidation(email: request)),
             responseType: nil
         )
     }
@@ -32,7 +32,7 @@ extension SignRepositoryImpl: SignRepository {
         let request = join.toRequest()
         
         return networkService.processResponse(
-            api: .user(UserAPI.join(join: request)),
+            api: .sign(SignAPI.join(join: request)),
             responseType: JoinResponseDTO.self
         )
     }
@@ -41,7 +41,7 @@ extension SignRepositoryImpl: SignRepository {
         let request = login.toRequest()
         
         return networkService.processResponse(
-            api: .user(UserAPI.appleLogin(login: request)),
+            api: .sign(SignAPI.appleLogin(login: request)),
             responseType: AppleLoginResponseDTO.self
         )
     }
@@ -50,7 +50,7 @@ extension SignRepositoryImpl: SignRepository {
         let request = login.toRequest()
         
         return networkService.processResponse(
-            api: .user(UserAPI.kakaoLogin(login: request)),
+            api: .sign(SignAPI.kakaoLogin(login: request)),
             responseType: KakaoLoginResponseDTO.self
         )
     }
@@ -59,7 +59,7 @@ extension SignRepositoryImpl: SignRepository {
         let request = login.toRequest()
         
         return networkService.processResponse(
-            api: .user(UserAPI.login(login: request)),
+            api: .sign(SignAPI.login(login: request)),
             responseType: LoginResponseDTO.self
         )
     }

@@ -59,10 +59,15 @@ class WorkspaceHomeViewModel: ViewModelType {
     var workspaceID = BehaviorSubject<Int?>(value: nil)
     var delegate: WorkspaceHomeViewModelDelegate?
     
+    private let userRepository: UserRepository
     private let workspaceRepository: WorkspaceRepository
     private let disposeBag = DisposeBag()
     
-    init(workspaceRepository: WorkspaceRepository) {
+    init(
+        userRepository: UserRepository,
+        workspaceRepository: WorkspaceRepository
+    ) {
+        self.userRepository = userRepository
         self.workspaceRepository = workspaceRepository
     }
     
@@ -74,11 +79,14 @@ class WorkspaceHomeViewModel: ViewModelType {
     }
     
     struct Output {
+        let profile: PublishRelay<String?>
         let workspace: PublishSubject<Workspace?>
         let workspaceSections: PublishRelay<[WorkspaceSection]>
     }
     
     func transform(input: Input) -> Output {
+        let profile = PublishRelay<String?>()
+        
         let workspace = PublishSubject<Workspace?>()
         let channelItems = PublishSubject<[WorkspaceSectionItem]>()
         let dmsItems = PublishSubject<[WorkspaceSectionItem]>()
@@ -108,22 +116,25 @@ class WorkspaceHomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
-        // 채널 정보
         workspaceID
             .compactMap { $0 }
-            .map { id in
-                UserDefaults.standard.set(id, forKey: "WorkspaceID")
+            .subscribe(with: self) { owner, id in
+                owner.workspaceRepository.fetchSingleWorkspace(id: id) { response in
+                    workspace.onNext(response)
+                }
                 
-                return id
-            }
-            .flatMap { self.workspaceRepository.fetchSingleWorkspace(id: $0) }
-            .subscribe { result in
-                switch result {
-                case .success(let response):
-                    workspace.onNext(response.toDomain())
+                owner.workspaceRepository.fetchMyChannels(id: id) { response in
+                    let items = response
+                        .sorted(by: { lhs, rhs in
+                            lhs.createdAt < rhs.createdAt
+                        })
+                        .map { WorkspaceSectionItem.channel($0) }
                     
-                case .failure(let error):
-                    print(error)
+                    channelItems.onNext(items)
+                }
+                
+                owner.userRepository.fetchMyProfile { response in
+                    profile.accept(response.profileImage)
                 }
             }
             .disposed(by: disposeBag)
@@ -138,24 +149,6 @@ class WorkspaceHomeViewModel: ViewModelType {
                 case .failure(let error):
                     print(error)
                 }
-            }
-            .disposed(by: disposeBag)
-        
-        workspace
-            .compactMap { $0 }
-            .map { $0.channels }
-            .compactMap { $0 }
-            .map { $0.sorted { lhs, rhs in
-                lhs.channelID < rhs.channelID
-            }}
-            .map { $0.map { channel in
-                WorkspaceSectionItem.channel(channel)
-            }}
-            .subscribe { items in
-                var items = items
-                items.append(WorkspaceSectionItem.add(.channel))
-                
-                channelItems.onNext(items)
             }
             .disposed(by: disposeBag)
         
@@ -200,6 +193,7 @@ class WorkspaceHomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         return Output(
+            profile: profile,
             workspace: workspace,
             workspaceSections: workspaceSections
         )

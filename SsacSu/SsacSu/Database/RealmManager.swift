@@ -11,7 +11,9 @@ import RealmSwift
 protocol RealmManager {
     func checkLastDate(of channelID: Int) -> Date?
     func fetchSingleChannel(of channelID: Int) -> ChannelTB?
-    func fetchChat(of channelID: Int) -> [ChannelChat]
+    func addChannelInfo(_ channel: Channel)
+    func fetchChat(of channelID: Int) -> Results<ChannelChatTB>?
+    func fetchChat(of channelID: Int, _ count: Int) -> [ChannelChat]
     func addChat(to channelID: Int, _ item: ChannelChatResponseDTO)
 }
 
@@ -30,11 +32,8 @@ final class RealmManagerImpl: RealmManager {
 
     // MARK: - 마지막 채팅 날짜 확인
     func checkLastDate(of channelID: Int) -> Date? {
-        guard let realm else { return nil }
-        
-        guard let channel = fetchSingleChannel(of: channelID) else { return nil }
-        
-        guard let lastChat = channel.channelChats
+        guard let chats = fetchChat(of: channelID) else { return nil }
+        guard let lastChat = chats
             .sorted(byKeyPath: "createdAt", ascending: true)
             .last else { return nil }
         
@@ -48,17 +47,43 @@ final class RealmManagerImpl: RealmManager {
         return realm.object(ofType: ChannelTB.self, forPrimaryKey: channelID)
     }
     
-    // MARK: - channelID의 채널 채팅 30개 가져오기
-    func fetchChat(of channelID: Int) -> [ChannelChat] {
-        guard let realm else { return [] }
+    // MARK: - 채널 정보 저장
+    func addChannelInfo(_ channel: Channel) {
+        guard let realm else { return }
         
-        guard let channel = realm.object(ofType: ChannelTB.self, forPrimaryKey: channelID) else { return [] }
+        let channel = ChannelTB(channelID: channel.channelID,
+                                workspaceID: channel.workspaceID,
+                                name: channel.name,
+                                _description: channel.description,
+                                ownerID: channel.ownerID,
+                                isPrivate: channel.isPrivate,
+                                createdAt: channel.createdAt)
         
-        let chats = channel.channelChats
+        do {
+            try realm.write {
+                realm.add(channel, update: .modified)
+                print("채널 정보 저장", channel)
+            }
+        } catch {
+            print("채널 정보 저장 실패", error)
+        }
+    }
+    
+    // MARK: - channelID의 채널 모든 채팅 가져오기
+    func fetchChat(of channelID: Int) -> Results<ChannelChatTB>? {
+        guard let realm else { return nil }
+        
+        return realm.objects(ChannelChatTB.self)
+            .filter("channel.channelID == \(channelID)")
             .sorted(byKeyPath: "createdAt", ascending: true)
-            .suffix(30)
-        
-        let chatsArr = Array(chats.map { $0.toDomain() })
+    }
+    
+    // MARK: - channelID의 채널 채팅 30개 가져오기
+    func fetchChat(of channelID: Int, _ count: Int) -> [ChannelChat] {
+        guard let chats = fetchChat(of: channelID) else { return [] }
+        let countChats = chats.suffix(count)
+
+        let chatsArr = Array(countChats.map { $0.toDomain() })
         
         return chatsArr
     }
@@ -74,33 +99,25 @@ final class RealmManagerImpl: RealmManager {
         
         let files = List<String>()
         item.files.forEach(files.append)
-        
-        let user: UserTB = {
-            guard let existUser = realm.object(ofType: UserTB.self, forPrimaryKey: item.user.userID) else {
-                return UserTB(userID: item.user.userID,
-                              email: item.user.email,
-                              nickname: item.user.nickname,
-                              profileImage: item.user.profileImage)
-            }
-            
-            return existUser
-        }()
 
-        guard realm.object(ofType: ChannelChatTB.self, forPrimaryKey: item.chatId) == nil else { return }
+        let user = UserTB(userID: item.user.userID,
+                          email: item.user.email,
+                          nickname: item.user.nickname,
+                          profileImage: item.user.profileImage)
         
         let chat = ChannelChatTB(
             chatID: item.chatId,
             content: item.content,
             createdAt: DateFormatter.iso8601.date(from: item.createdAt) ?? Date(),
             files: files,
+            channel: channel,
             user: user
         )
         
         do {
             try realm.write {
-                channel.channelChats.append(chat)
-                realm.add(channel, update: .modified)
-                print("채팅 저장", channel.channelChats)
+                realm.add(chat, update: .modified)
+                print("채팅 저장", chat)
             }
         } catch {
             print("채팅 저장 실패", error)

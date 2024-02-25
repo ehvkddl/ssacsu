@@ -60,7 +60,7 @@
 		EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */; };
 		EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */; };
 		EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */; };
-		EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* UserAPI.swift */; };
+		EAB401532B4DEA1200C1A14A /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401522B4DEA1200C1A14A /* SignAPI.swift */; };
 		EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */; };
 		EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */; };
 		EAB401622B4EF7F900C1A14A /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401612B4EF7F900C1A14A /* Join.swift */; };
@@ -128,6 +128,12 @@
 		EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */; };
 		EAFD0DF02B866B67007906A2 /* ChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */; };
 		EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */; };
+		EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */; };
+		EAFD0DF82B8A5B76007906A2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */; };
+		EAFD0DFC2B8A6211007906A2 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */; };
+		EAFD0DFF2B8A62A0007906A2 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */; };
+		EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E012B8A70EF007906A2 /* Kingfisher */; };
+		EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E032B8A7109007906A2 /* UIImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,7 +188,7 @@
 		EA922DE42B699EE400D5A0A3 /* WorkspaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewModel.swift; sourceTree = "<group>"; };
 		EAB4014D2B4DC5D900C1A14A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EAB4014F2B4DC77500C1A14A /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		EAB401522B4DEA1200C1A14A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		EAB401522B4DEA1200C1A14A /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationDTO.swift; sourceTree = "<group>"; };
 		EAB4015D2B4EF75100C1A14A /* JoinDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinDTO.swift; sourceTree = "<group>"; };
 		EAB401612B4EF7F900C1A14A /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
@@ -245,6 +251,11 @@
 		EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepository.swift; sourceTree = "<group>"; };
 		EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
+		EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		EAFD0E032B8A7109007906A2 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */,
 				EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */,
 				EAE494412B49DB91007461C0 /* Moya in Frameworks */,
 				EAE494462B49DC42007461C0 /* RxSwift in Frameworks */,
@@ -275,6 +287,7 @@
 				EA922D762B59BFE300D5A0A3 /* AppleLoginRepository.swift */,
 				EA922D782B59C2A500D5A0A3 /* KakaoLoginRepository.swift */,
 				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
+				EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */,
 				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
 				EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */,
 			);
@@ -382,7 +395,8 @@
 				EA922DAA2B604C7100D5A0A3 /* AuthManager.swift */,
 				EA922D7A2B59C93300D5A0A3 /* SsacsuError.swift */,
 				EA922DA22B60010400D5A0A3 /* BaseAPI.swift */,
-				EAB401522B4DEA1200C1A14A /* UserAPI.swift */,
+				EAB401522B4DEA1200C1A14A /* SignAPI.swift */,
+				EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */,
 				EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */,
 				EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */,
 			);
@@ -584,6 +598,7 @@
 				EAE4943A2B49D83C007461C0 /* UILabel+.swift */,
 				EAB401652B50590E00C1A14A /* String+.swift */,
 				EA922DB42B63F0E600D5A0A3 /* DateFormatter+.swift */,
+				EAFD0E032B8A7109007906A2 /* UIImageView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -670,6 +685,7 @@
 				EAFCB6342B54751B004DA2CD /* AppleLoginRepositoryImpl.swift */,
 				EAFCB6452B5557C4004DA2CD /* KakaoLoginRepositoryImpl.swift */,
 				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
+				EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */,
 				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
 				EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */,
 			);
@@ -681,7 +697,8 @@
 			children = (
 				EAB401632B4F01C300C1A14A /* CommonErrorResponseDTO.swift */,
 				EAFD0DDD2B8634A6007906A2 /* Auth */,
-				EAFD0DDB2B8633FF007906A2 /* User */,
+				EAFD0DDB2B8633FF007906A2 /* Sign */,
+				EAFD0DFD2B8A628C007906A2 /* User */,
 				EAFD0DDC2B863418007906A2 /* Workspace */,
 				EAFD0DDE2B8634B8007906A2 /* Channel */,
 			);
@@ -707,7 +724,7 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		EAFD0DDB2B8633FF007906A2 /* User */ = {
+		EAFD0DDB2B8633FF007906A2 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
 				EAB401552B4DEC1300C1A14A /* EmailValidationDTO.swift */,
@@ -716,9 +733,8 @@
 				EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */,
 				EAB401782B53237000C1A14A /* LoginDTO.swift */,
 				EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */,
-				EA922DC32B656CD100D5A0A3 /* UserDTO.swift */,
 			);
-			path = User;
+			path = Sign;
 			sourceTree = "<group>";
 		};
 		EAFD0DDC2B863418007906A2 /* Workspace */ = {
@@ -765,6 +781,15 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		EAFD0DFD2B8A628C007906A2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EA922DC32B656CD100D5A0A3 /* UserDTO.swift */,
+				EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -793,6 +818,7 @@
 				EA922DBD2B64572C00D5A0A3 /* RxDataSources */,
 				EAFD0DD72B862D8D007906A2 /* Realm */,
 				EAFD0DD92B862D8D007906A2 /* RealmSwift */,
+				EAFD0E012B8A70EF007906A2 /* Kingfisher */,
 			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
@@ -829,6 +855,7 @@
 				EAFCB63C2B551F8D004DA2CD /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				EAFD0DD62B862D8C007906A2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
@@ -861,6 +888,7 @@
 			files = (
 				EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */,
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
+				EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */,
@@ -892,6 +920,7 @@
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
 				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
 				EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */,
+				EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */,
 				EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
@@ -945,11 +974,13 @@
 				EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
 				EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */,
-				EAB401532B4DEA1200C1A14A /* UserAPI.swift in Sources */,
+				EAB401532B4DEA1200C1A14A /* SignAPI.swift in Sources */,
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
+				EAFD0DFC2B8A6211007906A2 /* UserAPI.swift in Sources */,
 				EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */,
 				EA922DD52B680ABC00D5A0A3 /* SignCoordinator.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
+				EAFD0DF82B8A5B76007906A2 /* UserRepository.swift in Sources */,
 				EA922D902B5EC0B100D5A0A3 /* SplashViewModel.swift in Sources */,
 				EAB401622B4EF7F900C1A14A /* Join.swift in Sources */,
 				EA922D9D2B5F014200D5A0A3 /* WorkspaceAPI.swift in Sources */,
@@ -962,6 +993,7 @@
 				EA922DB32B63D59900D5A0A3 /* Workspace.swift in Sources */,
 				EA922DD72B6813AD00D5A0A3 /* TabCoordinator.swift in Sources */,
 				EA922D772B59BFE300D5A0A3 /* AppleLoginRepository.swift in Sources */,
+				EAFD0DFF2B8A62A0007906A2 /* ProfileDTO.swift in Sources */,
 				EAFD0DCF2B854858007906A2 /* ChannelChatDTO.swift in Sources */,
 				EA922D9B2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift in Sources */,
 			);
@@ -1238,6 +1270,14 @@
 				kind = branch;
 			};
 		};
+		EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1295,6 +1335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAFD0DD62B862D8C007906A2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		EAFD0E012B8A70EF007906A2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

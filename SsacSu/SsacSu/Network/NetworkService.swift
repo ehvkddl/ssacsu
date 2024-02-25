@@ -11,6 +11,7 @@ import RxSwift
 import Moya
 
 enum API {
+    case sign(SignAPI)
     case user(UserAPI)
     case workspace(WorkspaceAPI)
     case channel(ChannelAPI)
@@ -22,14 +23,17 @@ protocol NetworkService {
 }
 
 class NetworkServiceImpl: NetworkService {
+    let signProvider: MoyaProvider<SignAPI>
     let userProvider: MoyaProvider<UserAPI>
     let workspaceProvider: MoyaProvider<WorkspaceAPI>
     let channelProvider: MoyaProvider<ChannelAPI>
 
-    init(userProvider: MoyaProvider<UserAPI>,
+    init(signProvider: MoyaProvider<SignAPI>,
+         userProvider: MoyaProvider<UserAPI>,
          workspaceProvider: MoyaProvider<WorkspaceAPI>,
          channelProvider: MoyaProvider<ChannelAPI>
     ) {
+        self.signProvider = signProvider
         self.userProvider = userProvider
         self.workspaceProvider = workspaceProvider
         self.channelProvider = channelProvider
@@ -44,6 +48,8 @@ extension NetworkServiceImpl {
         completion: @escaping (Result<U, SsacsuError>) -> Void
     ) {
         switch api {
+        case .sign(let signAPI):
+            request(signAPI, responseType: responseType, completion: completion)
         case .user(let userAPI):
             request(userAPI, responseType: responseType, completion: completion)
         case .workspace(let workspaceAPI):
@@ -107,6 +113,8 @@ extension NetworkServiceImpl {
     ) -> Single<Result<U, SsacsuError>> {
         return Single<Result<U, SsacsuError>>.create { single in
             switch api {
+            case .sign(let signAPI):
+                self.request(signAPI, single: single, responseType: responseType)
             case .user(let userAPI):
                 self.request(userAPI, single: single, responseType: responseType)
             case .workspace(let workspaceAPI):
@@ -167,6 +175,8 @@ extension NetworkServiceImpl {
 
     private func getProvider<T: TargetType>(for target: T) -> MoyaProvider<T> {
         switch target {
+        case is SignAPI:
+            return signProvider as! MoyaProvider<T>
         case is UserAPI:
             return userProvider as! MoyaProvider<T>
         case is WorkspaceAPI:
