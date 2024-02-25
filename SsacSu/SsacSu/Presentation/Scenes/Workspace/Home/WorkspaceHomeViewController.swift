@@ -19,8 +19,9 @@ class WorkspaceHomeViewController: BaseViewController {
     
     let workspaceImage = {
         let img = UIImageView()
-        img.backgroundColor = .blue
+        img.backgroundColor = .Brand.gray
         img.layer.cornerRadius = 8
+        img.clipsToBounds = true
         return img
     }()
     
@@ -35,8 +36,13 @@ class WorkspaceHomeViewController: BaseViewController {
     
     let profileImage = {
         let img = UIImageView()
-        img.backgroundColor = .green
+        img.backgroundColor = .Brand.gray
+        
+        img.layer.borderWidth = 2
+        img.layer.borderColor = UIColor(resource: .View.selected).cgColor
+        
         img.layer.cornerRadius = img.frame.width * 0.5
+        img.clipsToBounds = true
         return img
     }()
     
@@ -90,6 +96,19 @@ class WorkspaceHomeViewController: BaseViewController {
         )
         let output = vm.transform(input: input)
         
+        output.profile
+            .bind(with: self) { owner, profileImage in
+                guard let profileImage else {
+                    owner.profileImage.image = .Profile.noPhotoB
+                    return
+                }
+                
+                let size = owner.profileImage.frame.size
+                
+                owner.profileImage.loadImage(url: profileImage, size: size)
+            }
+            .disposed(by: disposeBag)
+        
         output.workspace
             .subscribe(with: self) { owner, workspace in
                 guard let workspace else {
@@ -106,7 +125,10 @@ class WorkspaceHomeViewController: BaseViewController {
                 owner.emptyView.rx.isHidden.onNext(true)
                 owner.workspaceCollectionView.rx.isHidden.onNext(false)
                 
+                let size = owner.workspaceImage.frame.size
+
                 owner.workspaceName.text = workspace.name
+                owner.workspaceImage.loadImage(url: workspace.thumbnail, size: size)
             }
             .disposed(by: disposeBag)
         

@@ -132,6 +132,8 @@
 		EAFD0DF82B8A5B76007906A2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */; };
 		EAFD0DFC2B8A6211007906A2 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */; };
 		EAFD0DFF2B8A62A0007906A2 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */; };
+		EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E012B8A70EF007906A2 /* Kingfisher */; };
+		EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E032B8A7109007906A2 /* UIImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,6 +255,7 @@
 		EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
+		EAFD0E032B8A7109007906A2 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */,
 				EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */,
 				EAE494412B49DB91007461C0 /* Moya in Frameworks */,
 				EAE494462B49DC42007461C0 /* RxSwift in Frameworks */,
@@ -594,6 +598,7 @@
 				EAE4943A2B49D83C007461C0 /* UILabel+.swift */,
 				EAB401652B50590E00C1A14A /* String+.swift */,
 				EA922DB42B63F0E600D5A0A3 /* DateFormatter+.swift */,
+				EAFD0E032B8A7109007906A2 /* UIImageView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -813,6 +818,7 @@
 				EA922DBD2B64572C00D5A0A3 /* RxDataSources */,
 				EAFD0DD72B862D8D007906A2 /* Realm */,
 				EAFD0DD92B862D8D007906A2 /* RealmSwift */,
+				EAFD0E012B8A70EF007906A2 /* Kingfisher */,
 			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
@@ -849,6 +855,7 @@
 				EAFCB63C2B551F8D004DA2CD /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				EAFD0DD62B862D8C007906A2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
@@ -913,6 +920,7 @@
 				EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */,
 				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
 				EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */,
+				EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */,
 				EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
@@ -1262,6 +1270,14 @@
 				kind = branch;
 			};
 		};
+		EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1319,6 +1335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAFD0DD62B862D8C007906A2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		EAFD0E012B8A70EF007906A2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

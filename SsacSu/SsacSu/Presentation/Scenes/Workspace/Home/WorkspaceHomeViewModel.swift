@@ -79,11 +79,14 @@ class WorkspaceHomeViewModel: ViewModelType {
     }
     
     struct Output {
+        let profile: PublishRelay<String?>
         let workspace: PublishSubject<Workspace?>
         let workspaceSections: PublishRelay<[WorkspaceSection]>
     }
     
     func transform(input: Input) -> Output {
+        let profile = PublishRelay<String?>()
+        
         let workspace = PublishSubject<Workspace?>()
         let channelItems = PublishSubject<[WorkspaceSectionItem]>()
         let dmsItems = PublishSubject<[WorkspaceSectionItem]>()
@@ -129,6 +132,9 @@ class WorkspaceHomeViewModel: ViewModelType {
                     
                     channelItems.onNext(items)
                 }
+                
+                owner.userRepository.fetchMyProfile { response in
+                    profile.accept(response.profileImage)
                 }
             }
             .disposed(by: disposeBag)
@@ -187,6 +193,7 @@ class WorkspaceHomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         return Output(
+            profile: profile,
             workspace: workspace,
             workspaceSections: workspaceSections
         )

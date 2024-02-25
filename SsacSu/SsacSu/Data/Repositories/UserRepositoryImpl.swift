@@ -33,6 +33,8 @@ extension UserRepositoryImpl: UserRepository {
                                     profileImage: success.profileImage)
                     
                     LoginUser.shared.store(value: user)
+                    
+                    completion(user)
                 
                 case .failure(let failure):
                     print("프로필 조회 실패", failure)
