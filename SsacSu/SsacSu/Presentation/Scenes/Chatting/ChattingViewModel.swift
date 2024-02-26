@@ -52,6 +52,13 @@ final class ChattingViewModel: ViewModelType {
                 owner.chattingRepository.fetchChat(of: channel.channelID) { response in
                     chats.accept(response)
                     scrollToBottom.accept(true)
+                    
+                    owner.chattingRepository.openSocket(id: channel.channelID) { chat in
+                        let newChats = chats.value + [chat]
+                        
+                        chats.accept(newChats)
+                        scrollToBottom.accept(true)
+                    }
                 }
             }
             .disposed(by: disposeBag)
@@ -85,6 +92,14 @@ final class ChattingViewModel: ViewModelType {
             textViewText: textViewText,
             scrollToBottom: scrollToBottom
         )
+    }
+    
+}
+
+extension ChattingViewModel {
+    
+    func closeSocket() {
+        chattingRepository.closeSocket()
     }
     
 }

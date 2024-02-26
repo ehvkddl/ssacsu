@@ -19,6 +19,8 @@ final class SocketIOManager {
     private var timer: Timer?
     
     func open(id channelID: Int, completion: @escaping (ChannelChatResponseDTO) -> ()) {
+        print(#function, "소켓 열어요~")
+        
         socket = manager.socket(forNamespace: "/ws-channel-\(channelID)")
         addEventHandler()
         socket?.connect()
@@ -29,6 +31,8 @@ final class SocketIOManager {
     }
     
     func close() {
+        print(#function, "소켓 닫아요~")
+        
         socket?.disconnect()
         socket?.removeAllHandlers()
         socket = nil
@@ -40,7 +44,11 @@ final class SocketIOManager {
     }
     
     private func receive(completion: @escaping (ChannelChatResponseDTO) -> ()) {
+        print("🤲🏻 receive start")
+        
         socket?.on("channel") { dataArray, ack in
+            print("🤲🏻 CHANNEL RECEIVED", dataArray, ack)
+            
             guard let data = dataArray.first else { return }
             let decodingData = ResponseDecoder.decode(ChannelChatResponseDTO.self, data: data)
             
@@ -56,7 +64,10 @@ final class SocketIOManager {
     }
     
     private func ping() {
+        print("🙋🏻‍♀️ ping start")
+        
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true, block: { [weak self] _ in
+            print("🙋🏻‍♀️ ping")
             self?.socket?.emit("ping")
         })
     }

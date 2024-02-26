@@ -11,6 +11,7 @@ final class WorkspaceSceneDIContainer {
     
     struct Dependencies {
         let realmManager: RealmManager
+        let socketManager: SocketIOManager
         let networkService: NetworkService
     }
     
@@ -23,6 +24,7 @@ final class WorkspaceSceneDIContainer {
     func makeChattingSceneDIContainer() -> ChattingSceneDIContainer {
         let dependencies = ChattingSceneDIContainer.Dependencies(
             realmManager: dependencies.realmManager,
+            socketManager: dependencies.socketManager,
             networkService: dependencies.networkService
         )
         return ChattingSceneDIContainer(dependencies: dependencies)

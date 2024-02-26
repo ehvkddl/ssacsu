@@ -83,6 +83,13 @@ final class ChattingViewController: BaseViewController {
         bind()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        vm.closeSocket()
+        removeSocketReopenObserver()
+    }
+    
     func bind() {
         let input = ChattingViewModel.Input(
             chat: textView.rx.text.orEmpty,
