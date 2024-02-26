@@ -11,6 +11,7 @@ final class ChattingSceneDIContainer {
     
     struct Dependencies {
         let realmManager: RealmManager
+        let socketManager: SocketIOManager
         let networkService: NetworkService
     }
     
@@ -37,6 +38,7 @@ final class ChattingSceneDIContainer {
     func getChattingRepository() -> ChattingRepository {
         return ChattingRepositoryImpl(
             realmManager: dependencies.realmManager,
+            socketManager: dependencies.socketManager,
             networkService: dependencies.networkService
         )
     }

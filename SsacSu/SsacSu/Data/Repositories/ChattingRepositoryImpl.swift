@@ -12,13 +12,16 @@ import RxSwift
 final class ChattingRepositoryImpl {
     
     private let realmManager: RealmManager
+    private let socketManager: SocketIOManager
     private let networkService: NetworkService
     
     init(
         realmManager: RealmManager,
+        socketManager: SocketIOManager,
         networkService: NetworkService
     ) {
         self.realmManager = realmManager
+        self.socketManager = socketManager
         self.networkService = networkService
     }
     
@@ -85,6 +88,26 @@ extension ChattingRepositoryImpl: ChattingRepository {
         }
     }
     
-    
 }
 
+extension ChattingRepositoryImpl {
+    
+    func openSocket(id channelID: Int, completion: @escaping (ChannelChat) -> ()) {
+        socketManager.open(id: channelID) { [unowned self] chat in
+            print("ChattingRepositoryImpl 채팅 받아옴~")
+            // 채팅 수신 후 DB 저장
+            // 내가 보낸 채팅은 저장 X
+            guard let loginUser = LoginUser.shared.load(),
+                  loginUser.userID != chat.user.userID else { return }
+            
+            realmManager.addChat(to: channelID, chat)
+            
+            completion(chat.toDomain())
+        }
+    }
+    
+    func closeSocket() {
+        socketManager.close()
+    }
+    
+}

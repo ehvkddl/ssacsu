@@ -15,6 +15,8 @@ protocol ChattingViewModelDelegate {
 }
 
 final class ChattingViewModel: ViewModelType {
+
+    let viewDidLoad = BehaviorRelay<Void>(value: ())
     
     var channel = BehaviorRelay<Channel?>(value: nil)
     var delegate: ChattingViewModelDelegate?
@@ -45,13 +47,20 @@ final class ChattingViewModel: ViewModelType {
         let textViewText = PublishRelay<String>()
         let scrollToBottom = PublishRelay<Bool>()
         
-        Observable.just(())
+        viewDidLoad
             .subscribe(with: self) { owner, _ in
                 guard let channel = owner.channel.value else { return }
                 
                 owner.chattingRepository.fetchChat(of: channel.channelID) { response in
                     chats.accept(response)
                     scrollToBottom.accept(true)
+                    
+                    owner.chattingRepository.openSocket(id: channel.channelID) { chat in
+                        let newChats = chats.value + [chat]
+                        
+                        chats.accept(newChats)
+                        scrollToBottom.accept(true)
+                    }
                 }
             }
             .disposed(by: disposeBag)
@@ -85,6 +94,18 @@ final class ChattingViewModel: ViewModelType {
             textViewText: textViewText,
             scrollToBottom: scrollToBottom
         )
+    }
+    
+}
+
+extension ChattingViewModel {
+    
+    func closeSocket() {
+        chattingRepository.closeSocket()
+    }
+    
+    @objc func socketReopen() {
+        viewDidLoad.accept(())
     }
     
 }

@@ -134,6 +134,8 @@
 		EAFD0DFF2B8A62A0007906A2 /* ProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */; };
 		EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E012B8A70EF007906A2 /* Kingfisher */; };
 		EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E032B8A7109007906A2 /* UIImageView+.swift */; };
+		EAFD0E072B8B5869007906A2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E062B8B5869007906A2 /* SocketIO */; };
+		EAFD0E0A2B8B5BF1007906A2 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +258,7 @@
 		EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		EAFD0DFE2B8A62A0007906A2 /* ProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDTO.swift; sourceTree = "<group>"; };
 		EAFD0E032B8A7109007906A2 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +269,7 @@
 				EAFD0E022B8A70EF007906A2 /* Kingfisher in Frameworks */,
 				EAE494442B49DC42007461C0 /* RxCocoa in Frameworks */,
 				EAE494412B49DB91007461C0 /* Moya in Frameworks */,
+				EAFD0E072B8B5869007906A2 /* SocketIO in Frameworks */,
 				EAE494462B49DC42007461C0 /* RxSwift in Frameworks */,
 				EAE4943E2B49D9A9007461C0 /* SnapKit in Frameworks */,
 				EAFD0DD82B862D8D007906A2 /* Realm in Frameworks */,
@@ -506,6 +510,7 @@
 				EAFCB6372B547D86004DA2CD /* SsacSu.entitlements */,
 				EAE4942B2B473381007461C0 /* App */,
 				EAFD0DE22B863744007906A2 /* Database */,
+				EAFD0E082B8B5BD7007906A2 /* Socket */,
 				EAB401512B4DE9B400C1A14A /* Network */,
 				EAB401542B4DEB9400C1A14A /* Data */,
 				EAB4015F2B4EF7E500C1A14A /* Domain */,
@@ -790,6 +795,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		EAFD0E082B8B5BD7007906A2 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -819,6 +832,7 @@
 				EAFD0DD72B862D8D007906A2 /* Realm */,
 				EAFD0DD92B862D8D007906A2 /* RealmSwift */,
 				EAFD0E012B8A70EF007906A2 /* Kingfisher */,
+				EAFD0E062B8B5869007906A2 /* SocketIO */,
 			);
 			productName = SsacSu;
 			productReference = EAE493FC2B459B81007461C0 /* SsacSu.app */;
@@ -856,6 +870,7 @@
 				EA922DBA2B64572C00D5A0A3 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				EAFD0DD62B862D8C007906A2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EAFD0E052B8B5869007906A2 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = EAE493FD2B459B81007461C0 /* Products */;
 			projectDirPath = "";
@@ -890,6 +905,7 @@
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
+				EAFD0E0A2B8B5BF1007906A2 /* SocketIOManager.swift in Sources */,
 				EAE4945D2B4B1FA6007461C0 /* BaseTableViewCell.swift in Sources */,
 				EA922DCD2B659F0400D5A0A3 /* WorkspaceDmsCollectionViewCell.swift in Sources */,
 				EA922DC02B65127700D5A0A3 /* WorkspaceHeaderReusableView.swift in Sources */,
@@ -1278,6 +1294,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		EAFD0E052B8B5869007906A2 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1340,6 +1364,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAFD0E002B8A70EF007906A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		EAFD0E062B8B5869007906A2 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAFD0E052B8B5869007906A2 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

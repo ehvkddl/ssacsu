@@ -13,6 +13,10 @@ final class TabBarDIContainer {
         return RealmManagerImpl()
     }()
     
+    lazy var socketManager: SocketIOManager = {
+        return SocketIOManager.shared
+    }()
+    
     struct Dependencies {
         let networkService: NetworkService
     }
@@ -26,6 +30,7 @@ final class TabBarDIContainer {
     func makeWorkspaceSceneDIContainer() -> WorkspaceSceneDIContainer {
         let dependencies = WorkspaceSceneDIContainer.Dependencies(
             realmManager: realmManager,
+            socketManager: socketManager,
             networkService: dependencies.networkService
         )
         return WorkspaceSceneDIContainer(dependencies: dependencies)

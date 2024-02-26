@@ -48,8 +48,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        /// Active 상태로 돌아왔을 때 Socket 연결해줘야 함
+        /// 그런데 돌아온 화면이 채팅창이 아닌 경우에는 socket 연결안해도 됨
+        /// 화면이 채팅 화면인지를 확인해야할 듯?
+        /// 채팅 화면 진입시 옵저버 생성 / 채팅 화면 퇴장시 옵저버 삭제
+        print("▶️ 액티브")
+        
+        // 액티브로 돌아오면 돌아왔다고 noti 보내서 채팅 저장하고 socket 연결하기
+        postSocketReopenObserver()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -63,11 +69,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
+        print("↩️ 백그라운드")
+        SocketIOManager.shared.close()
     }
 
 
 }
 
+extension SceneDelegate {
+    
+    func postSocketReopenObserver() {
+        NotificationCenter.default.post(name: NSNotification.Name("SocketReopen"), object: nil)
+    }
+    
+}

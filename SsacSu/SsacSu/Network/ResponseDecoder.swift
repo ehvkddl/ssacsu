@@ -18,4 +18,15 @@ struct ResponseDecoder {
         }
     }
     
+    static func decode<T: Decodable>(_ type: T.Type, data: Any) -> Result<T, Error> {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: data)
+            let decoded = try JSONDecoder().decode(type, from: jsonData)
+            
+            return .success(decoded)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
 }

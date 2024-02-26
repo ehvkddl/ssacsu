@@ -80,7 +80,15 @@ final class ChattingViewController: BaseViewController {
         
         view.backgroundColor = .Background.secondary
         
+        addSocketReopenObserver()
         bind()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        vm.closeSocket()
+        removeSocketReopenObserver()
     }
     
     func bind() {
@@ -127,7 +135,11 @@ final class ChattingViewController: BaseViewController {
         
         output.scrollToBottom
             .bind(with: self) { owner, _ in
-                owner.chatTableView.scrollToRow(at: IndexPath(row: output.chats.value.count - 1, section: 0), at: .none, animated: false)
+                let chats = output.chats.value
+                
+                guard chats.count > 0 else { return }
+                
+                owner.chatTableView.scrollToRow(at: IndexPath(row: chats.count - 1, section: 0), at: .none, animated: false)
             }
             .disposed(by: disposeBag)
         
@@ -207,6 +219,27 @@ final class ChattingViewController: BaseViewController {
             make.centerY.equalTo(chatBox)
             make.height.lessThanOrEqualTo(maxHeight)
         }
+    }
+    
+}
+
+extension ChattingViewController {
+    
+    func addSocketReopenObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(socketReopen),
+                                               name: NSNotification.Name("SocketReopen"),
+                                               object: nil)
+    }
+    
+    func removeSocketReopenObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name("SocketReopen"),
+                                                  object: nil)
+    }
+    
+    @objc func socketReopen() {
+        vm.socketReopen()
     }
     
 }
