@@ -135,7 +135,11 @@ final class ChattingViewController: BaseViewController {
         
         output.scrollToBottom
             .bind(with: self) { owner, _ in
-                owner.chatTableView.scrollToRow(at: IndexPath(row: output.chats.value.count - 1, section: 0), at: .none, animated: false)
+                let chats = output.chats.value
+                
+                guard chats.count > 0 else { return }
+                
+                owner.chatTableView.scrollToRow(at: IndexPath(row: chats.count - 1, section: 0), at: .none, animated: false)
             }
             .disposed(by: disposeBag)
         
