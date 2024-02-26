@@ -15,6 +15,8 @@ protocol ChattingViewModelDelegate {
 }
 
 final class ChattingViewModel: ViewModelType {
+
+    let viewDidLoad = BehaviorRelay<Void>(value: ())
     
     var channel = BehaviorRelay<Channel?>(value: nil)
     var delegate: ChattingViewModelDelegate?
@@ -45,7 +47,7 @@ final class ChattingViewModel: ViewModelType {
         let textViewText = PublishRelay<String>()
         let scrollToBottom = PublishRelay<Bool>()
         
-        Observable.just(())
+        viewDidLoad
             .subscribe(with: self) { owner, _ in
                 guard let channel = owner.channel.value else { return }
                 
@@ -100,6 +102,10 @@ extension ChattingViewModel {
     
     func closeSocket() {
         chattingRepository.closeSocket()
+    }
+    
+    @objc func socketReopen() {
+        viewDidLoad.accept(())
     }
     
 }

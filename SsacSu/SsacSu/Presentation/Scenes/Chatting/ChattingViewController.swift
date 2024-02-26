@@ -80,6 +80,7 @@ final class ChattingViewController: BaseViewController {
         
         view.backgroundColor = .Background.secondary
         
+        addSocketReopenObserver()
         bind()
     }
     
@@ -214,6 +215,27 @@ final class ChattingViewController: BaseViewController {
             make.centerY.equalTo(chatBox)
             make.height.lessThanOrEqualTo(maxHeight)
         }
+    }
+    
+}
+
+extension ChattingViewController {
+    
+    func addSocketReopenObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(socketReopen),
+                                               name: NSNotification.Name("SocketReopen"),
+                                               object: nil)
+    }
+    
+    func removeSocketReopenObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name("SocketReopen"),
+                                                  object: nil)
+    }
+    
+    @objc func socketReopen() {
+        vm.socketReopen()
     }
     
 }
