@@ -26,4 +26,21 @@ final class DmsRepositoryImpl: DmsRepository {
 }
 
 extension DmsRepositoryImpl {
+    
+    func fetchDmsRoom(id workspaceID: Int, completion: @escaping ([DMsRoom]) -> Void) {
+        networkService.processResponse(
+            api: .dms(.fetchDMsRoom(workspaceID: workspaceID)),
+            responseType: [DMsRoomResponseDTO].self) { result in
+                switch result {
+                case .success(let success):
+                    let rooms = success.map { $0.toDomain() }
+                    
+                    completion(rooms)
+                    
+                case .failure(let failure):
+                    print("DMsRoom 조회 실패", failure)
+                }
+            }
+    }
+    
 }

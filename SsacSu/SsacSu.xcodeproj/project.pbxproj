@@ -145,6 +145,8 @@
 		EAFD0E252B8F77C7007906A2 /* DmsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */; };
 		EAFD0E292B8F7EDF007906A2 /* DmsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E282B8F7EDF007906A2 /* DmsRepository.swift */; };
 		EAFD0E2B2B8F7EFB007906A2 /* DmsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */; };
+		EAFD0E2E2B8F8144007906A2 /* DMsRoomDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */; };
+		EAFD0E302B8F81B3007906A2 /* DMsRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +276,8 @@
 		EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsAPI.swift; sourceTree = "<group>"; };
 		EAFD0E282B8F7EDF007906A2 /* DmsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsRepository.swift; sourceTree = "<group>"; };
 		EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsRepositoryImpl.swift; sourceTree = "<group>"; };
+		EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsRoomDTO.swift; sourceTree = "<group>"; };
+		EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsRoom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +463,7 @@
 				EA922DC52B656E0400D5A0A3 /* Channel.swift */,
 				EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */,
 				EA922DCA2B658C6600D5A0A3 /* Dms.swift */,
+				EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				EAFD0DFD2B8A628C007906A2 /* User */,
 				EAFD0DDC2B863418007906A2 /* Workspace */,
 				EAFD0DDE2B8634B8007906A2 /* Channel */,
+				EAFD0E2C2B8F812E007906A2 /* DMs */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -825,6 +831,14 @@
 				EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */,
 			);
 			path = Socket;
+			sourceTree = "<group>";
+		};
+		EAFD0E2C2B8F812E007906A2 /* DMs */ = {
+			isa = PBXGroup;
+			children = (
+				EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */,
+			);
+			path = DMs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1011,6 +1025,7 @@
 				EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */,
 				EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */,
 				EA922D882B5EB25100D5A0A3 /* WorkspaceInitialViewModel.swift in Sources */,
+				EAFD0E302B8F81B3007906A2 /* DMsRoom.swift in Sources */,
 				EAB401562B4DEC1300C1A14A /* EmailValidationDTO.swift in Sources */,
 				EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */,
 				EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */,
@@ -1037,6 +1052,7 @@
 				EA922D632B583A8200D5A0A3 /* SignRepository.swift in Sources */,
 				EA922DB72B6431F300D5A0A3 /* WorkspaceDTO.swift in Sources */,
 				EA922D992B5EE2F600D5A0A3 /* WorkspaceEmptyView.swift in Sources */,
+				EAFD0E2E2B8F8144007906A2 /* DMsRoomDTO.swift in Sources */,
 				EA922DD92B682FAC00D5A0A3 /* TabBarDIContainer.swift in Sources */,
 				EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */,
 				EAFCB63B2B548D7F004DA2CD /* AppleLogin.swift in Sources */,

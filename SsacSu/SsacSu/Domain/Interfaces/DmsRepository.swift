@@ -8,4 +8,5 @@
 import Foundation
 
 protocol DmsRepository {
+    func fetchDmsRoom(id workspaceID: Int, completion: @escaping ([DMsRoom]) -> Void)
 }

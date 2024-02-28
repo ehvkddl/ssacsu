@@ -20,6 +20,7 @@ class WorkspaceDmsCollectionViewCell: BaseCollectionViewCell {
     let userNameLabel = {
         let lbl = UILabel()
         lbl.text = "닉네임"
+        lbl.textColor = .Text.secondary
         lbl.font = SSFont.style(.body)
         return lbl
     }()
@@ -52,8 +53,18 @@ class WorkspaceDmsCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func bind(item: Dms) {
-        profileImage.image = UIImage(resource: .Profile.noPhotoC)
+}
+
+extension WorkspaceDmsCollectionViewCell {
+    
+    func bind(item: DMsRoom) {
+        if let profileImageUrl = item.user.profileImage {
+            let size = CGSize(width: 24, height: 24)
+            profileImage.loadImage(url: profileImageUrl, size: size)
+        } else {
+            profileImage.image = UIImage(resource: .Profile.noPhotoC)
+        }
+        
         userNameLabel.text = item.user.nickname
     }
     

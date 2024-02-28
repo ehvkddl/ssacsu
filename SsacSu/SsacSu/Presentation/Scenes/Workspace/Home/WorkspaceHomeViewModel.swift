@@ -32,7 +32,7 @@ enum WorkspaceSectionType {
 
 enum WorkspaceSectionItem {
     case channel(Channel)
-    case dm(Dms)
+    case dm(DMsRoom)
     case add(WorkspaceSectionType)
 }
 
@@ -133,10 +133,12 @@ class WorkspaceHomeViewModel: ViewModelType {
         workspaceID
             .compactMap { $0 }
             .subscribe(with: self) { owner, id in
+                // 워크스페이스 정보 조회
                 owner.workspaceRepository.fetchSingleWorkspace(id: id) { response in
                     workspace.onNext(response)
                 }
                 
+                // 내가 속한 채널 조회
                 owner.channelRepository.fetchMyChannels(id: id) { response in
                     var items = response
                         .sorted(by: { lhs, rhs in
@@ -149,6 +151,20 @@ class WorkspaceHomeViewModel: ViewModelType {
                     channelItems.onNext(items)
                 }
                 
+                // DM 방 조회
+                owner.dmsRepository.fetchDmsRoom(id: id) { response in
+                    var items = response
+                        .sorted { lhs, rhs in
+                            lhs.createdAt < rhs.createdAt
+                        }
+                        .map { WorkspaceSectionItem.dm($0) }
+                    
+                    items.append(WorkspaceSectionItem.add(.dm))
+                    
+                    dmsItems.onNext(items)
+                }
+                
+                // 유저 정보 조회
                 owner.userRepository.fetchMyProfile { response in
                     profile.accept(response.profileImage)
                 }
@@ -176,27 +192,6 @@ class WorkspaceHomeViewModel: ViewModelType {
                 }
             }
             .disposed(by: disposeBag)
-        
-        // 임시 DM
-        let testUser = User(userID: 1, email: "test@sesac.com", nickname: "test", profileImage: nil)
-        
-        Observable.just([
-            Dms(workspaceID: 182, RoomID: 1, createdAt: Date(), user: testUser),
-            Dms(workspaceID: 182, RoomID: 2, createdAt: Date(timeIntervalSinceNow: 1), user: testUser),
-            Dms(workspaceID: 182, RoomID: 3, createdAt: Date(timeIntervalSinceNow: 2), user: testUser),
-            Dms(workspaceID: 182, RoomID: 4, createdAt: Date(timeIntervalSinceNow: 3), user: testUser)
-        ])
-        .map { $0.map { dms in
-            WorkspaceSectionItem.dm(dms)
-        }}
-        .subscribe { items in
-            var items = items
-            items.append(WorkspaceSectionItem.add(.dm))
-            
-            dmsItems.onNext(items)
-        }
-        .disposed(by: disposeBag)
-        
         
         input.createWorkspaceButtonTapped
             .subscribe { _ in
