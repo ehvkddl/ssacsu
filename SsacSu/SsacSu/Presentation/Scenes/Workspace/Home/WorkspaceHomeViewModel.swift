@@ -135,11 +135,13 @@ class WorkspaceHomeViewModel: ViewModelType {
                 }
                 
                 owner.channelRepository.fetchMyChannels(id: id) { response in
-                    let items = response
+                    var items = response
                         .sorted(by: { lhs, rhs in
                             lhs.createdAt < rhs.createdAt
                         })
                         .map { WorkspaceSectionItem.channel($0) }
+                    
+                    items.append(WorkspaceSectionItem.add(.channel))
                     
                     channelItems.onNext(items)
                 }
