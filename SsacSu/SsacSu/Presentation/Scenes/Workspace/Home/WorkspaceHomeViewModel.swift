@@ -116,6 +116,14 @@ class WorkspaceHomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        Observable.just(())
+            .subscribe(with: self) { owner, _ in
+                let fcmToken = UserDefaultsManager.fcmToken
+                
+                owner.userRepository.storeDeviceToken(fcmToken: fcmToken)
+            }
+            .disposed(by: disposeBag)
+        
         workspaceID
             .compactMap { $0 }
             .subscribe(with: self) { owner, id in

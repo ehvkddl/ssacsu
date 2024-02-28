@@ -7,6 +7,8 @@
 
 import UIKit
 
+import FirebaseCore
+import FirebaseMessaging
 import KakaoSDKCommon
 
 @main
@@ -17,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: Configurations.KakaoKey)
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        registerRemoteNotification(application)
+        
+        // FirebaseMessaging
+        Messaging.messaging().delegate = self
         
         return true
     }
@@ -39,3 +49,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func registerRemoteNotification(_ application: UIApplication) {
+        // 원격 알림 권한 등록
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
+        
+        application.registerForRemoteNotifications()
+    }
+    
+}
+
+
+extension AppDelegate: MessagingDelegate {
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        
+        let fcmToken = fcmToken ?? ""
+        
+        UserDefaultsManager.fcmToken = fcmToken
+        
+        let dataDict: [String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+        )
+    }
+    
+}
