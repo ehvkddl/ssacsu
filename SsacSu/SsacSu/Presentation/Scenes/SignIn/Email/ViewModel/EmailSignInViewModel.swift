@@ -92,7 +92,7 @@ class EmailSignInViewModel: ViewModelType {
                                     nickname: response.nickname,
                                     profileImage: response.profileImage)
                     
-                    LoginUser.shared.store(value: user)
+                    UserDefaultsManager.user = user
                     
                     // 워크스페이스로 넘어가기
                     print("로그인 성공 메인뷰로 넘어가요옹")

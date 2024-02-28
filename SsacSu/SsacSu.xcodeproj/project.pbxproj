@@ -118,7 +118,6 @@
 		EAFD0DCF2B854858007906A2 /* ChannelChatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */; };
 		EAFD0DD12B8549BA007906A2 /* ChannelChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */; };
 		EAFD0DD32B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */; };
-		EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DD42B86099D007906A2 /* LoginUser.swift */; };
 		EAFD0DD82B862D8D007906A2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0DD72B862D8D007906A2 /* Realm */; };
 		EAFD0DDA2B862D8D007906A2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0DD92B862D8D007906A2 /* RealmSwift */; };
 		EAFD0DE42B863AE2007906A2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE32B863AE2007906A2 /* RealmManager.swift */; };
@@ -140,6 +139,7 @@
 		EAFD0E172B8F12EF007906A2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E162B8F12EF007906A2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		EAFD0E192B8F12EF007906A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E182B8F12EF007906A2 /* FirebaseCrashlytics */; };
 		EAFD0E1B2B8F12EF007906A2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E1A2B8F12EF007906A2 /* FirebaseMessaging */; };
+		EAFD0E1D2B8F25CA007906A2 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,7 +249,6 @@
 		EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatDTO.swift; sourceTree = "<group>"; };
 		EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChat.swift; sourceTree = "<group>"; };
 		EAFD0DD22B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChattingBubbleTableViewCell.swift; sourceTree = "<group>"; };
-		EAFD0DD42B86099D007906A2 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		EAFD0DE32B863AE2007906A2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatTB.swift; sourceTree = "<group>"; };
 		EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTB.swift; sourceTree = "<group>"; };
@@ -264,6 +263,7 @@
 		EAFD0E032B8A7109007906A2 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,7 +490,7 @@
 			children = (
 				EAB401762B5304AD00C1A14A /* Validation.swift */,
 				EA922D7C2B5E605A00D5A0A3 /* Token.swift */,
-				EAFD0DD42B86099D007906A2 /* LoginUser.swift */,
+				EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -915,7 +915,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAFD0DD52B86099D007906A2 /* LoginUser.swift in Sources */,
 				EA922D6B2B5864FE00D5A0A3 /* AppDIContainer.swift in Sources */,
 				EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */,
 				EA922D922B5ECC2700D5A0A3 /* WorkspaceRepository.swift in Sources */,
@@ -974,6 +973,7 @@
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */,
+				EAFD0E1D2B8F25CA007906A2 /* UserDefaultsManager.swift in Sources */,
 				EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,

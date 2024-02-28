@@ -32,7 +32,7 @@ extension UserRepositoryImpl: UserRepository {
                                     nickname: success.nickname,
                                     profileImage: success.profileImage)
                     
-                    LoginUser.shared.store(value: user)
+                    UserDefaultsManager.user = user
                     
                     completion(user)
                 
