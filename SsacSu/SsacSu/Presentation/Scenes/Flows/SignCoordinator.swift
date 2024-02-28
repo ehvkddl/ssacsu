@@ -68,6 +68,11 @@ extension SignCoordinator: SelectSignInMethodViewModelDelegate {
         self.navigationController.present(viewController, animated: true)
     }
     
+    func socialLogin() {
+        self.finish()
+        self.navigationController.dismiss(animated: true)
+    }
+    
     func signUp() {
         self.navigationController.dismiss(animated: true) { [unowned self] in
             showSignUpView()

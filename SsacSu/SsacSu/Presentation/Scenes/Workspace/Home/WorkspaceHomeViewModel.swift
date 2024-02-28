@@ -116,6 +116,14 @@ class WorkspaceHomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        Observable.just(())
+            .subscribe(with: self) { owner, _ in
+                let fcmToken = UserDefaultsManager.fcmToken
+                
+                owner.userRepository.storeDeviceToken(fcmToken: fcmToken)
+            }
+            .disposed(by: disposeBag)
+        
         workspaceID
             .compactMap { $0 }
             .subscribe(with: self) { owner, id in
@@ -145,7 +153,16 @@ class WorkspaceHomeViewModel: ViewModelType {
             .subscribe(with: self) { owner, result in
                 switch result {
                 case .success(let success):
-                    owner.workspaceID.onNext(success.first?.workspaceID)
+                    guard success.isEmpty else {
+                        // 속해 있는 워크스페이스 중 첫번째 워크스페이스 보여주기
+                        owner.workspaceID.onNext(success.first?.workspaceID)
+                        
+                        return
+                    }
+                    
+                    // 속해 있는 워크스페이스 없음
+                    workspace.onNext(nil)
+                    
                 case .failure(let error):
                     print(error)
                 }

@@ -21,7 +21,7 @@ final class ChattingViewModel: ViewModelType {
     var channel = BehaviorRelay<Channel?>(value: nil)
     var delegate: ChattingViewModelDelegate?
     
-    let loginUserID = LoginUser.shared.load()?.userID
+    let loginUserID = UserDefaultsManager.user.userID
     
     private let chattingRepository: ChattingRepository
     private let disposeBag = DisposeBag()

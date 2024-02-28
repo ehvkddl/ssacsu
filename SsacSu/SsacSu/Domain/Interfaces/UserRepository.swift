@@ -8,5 +8,6 @@
 import Foundation
 
 protocol UserRepository {
+    func storeDeviceToken(fcmToken: String)
     func fetchMyProfile(completion: @escaping (User) -> Void)
 }

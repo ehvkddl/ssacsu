@@ -21,6 +21,20 @@ final class UserRepositoryImpl {
 
 extension UserRepositoryImpl: UserRepository {
     
+    func storeDeviceToken(fcmToken: String) {
+        let request = FcmDeviceTokenRequestDTO(deviceToken: fcmToken)
+        
+        networkService.processResponse(api: .user(.deviceToken(fcmToken: request))) { response in
+            switch response {
+            case .success:
+                print("deviceToken 저장 성공")
+                
+            case .failure(let failure):
+                print("deviceToken 저장 실패", failure)
+            }
+        }
+    }
+    
     func fetchMyProfile(completion: @escaping (User) -> Void) {
         networkService.processResponse(
             api: .user(.fetchMyProfile),
@@ -32,7 +46,7 @@ extension UserRepositoryImpl: UserRepository {
                                     nickname: success.nickname,
                                     profileImage: success.profileImage)
                     
-                    LoginUser.shared.store(value: user)
+                    UserDefaultsManager.user = user
                     
                     completion(user)
                 

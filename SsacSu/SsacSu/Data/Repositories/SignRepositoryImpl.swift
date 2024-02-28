@@ -55,7 +55,7 @@ extension SignRepositoryImpl: SignRepository {
         )
     }
     
-    func login(with login: Login) -> Single<Result<LoginResponseDTO, SsacsuError>> {
+    func login(with login: EmailLogin) -> Single<Result<LoginResponseDTO, SsacsuError>> {
         let request = login.toRequest()
         
         return networkService.processResponse(

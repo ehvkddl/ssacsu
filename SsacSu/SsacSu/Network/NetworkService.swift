@@ -18,6 +18,7 @@ enum API {
 }
 
 protocol NetworkService {
+    func processResponse(api: API, completion: @escaping (Result<Void, SsacsuError>) -> Void)
     func processResponse<U: Decodable>(api: API, responseType: U.Type, completion: @escaping (Result<U, SsacsuError>) -> Void)
     func processResponse<U: Decodable>(api: API, responseType: U.Type?) -> Single<Result<U, SsacsuError>>
 }
@@ -42,6 +43,55 @@ class NetworkServiceImpl: NetworkService {
 
 extension NetworkServiceImpl {
 
+    func processResponse(
+        api: API,
+        completion: @escaping (Result<Void, SsacsuError>) -> Void
+    ) {
+        switch api {
+        case .sign(let signAPI):
+            request(signAPI, completion: completion)
+        case .user(let userAPI):
+            request(userAPI, completion: completion)
+        case .workspace(let workspaceAPI):
+            request(workspaceAPI, completion: completion)
+        case .channel(let channelAPI):
+            request(channelAPI, completion: completion)
+        }
+    }
+    
+    private func request<T: TargetType>(
+        _ target: T,
+        completion: @escaping (Result<Void, SsacsuError>) -> Void
+    ) {
+        let provider: MoyaProvider<T> = getProvider(for: target)
+        
+        provider.request(target) { result in
+            switch result {
+            case .success(let response):
+                guard 200...299 ~= response.statusCode else {
+                    let errorResponse = ResponseDecoder.decode(CommonErrorResponseDTO.self, data: response.data)
+                    print("[CommonError]", errorResponse)
+                    
+                    switch errorResponse {
+                    case .success(let response):
+                        guard let error = SsacsuError(rawValue: response.errorCode) else {
+                            print("Error code not found")
+                            return
+                        }
+                        return completion(.failure(error))
+                    case .failure:
+                        return completion(.failure(.decodingFailure))
+                    }
+                }
+                
+                completion(.success(()))
+                
+            case .failure(let error):
+                completion(.failure(.serverError))
+            }
+        }
+    }
+    
     func processResponse<U: Decodable>(
         api: API,
         responseType: U.Type,

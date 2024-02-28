@@ -74,7 +74,7 @@ class EmailSignInViewModel: ViewModelType {
             .filter { $0 == true }
             .withLatestFrom(userInput)
             .map {
-                Login(email: $0.email, password: $0.password)
+                EmailLogin(email: $0.email, password: $0.password)
             }
             .flatMap {
                 self.signRepository.login(with: $0)
@@ -92,7 +92,7 @@ class EmailSignInViewModel: ViewModelType {
                                     nickname: response.nickname,
                                     profileImage: response.profileImage)
                     
-                    LoginUser.shared.store(value: user)
+                    UserDefaultsManager.user = user
                     
                     // 워크스페이스로 넘어가기
                     print("로그인 성공 메인뷰로 넘어가요옹")
