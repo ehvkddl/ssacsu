@@ -108,8 +108,8 @@
 		EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */; };
 		EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */; };
 		EAFD0DBE2B837242007906A2 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */; };
-		EAFD0DC02B837E20007906A2 /* ChattingSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */; };
-		EAFD0DC22B837EA2007906A2 /* ChattingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */; };
+		EAFD0DC02B837E20007906A2 /* ChannelChattingSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DBF2B837E20007906A2 /* ChannelChattingSceneDIContainer.swift */; };
+		EAFD0DC22B837EA2007906A2 /* ChannelChattingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC12B837EA2007906A2 /* ChannelChattingCoordinator.swift */; };
 		EAFD0DC42B838646007906A2 /* CommonNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */; };
 		EAFD0DC62B8389A2007906A2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC52B8389A2007906A2 /* BaseView.swift */; };
 		EAFD0DC82B83CCA4007906A2 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */; };
@@ -124,8 +124,8 @@
 		EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */; };
 		EAFD0DEA2B8655BE007906A2 /* ChannelTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */; };
 		EAFD0DEC2B865E64007906A2 /* UserTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEB2B865E64007906A2 /* UserTB.swift */; };
-		EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */; };
-		EAFD0DF02B866B67007906A2 /* ChattingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */; };
+		EAFD0DEE2B866B1B007906A2 /* ChannelRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DED2B866B1B007906A2 /* ChannelRepositoryImpl.swift */; };
+		EAFD0DF02B866B67007906A2 /* ChannelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DEF2B866B67007906A2 /* ChannelRepository.swift */; };
 		EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */; };
 		EAFD0DF62B8A5B6A007906A2 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */; };
 		EAFD0DF82B8A5B76007906A2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */; };
@@ -241,8 +241,8 @@
 		EAFCB6472B5569A7004DA2CD /* KakaoLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginDTO.swift; sourceTree = "<group>"; };
 		EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 		EAFD0DBD2B837242007906A2 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
-		EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingSceneDIContainer.swift; sourceTree = "<group>"; };
-		EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCoordinator.swift; sourceTree = "<group>"; };
+		EAFD0DBF2B837E20007906A2 /* ChannelChattingSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingSceneDIContainer.swift; sourceTree = "<group>"; };
+		EAFD0DC12B837EA2007906A2 /* ChannelChattingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChattingCoordinator.swift; sourceTree = "<group>"; };
 		EAFD0DC32B838646007906A2 /* CommonNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationBar.swift; sourceTree = "<group>"; };
 		EAFD0DC52B8389A2007906A2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EAFD0DC72B83CCA4007906A2 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
@@ -255,8 +255,8 @@
 		EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatTB.swift; sourceTree = "<group>"; };
 		EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTB.swift; sourceTree = "<group>"; };
 		EAFD0DEB2B865E64007906A2 /* UserTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTB.swift; sourceTree = "<group>"; };
-		EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepositoryImpl.swift; sourceTree = "<group>"; };
-		EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRepository.swift; sourceTree = "<group>"; };
+		EAFD0DED2B866B1B007906A2 /* ChannelRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepositoryImpl.swift; sourceTree = "<group>"; };
+		EAFD0DEF2B866B67007906A2 /* ChannelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRepository.swift; sourceTree = "<group>"; };
 		EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAPI.swift; sourceTree = "<group>"; };
 		EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 				EA922D622B583A8200D5A0A3 /* SignRepository.swift */,
 				EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */,
 				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
-				EAFD0DEF2B866B67007906A2 /* ChattingRepository.swift */,
+				EAFD0DEF2B866B67007906A2 /* ChannelRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 				EA922D652B584D4600D5A0A3 /* SignSceneDIContainer.swift */,
 				EA922DD82B682FAC00D5A0A3 /* TabBarDIContainer.swift */,
 				EA922D812B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift */,
-				EAFD0DBF2B837E20007906A2 /* ChattingSceneDIContainer.swift */,
+				EAFD0DBF2B837E20007906A2 /* ChannelChattingSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 				EA922DD42B680ABC00D5A0A3 /* SignCoordinator.swift */,
 				EA922DD62B6813AD00D5A0A3 /* TabCoordinator.swift */,
 				EA922DDA2B683F8500D5A0A3 /* WorkspaceCoordinator.swift */,
-				EAFD0DC12B837EA2007906A2 /* ChattingCoordinator.swift */,
+				EAFD0DC12B837EA2007906A2 /* ChannelChattingCoordinator.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 				EA922D5F2B5832C400D5A0A3 /* SignRepositoryImpl.swift */,
 				EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */,
 				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
-				EAFD0DED2B866B1B007906A2 /* ChattingRepositoryImpl.swift */,
+				EAFD0DED2B866B1B007906A2 /* ChannelRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -934,8 +934,8 @@
 				EAE4943B2B49D83C007461C0 /* UILabel+.swift in Sources */,
 				EA922DB92B644F1C00D5A0A3 /* WorkspaceChannelCollectionViewCell.swift in Sources */,
 				EA922DCB2B658C6600D5A0A3 /* Dms.swift in Sources */,
-				EAFD0DC02B837E20007906A2 /* ChattingSceneDIContainer.swift in Sources */,
-				EAFD0DF02B866B67007906A2 /* ChattingRepository.swift in Sources */,
+				EAFD0DC02B837E20007906A2 /* ChannelChattingSceneDIContainer.swift in Sources */,
+				EAFD0DF02B866B67007906A2 /* ChannelRepository.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
 				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
@@ -947,7 +947,7 @@
 				EA922DB52B63F0E600D5A0A3 /* DateFormatter+.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
-				EAFD0DC22B837EA2007906A2 /* ChattingCoordinator.swift in Sources */,
+				EAFD0DC22B837EA2007906A2 /* ChannelChattingCoordinator.swift in Sources */,
 				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
 				EA922DD12B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift in Sources */,
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
@@ -956,7 +956,7 @@
 				EA922D7D2B5E605A00D5A0A3 /* Token.swift in Sources */,
 				EA922D822B5EAE1200D5A0A3 /* WorkspaceSceneDIContainer.swift in Sources */,
 				EAFD0E042B8A7109007906A2 /* UIImageView+.swift in Sources */,
-				EAFD0DEE2B866B1B007906A2 /* ChattingRepositoryImpl.swift in Sources */,
+				EAFD0DEE2B866B1B007906A2 /* ChannelRepositoryImpl.swift in Sources */,
 				EAE494672B4C618C007461C0 /* Divider.swift in Sources */,
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,

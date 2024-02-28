@@ -23,11 +23,11 @@ final class ChattingViewModel: ViewModelType {
     
     let loginUserID = UserDefaultsManager.user.userID
     
-    private let chattingRepository: ChattingRepository
+    private let channelRepository: ChannelRepository
     private let disposeBag = DisposeBag()
     
-    init(chattingRepository: ChattingRepository) {
-        self.chattingRepository = chattingRepository
+    init(channelRepository: ChannelRepository) {
+        self.channelRepository = channelRepository
     }
     
     struct Input {
@@ -51,11 +51,11 @@ final class ChattingViewModel: ViewModelType {
             .subscribe(with: self) { owner, _ in
                 guard let channel = owner.channel.value else { return }
                 
-                owner.chattingRepository.fetchChat(of: channel.channelID) { response in
+                owner.channelRepository.fetchChat(of: channel.channelID) { response in
                     chats.accept(response)
                     scrollToBottom.accept(true)
                     
-                    owner.chattingRepository.openSocket(id: channel.channelID) { chat in
+                    owner.channelRepository.openSocket(id: channel.channelID) { chat in
                         let newChats = chats.value + [chat]
                         
                         chats.accept(newChats)
@@ -72,7 +72,7 @@ final class ChattingViewModel: ViewModelType {
             .subscribe(with: self) { owner, chatRequest in
                 guard let channel = owner.channel.value else { return }
                 
-                owner.chattingRepository.createChat(of: channel.channelID, chat: chatRequest) { chat in
+                owner.channelRepository.createChat(of: channel.channelID, chat: chatRequest) { chat in
                     let newChats = chats.value + [chat]
                     
                     chats.accept(newChats)
@@ -101,7 +101,7 @@ final class ChattingViewModel: ViewModelType {
 extension ChattingViewModel {
     
     func closeSocket() {
-        chattingRepository.closeSocket()
+        channelRepository.closeSocket()
     }
     
     @objc func socketReopen() {

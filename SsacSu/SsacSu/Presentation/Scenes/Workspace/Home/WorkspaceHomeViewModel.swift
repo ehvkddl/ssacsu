@@ -61,14 +61,17 @@ class WorkspaceHomeViewModel: ViewModelType {
     
     private let userRepository: UserRepository
     private let workspaceRepository: WorkspaceRepository
+    private let channelRepository: ChannelRepository
     private let disposeBag = DisposeBag()
     
     init(
         userRepository: UserRepository,
-        workspaceRepository: WorkspaceRepository
+        workspaceRepository: WorkspaceRepository,
+        channelRepository: ChannelRepository
     ) {
         self.userRepository = userRepository
         self.workspaceRepository = workspaceRepository
+        self.channelRepository = channelRepository
     }
     
     struct Input {
@@ -131,7 +134,7 @@ class WorkspaceHomeViewModel: ViewModelType {
                     workspace.onNext(response)
                 }
                 
-                owner.workspaceRepository.fetchMyChannels(id: id) { response in
+                owner.channelRepository.fetchMyChannels(id: id) { response in
                     let items = response
                         .sorted(by: { lhs, rhs in
                             lhs.createdAt < rhs.createdAt

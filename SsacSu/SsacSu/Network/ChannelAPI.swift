@@ -10,6 +10,7 @@ import Foundation
 import Moya
 
 enum ChannelAPI {
+    case fetchMyChannels(id: Int)
     case fetchChats(workspaceID: Int, channelName: String, date: String)
     case createChat(workspaceID: Int, channelName: String, chat: ChannelChatRequestDTO)
 }
@@ -22,6 +23,7 @@ extension ChannelAPI: BaseAPI {
     
     var path: String {
         switch self {
+        case .fetchMyChannels(let id): return "v1/workspaces/\(id)/channels/my"
         case .fetchChats(let id, let name, _): return "v1/workspaces/\(id)/channels/\(name)/chats"
         case .createChat(let id, let name, _): return "v1/workspaces/\(id)/channels/\(name)/chats"
         }
@@ -29,7 +31,7 @@ extension ChannelAPI: BaseAPI {
     
     var method: Moya.Method {
         switch self {
-        case .fetchChats: return .get
+        case .fetchMyChannels, .fetchChats: return .get
         case .createChat: return .post
         }
     }
@@ -67,6 +69,9 @@ extension ChannelAPI: BaseAPI {
     
     var task: Moya.Task {
         switch self {
+        case .fetchMyChannels:
+            return .requestPlain
+            
         case .fetchChats(_, _, let date):
             return .requestParameters(parameters: ["cursor_date": date], encoding: URLEncoding.queryString)
         
@@ -79,7 +84,7 @@ extension ChannelAPI: BaseAPI {
     
     var headers: [String : String]? {
         switch self {
-        case .fetchChats:
+        case .fetchMyChannels, .fetchChats:
             [
                 "Content-Type": "application/json",
                 "SesacKey": Configurations.SeSACKey

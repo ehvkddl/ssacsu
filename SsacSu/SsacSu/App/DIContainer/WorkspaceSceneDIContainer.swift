@@ -9,6 +9,8 @@ import UIKit
 
 final class WorkspaceSceneDIContainer {
     
+    lazy var channelRepository = getChannelRepository()
+    
     struct Dependencies {
         let realmManager: RealmManager
         let socketManager: SocketIOManager
@@ -21,13 +23,11 @@ final class WorkspaceSceneDIContainer {
         self.dependencies = dependencies
     }
     
-    func makeChattingSceneDIContainer() -> ChattingSceneDIContainer {
-        let dependencies = ChattingSceneDIContainer.Dependencies(
-            realmManager: dependencies.realmManager,
-            socketManager: dependencies.socketManager,
-            networkService: dependencies.networkService
+    func makeChattingSceneDIContainer() -> ChannelChattingSceneDIContainer {
+        let dependencies = ChannelChattingSceneDIContainer.Dependencies(
+            channelRepository: channelRepository
         )
-        return ChattingSceneDIContainer(dependencies: dependencies)
+        return ChannelChattingSceneDIContainer(dependencies: dependencies)
     }
     
     // MARK: - Initial
@@ -51,7 +51,8 @@ final class WorkspaceSceneDIContainer {
     func makeWorkspaceHomeViewModel() -> WorkspaceHomeViewModel {
         return WorkspaceHomeViewModel(
             userRepository: getUserRepository(),
-            workspaceRepository: getWorkspaceRepository()
+            workspaceRepository: getWorkspaceRepository(),
+            channelRepository: channelRepository
         )
     }
     
@@ -78,6 +79,14 @@ final class WorkspaceSceneDIContainer {
     func getWorkspaceRepository() -> WorkspaceRepository {
         return WorkspaceRepositoryImpl(
             realmManager: dependencies.realmManager,
+            networkService: dependencies.networkService
+        )
+    }
+    
+    func getChannelRepository() -> ChannelRepository {
+        return ChannelRepositoryImpl(
+            realmManager: dependencies.realmManager,
+            socketManager: dependencies.socketManager,
             networkService: dependencies.networkService
         )
     }

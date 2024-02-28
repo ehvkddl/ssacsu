@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-final class ChattingRepositoryImpl {
+final class ChannelRepositoryImpl {
     
     private let realmManager: RealmManager
     private let socketManager: SocketIOManager
@@ -27,7 +27,26 @@ final class ChattingRepositoryImpl {
     
 }
 
-extension ChattingRepositoryImpl: ChattingRepository {
+extension ChannelRepositoryImpl: ChannelRepository {
+    
+    func fetchMyChannels(id: Int, completion: @escaping ([Channel]) -> Void) {
+        networkService.processResponse(
+            api: .channel(.fetchMyChannels(id: id)),
+            responseType: [ChannelResponseDTO].self) { response in
+                switch response {
+                case .success(let success):
+                    print("채널 정보 불러옴!", success)
+                    
+                    let channels = success.map { $0.toDomain() }
+                    channels.forEach { self.realmManager.addChannelInfo($0) }
+                    
+                    completion(channels)
+                    
+                case .failure(let failure):
+                    print("채널 조회 실패", failure)
+                }
+            }
+    }
     
     func fetchChat(of channelID: Int, completion: @escaping ([ChannelChat]) -> Void) {
         guard let channel = realmManager.fetchSingleChannel(of: channelID) else {
@@ -90,7 +109,7 @@ extension ChattingRepositoryImpl: ChattingRepository {
     
 }
 
-extension ChattingRepositoryImpl {
+extension ChannelRepositoryImpl {
     
     func openSocket(id channelID: Int, completion: @escaping (ChannelChat) -> ()) {
         socketManager.open(id: channelID) { [unowned self] chat in
