@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol SelectSignInMethodViewModelDelegate {
+    func socialLogin()
     func signUp()
     func emailSignIn()
 }
@@ -46,6 +47,8 @@ class SelectSignInMethodViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        let canSignIn = PublishRelay<Login>()
+        
         input.appleSignInButtonTapped
             .subscribe(with: self) { owner, _ in
                 owner.appleLoginRepository.performAppleLogin()
@@ -58,17 +61,8 @@ class SelectSignInMethodViewModel: ViewModelType {
             .subscribe { result in
                 switch result {
                 case .success(let response):
-                    let token = response.token
                     
-                    Token.shared.save(account: .accessToken, value: token.accessToken)
-                    Token.shared.save(account: .refreshToken, value: token.refreshToken)
-                    
-                    let user = User(userID: response.userID,
-                                    email: response.email,
-                                    nickname: response.nickname,
-                                    profileImage: response.profileImage)
-                    
-                    LoginUser.shared.store(value: user)
+                    canSignIn.accept(response.toDomain())
                     
                 case .failure(let error):
                     guard error == .authenticationFailure else { return }
@@ -91,17 +85,8 @@ class SelectSignInMethodViewModel: ViewModelType {
             .subscribe { result in
                 switch result {
                 case .success(let response):
-                    let token = response.token
                     
-                    Token.shared.save(account: .accessToken, value: token.accessToken)
-                    Token.shared.save(account: .refreshToken, value: token.refreshToken)
-                    
-                    let user = User(userID: response.userID,
-                                    email: response.email,
-                                    nickname: response.nickname,
-                                    profileImage: response.profileImage)
-                    
-                    LoginUser.shared.store(value: user)
+                    canSignIn.accept(response.toDomain())
                     
                 case .failure(let error):
                     guard error == .authenticationFailure else { return }
@@ -109,6 +94,24 @@ class SelectSignInMethodViewModel: ViewModelType {
                     // TODO: - 로그인 실패 Toast
                     print("로그인 실패")
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        canSignIn
+            .subscribe(with: self) { owner, login in
+                let token = login.token
+                
+                Token.shared.save(account: .accessToken, value: token.accessToken)
+                Token.shared.save(account: .refreshToken, value: token.refreshToken)
+                
+                let user = User(userID: login.userID,
+                                email: login.email,
+                                nickname: login.nickname,
+                                profileImage: login.profileImage)
+                
+                UserDefaultsManager.user = user
+                
+                owner.delegate?.socialLogin()
             }
             .disposed(by: disposeBag)
         

@@ -73,7 +73,7 @@
 		EAB401772B5304AD00C1A14A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401762B5304AD00C1A14A /* Validation.swift */; };
 		EAB401792B53237000C1A14A /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB401782B53237000C1A14A /* LoginDTO.swift */; };
 		EAB4017B2B5323DA00C1A14A /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */; };
-		EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4017E2B532BCA00C1A14A /* Login.swift */; };
+		EAB4017F2B532BCA00C1A14A /* EmailLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB4017E2B532BCA00C1A14A /* EmailLogin.swift */; };
 		EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE493FF2B459B81007461C0 /* AppDelegate.swift */; };
 		EAE494022B459B81007461C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE494012B459B81007461C0 /* SceneDelegate.swift */; };
 		EAE494092B459B82007461C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAE494082B459B82007461C0 /* Assets.xcassets */; };
@@ -140,6 +140,7 @@
 		EAFD0E192B8F12EF007906A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E182B8F12EF007906A2 /* FirebaseCrashlytics */; };
 		EAFD0E1B2B8F12EF007906A2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E1A2B8F12EF007906A2 /* FirebaseMessaging */; };
 		EAFD0E1D2B8F25CA007906A2 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */; };
+		EAFD0E1F2B8F2BFF007906A2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E1E2B8F2BFF007906A2 /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,7 +208,7 @@
 		EAB401762B5304AD00C1A14A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		EAB401782B53237000C1A14A /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		EAB4017A2B5323DA00C1A14A /* TokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDTO.swift; sourceTree = "<group>"; };
-		EAB4017E2B532BCA00C1A14A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EAB4017E2B532BCA00C1A14A /* EmailLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLogin.swift; sourceTree = "<group>"; };
 		EAE493FC2B459B81007461C0 /* SsacSu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsacSu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE493FF2B459B81007461C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE494012B459B81007461C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +265,7 @@
 		EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		EAFD0E1E2B8F2BFF007906A2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,7 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				EAB401612B4EF7F900C1A14A /* Join.swift */,
-				EAB4017E2B532BCA00C1A14A /* Login.swift */,
+				EAFD0E1E2B8F2BFF007906A2 /* Login.swift */,
+				EAB4017E2B532BCA00C1A14A /* EmailLogin.swift */,
 				EAFCB63A2B548D7F004DA2CD /* AppleLogin.swift */,
 				EAFCB6492B556A9C004DA2CD /* KakaoLogin.swift */,
 				EA922DB22B63D59900D5A0A3 /* Workspace.swift */,
@@ -936,7 +939,7 @@
 				EA922DD32B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift in Sources */,
 				EA922D602B5832C400D5A0A3 /* SignRepositoryImpl.swift in Sources */,
 				EA922D682B585B3200D5A0A3 /* AppCoordinator.swift in Sources */,
-				EAB4017F2B532BCA00C1A14A /* Login.swift in Sources */,
+				EAB4017F2B532BCA00C1A14A /* EmailLogin.swift in Sources */,
 				EA922D802B5EAC0800D5A0A3 /* WorkspaceHomeViewController.swift in Sources */,
 				EA922DB52B63F0E600D5A0A3 /* DateFormatter+.swift in Sources */,
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
@@ -965,6 +968,7 @@
 				EA922D662B584D4600D5A0A3 /* SignSceneDIContainer.swift in Sources */,
 				EA922DA72B60351100D5A0A3 /* ResponseDecoder.swift in Sources */,
 				EAFD0DE62B863F3E007906A2 /* ChannelChatTB.swift in Sources */,
+				EAFD0E1F2B8F2BFF007906A2 /* Login.swift in Sources */,
 				EA922DDB2B683F8500D5A0A3 /* WorkspaceCoordinator.swift in Sources */,
 				EAE4945B2B4B1EFE007461C0 /* BaseViewController.swift in Sources */,
 				EA922D972B5ED3B700D5A0A3 /* WorkspaceHomeViewModel.swift in Sources */,

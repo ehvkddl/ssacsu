@@ -74,7 +74,7 @@ class EmailSignInViewModel: ViewModelType {
             .filter { $0 == true }
             .withLatestFrom(userInput)
             .map {
-                Login(email: $0.email, password: $0.password)
+                EmailLogin(email: $0.email, password: $0.password)
             }
             .flatMap {
                 self.signRepository.login(with: $0)

@@ -2,20 +2,18 @@
 //  Login.swift
 //  SsacSu
 //
-//  Created by do hee kim on 2024/01/14.
+//  Created by do hee kim on 2024/02/28.
 //
 
 import Foundation
 
 struct Login {
+    let userID: Int
     let email: String
-    let password: String
-}
-
-extension Login {
-    func toRequest() -> LoginRequestDTO {
-        return .init(email: email, 
-                     password: password,
-                     deviceToken: "")
-    }
+    let nickname: String
+    let profileImage: String?
+    let phone: String?
+    let vendor: String?
+    let createdAt: String
+    let token: TokenDTO
 }

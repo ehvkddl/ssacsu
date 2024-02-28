@@ -14,5 +14,5 @@ protocol SignRepository {
     func join(join: Join) -> Single<Result<JoinResponseDTO, SsacsuError>>
     func appleLogin(with login: AppleLogin) -> Single<Result<AppleLoginResponseDTO, SsacsuError>>
     func kakaoLogin(with login: KakaoLogin) -> Single<Result<KakaoLoginResponseDTO, SsacsuError>>
-    func login(with login: Login) -> Single<Result<LoginResponseDTO, SsacsuError>>
+    func login(with login: EmailLogin) -> Single<Result<LoginResponseDTO, SsacsuError>>
 }

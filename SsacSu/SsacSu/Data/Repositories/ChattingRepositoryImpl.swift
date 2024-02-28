@@ -97,7 +97,8 @@ extension ChattingRepositoryImpl {
             print("ChattingRepositoryImpl 채팅 받아옴~")
             // 채팅 수신 후 DB 저장
             // 내가 보낸 채팅은 저장 X
-            guard let loginUser = LoginUser.shared.load(),
+            let loginUser = UserDefaultsManager.user
+            guard loginUser.userID != -1,
                   loginUser.userID != chat.user.userID else { return }
             
             realmManager.addChat(to: channelID, chat)

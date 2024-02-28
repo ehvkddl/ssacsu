@@ -33,3 +33,16 @@ struct KakaoLoginResponseDTO: Decodable  {
         case token
     }
 }
+
+extension KakaoLoginResponseDTO {
+    func toDomain() -> Login {
+        return .init(userID: userID,
+                     email: email,
+                     nickname: nickname,
+                     profileImage: profileImage,
+                     phone: phone,
+                     vendor: vendor,
+                     createdAt: createdAt,
+                     token: token)
+    }
+}
