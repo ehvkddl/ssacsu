@@ -15,6 +15,7 @@ enum API {
     case user(UserAPI)
     case workspace(WorkspaceAPI)
     case channel(ChannelAPI)
+    case dms(DmsAPI)
 }
 
 protocol NetworkService {
@@ -28,16 +29,19 @@ class NetworkServiceImpl: NetworkService {
     let userProvider: MoyaProvider<UserAPI>
     let workspaceProvider: MoyaProvider<WorkspaceAPI>
     let channelProvider: MoyaProvider<ChannelAPI>
+    let dmsProvider: MoyaProvider<DmsAPI>
 
     init(signProvider: MoyaProvider<SignAPI>,
          userProvider: MoyaProvider<UserAPI>,
          workspaceProvider: MoyaProvider<WorkspaceAPI>,
-         channelProvider: MoyaProvider<ChannelAPI>
+         channelProvider: MoyaProvider<ChannelAPI>,
+         dmsProvider: MoyaProvider<DmsAPI>
     ) {
         self.signProvider = signProvider
         self.userProvider = userProvider
         self.workspaceProvider = workspaceProvider
         self.channelProvider = channelProvider
+        self.dmsProvider = dmsProvider
     }
 }
 
@@ -56,6 +60,8 @@ extension NetworkServiceImpl {
             request(workspaceAPI, completion: completion)
         case .channel(let channelAPI):
             request(channelAPI, completion: completion)
+        case .dms(let dmsAPI):
+            request(dmsAPI, completion: completion)
         }
     }
     
@@ -106,6 +112,8 @@ extension NetworkServiceImpl {
             request(workspaceAPI, responseType: responseType, completion: completion)
         case .channel(let channelAPI):
             request(channelAPI, responseType: responseType, completion: completion)
+        case .dms(let dmsAPI):
+            request(dmsAPI, responseType: responseType, completion: completion)
         }
     }
 
@@ -171,6 +179,8 @@ extension NetworkServiceImpl {
                 self.request(workspaceAPI, single: single, responseType: responseType)
             case .channel(let channelAPI):
                 self.request(channelAPI, single: single, responseType: responseType)
+            case .dms(let dmsAPI):
+                self.request(dmsAPI, single: single, responseType: responseType)
             }
             
             return Disposables.create()
@@ -233,6 +243,8 @@ extension NetworkServiceImpl {
             return workspaceProvider as! MoyaProvider<T>
         case is ChannelAPI:
             return channelProvider as! MoyaProvider<T>
+        case is DmsAPI:
+            return dmsProvider as! MoyaProvider<T>
         default:
             fatalError("Unsupported type")
         }

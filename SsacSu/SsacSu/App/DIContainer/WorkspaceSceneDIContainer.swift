@@ -9,7 +9,8 @@ import UIKit
 
 final class WorkspaceSceneDIContainer {
     
-    lazy var channelRepository = getChannelRepository()
+    private lazy var channelRepository = getChannelRepository()
+    private lazy var dmsRepository = getDmsRespository()
     
     struct Dependencies {
         let realmManager: RealmManager
@@ -52,7 +53,8 @@ final class WorkspaceSceneDIContainer {
         return WorkspaceHomeViewModel(
             userRepository: getUserRepository(),
             workspaceRepository: getWorkspaceRepository(),
-            channelRepository: channelRepository
+            channelRepository: channelRepository,
+            dmsRepository: dmsRepository
         )
     }
     
@@ -85,6 +87,14 @@ final class WorkspaceSceneDIContainer {
     
     func getChannelRepository() -> ChannelRepository {
         return ChannelRepositoryImpl(
+            realmManager: dependencies.realmManager,
+            socketManager: dependencies.socketManager,
+            networkService: dependencies.networkService
+        )
+    }
+    
+    func getDmsRespository() -> DmsRepository {
+        return DmsRepositoryImpl(
             realmManager: dependencies.realmManager,
             socketManager: dependencies.socketManager,
             networkService: dependencies.networkService

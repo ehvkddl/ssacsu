@@ -142,6 +142,9 @@
 		EAFD0E1B2B8F12EF007906A2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E1A2B8F12EF007906A2 /* FirebaseMessaging */; };
 		EAFD0E1D2B8F25CA007906A2 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */; };
 		EAFD0E1F2B8F2BFF007906A2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E1E2B8F2BFF007906A2 /* Login.swift */; };
+		EAFD0E252B8F77C7007906A2 /* DmsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */; };
+		EAFD0E292B8F7EDF007906A2 /* DmsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E282B8F7EDF007906A2 /* DmsRepository.swift */; };
+		EAFD0E2B2B8F7EFB007906A2 /* DmsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +271,9 @@
 		EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		EAFD0E1E2B8F2BFF007906A2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsAPI.swift; sourceTree = "<group>"; };
+		EAFD0E282B8F7EDF007906A2 /* DmsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsRepository.swift; sourceTree = "<group>"; };
+		EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +312,7 @@
 				EAFD0DF72B8A5B76007906A2 /* UserRepository.swift */,
 				EA922D912B5ECC2700D5A0A3 /* WorkspaceRepository.swift */,
 				EAFD0DEF2B866B67007906A2 /* ChannelRepository.swift */,
+				EAFD0E282B8F7EDF007906A2 /* DmsRepository.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -415,6 +422,7 @@
 				EAFD0DFB2B8A6211007906A2 /* UserAPI.swift */,
 				EA922D9C2B5F014200D5A0A3 /* WorkspaceAPI.swift */,
 				EAFD0DF12B8670B3007906A2 /* ChannelAPI.swift */,
+				EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -707,6 +715,7 @@
 				EAFD0DF52B8A5B6A007906A2 /* UserRepositoryImpl.swift */,
 				EA922D9A2B5F00E900D5A0A3 /* WorkspaceRepositoryImpl.swift */,
 				EAFD0DED2B866B1B007906A2 /* ChannelRepositoryImpl.swift */,
+				EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -980,6 +989,7 @@
 				EAB4014E2B4DC5D900C1A14A /* ViewModelType.swift in Sources */,
 				EAE494002B459B81007461C0 /* AppDelegate.swift in Sources */,
 				EA922DC82B656E0F00D5A0A3 /* User.swift in Sources */,
+				EAFD0E252B8F77C7007906A2 /* DmsAPI.swift in Sources */,
 				EAFD0E1D2B8F25CA007906A2 /* UserDefaultsManager.swift in Sources */,
 				EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
@@ -1007,6 +1017,7 @@
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */,
+				EAFD0E292B8F7EDF007906A2 /* DmsRepository.swift in Sources */,
 				EAE4946A2B4C717C007461C0 /* SignUpViewController.swift in Sources */,
 				EAFD0DCB2B853F86007906A2 /* OtherChattingBubbleTableViewCell.swift in Sources */,
 				EAB4016B2B51D2E400C1A14A /* SSLabel.swift in Sources */,
@@ -1015,6 +1026,7 @@
 				EAB401662B50590E00C1A14A /* String+.swift in Sources */,
 				EAFD0DFC2B8A6211007906A2 /* UserAPI.swift in Sources */,
 				EA922DA12B5FFF2B00D5A0A3 /* WorkspaceListDTO.swift in Sources */,
+				EAFD0E2B2B8F7EFB007906A2 /* DmsRepositoryImpl.swift in Sources */,
 				EA922DD52B680ABC00D5A0A3 /* SignCoordinator.swift in Sources */,
 				EAE494652B4B91FB007461C0 /* SelectSignInMethodViewController.swift in Sources */,
 				EAFD0DF82B8A5B76007906A2 /* UserRepository.swift in Sources */,

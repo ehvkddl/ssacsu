@@ -62,16 +62,19 @@ class WorkspaceHomeViewModel: ViewModelType {
     private let userRepository: UserRepository
     private let workspaceRepository: WorkspaceRepository
     private let channelRepository: ChannelRepository
+    private let dmsRepository: DmsRepository
     private let disposeBag = DisposeBag()
     
     init(
         userRepository: UserRepository,
         workspaceRepository: WorkspaceRepository,
-        channelRepository: ChannelRepository
+        channelRepository: ChannelRepository,
+        dmsRepository: DmsRepository
     ) {
         self.userRepository = userRepository
         self.workspaceRepository = workspaceRepository
         self.channelRepository = channelRepository
+        self.dmsRepository = dmsRepository
     }
     
     struct Input {
