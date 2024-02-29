@@ -147,6 +147,10 @@
 		EAFD0E2B2B8F7EFB007906A2 /* DmsRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */; };
 		EAFD0E2E2B8F8144007906A2 /* DMsRoomDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */; };
 		EAFD0E302B8F81B3007906A2 /* DMsRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */; };
+		EAFD0E322B8FAB65007906A2 /* DMsRoomTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E312B8FAB65007906A2 /* DMsRoomTB.swift */; };
+		EAFD0E342B8FAC7D007906A2 /* DMChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E332B8FAC7D007906A2 /* DMChatTB.swift */; };
+		EAFD0E362B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E352B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift */; };
+		EAFD0E382B8FBC68007906A2 /* DMsChatUnreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,6 +282,10 @@
 		EAFD0E2A2B8F7EFB007906A2 /* DmsRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsRepositoryImpl.swift; sourceTree = "<group>"; };
 		EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsRoomDTO.swift; sourceTree = "<group>"; };
 		EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsRoom.swift; sourceTree = "<group>"; };
+		EAFD0E312B8FAB65007906A2 /* DMsRoomTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsRoomTB.swift; sourceTree = "<group>"; };
+		EAFD0E332B8FAC7D007906A2 /* DMChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMChatTB.swift; sourceTree = "<group>"; };
+		EAFD0E352B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsChatUnreadsDTO.swift; sourceTree = "<group>"; };
+		EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsChatUnreads.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +472,7 @@
 				EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */,
 				EA922DCA2B658C6600D5A0A3 /* Dms.swift */,
 				EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */,
+				EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -803,6 +812,8 @@
 			children = (
 				EAFD0DE92B8655BE007906A2 /* ChannelTB.swift */,
 				EAFD0DE52B863F3E007906A2 /* ChannelChatTB.swift */,
+				EAFD0E312B8FAB65007906A2 /* DMsRoomTB.swift */,
+				EAFD0E332B8FAC7D007906A2 /* DMChatTB.swift */,
 				EAFD0DEB2B865E64007906A2 /* UserTB.swift */,
 			);
 			path = Database;
@@ -837,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFD0E2D2B8F8144007906A2 /* DMsRoomDTO.swift */,
+				EAFD0E352B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift */,
 			);
 			path = DMs;
 			sourceTree = "<group>";
@@ -971,6 +983,7 @@
 				EAB401502B4DC77500C1A14A /* SignUpViewModel.swift in Sources */,
 				EAB4015E2B4EF75100C1A14A /* JoinDTO.swift in Sources */,
 				EAFD0DC22B837EA2007906A2 /* ChannelChattingCoordinator.swift in Sources */,
+				EAFD0E382B8FBC68007906A2 /* DMsChatUnreads.swift in Sources */,
 				EAFCB64A2B556A9C004DA2CD /* KakaoLogin.swift in Sources */,
 				EA922DD12B66950700D5A0A3 /* WorkspaceAddCollectionViewCell.swift in Sources */,
 				EAFCB6482B5569A7004DA2CD /* KakaoLoginDTO.swift in Sources */,
@@ -1008,6 +1021,7 @@
 				EA922DE02B69791200D5A0A3 /* WorkspaceListViewController.swift in Sources */,
 				EA922D5E2B582DF400D5A0A3 /* NetworkService.swift in Sources */,
 				EAE494322B473634007461C0 /* Configurations.swift in Sources */,
+				EAFD0E342B8FAC7D007906A2 /* DMChatTB.swift in Sources */,
 				EA922DA92B60433400D5A0A3 /* AccessTokenRefreshInterceptor.swift in Sources */,
 				EAFD0DC62B8389A2007906A2 /* BaseView.swift in Sources */,
 				EA922DE52B699EE400D5A0A3 /* WorkspaceListViewModel.swift in Sources */,
@@ -1017,6 +1031,7 @@
 				EAB401742B52FD8900C1A14A /* EmailSignInViewModel.swift in Sources */,
 				EA922DC42B656CD100D5A0A3 /* UserDTO.swift in Sources */,
 				EA922DA32B60010400D5A0A3 /* BaseAPI.swift in Sources */,
+				EAFD0E322B8FAB65007906A2 /* DMsRoomTB.swift in Sources */,
 				EAFD0DD32B85F4D9007906A2 /* MyChattingBubbleTableViewCell.swift in Sources */,
 				EA922D7B2B59C93300D5A0A3 /* SsacsuError.swift in Sources */,
 				EAB4016D2B52CE1500C1A14A /* EmailSignInViewController.swift in Sources */,
@@ -1030,6 +1045,7 @@
 				EA922DC62B656E0400D5A0A3 /* Channel.swift in Sources */,
 				EA922DE32B699A3800D5A0A3 /* WorkspaceListTableViewCell.swift in Sources */,
 				EAE494352B4749B3007461C0 /* SSFont.swift in Sources */,
+				EAFD0E362B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift in Sources */,
 				EAFCB6352B54751B004DA2CD /* AppleLoginRepositoryImpl.swift in Sources */,
 				EAFD0DF22B8670B3007906A2 /* ChannelAPI.swift in Sources */,
 				EAFD0E292B8F7EDF007906A2 /* DmsRepository.swift in Sources */,

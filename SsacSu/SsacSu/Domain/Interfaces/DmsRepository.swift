@@ -9,4 +9,5 @@ import Foundation
 
 protocol DmsRepository {
     func fetchDmsRoom(id workspaceID: Int, completion: @escaping ([DMsRoom]) -> Void)
+    func fetchUnreadDms(id roomID: Int, completion: @escaping (Int) -> Void)
 }

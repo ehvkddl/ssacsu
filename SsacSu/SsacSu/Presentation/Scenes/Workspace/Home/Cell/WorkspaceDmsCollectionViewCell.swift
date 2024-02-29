@@ -9,6 +9,11 @@ import UIKit
 
 class WorkspaceDmsCollectionViewCell: BaseCollectionViewCell {
     
+    enum CellType {
+        case plain
+        case unread
+    }
+    
     let profileImage = {
         let view = UIImageView()
         view.image = UIImage(resource: .Profile.noPhotoA)
@@ -57,7 +62,7 @@ class WorkspaceDmsCollectionViewCell: BaseCollectionViewCell {
 
 extension WorkspaceDmsCollectionViewCell {
     
-    func bind(item: DMsRoom) {
+    func bind(item: DMsRoom, _ unreadCount: Int) {
         if let profileImageUrl = item.user.profileImage {
             let size = CGSize(width: 24, height: 24)
             profileImage.loadImage(url: profileImageUrl, size: size)
@@ -66,6 +71,28 @@ extension WorkspaceDmsCollectionViewCell {
         }
         
         userNameLabel.text = item.user.nickname
+        unreadCountLabel.text = "\(unreadCount)"
+    }
+    
+    func style(_ cellType: CellType) {
+        switch cellType {
+        case .plain: plain()
+        case .unread: unread()
+        }
+    }
+    
+}
+
+extension WorkspaceDmsCollectionViewCell {
+    
+    func plain() {
+        userNameLabel.font = SSFont.style(.body)
+        unreadCountLabel.isHidden = true
+    }
+    
+    func unread() {
+        userNameLabel.font = SSFont.style(.bodyBold)
+        unreadCountLabel.isHidden = false
     }
     
 }

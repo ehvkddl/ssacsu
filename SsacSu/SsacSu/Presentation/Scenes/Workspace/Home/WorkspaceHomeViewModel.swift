@@ -32,7 +32,7 @@ enum WorkspaceSectionType {
 
 enum WorkspaceSectionItem {
     case channel(Channel)
-    case dm(DMsRoom)
+    case dm(room: DMsRoom, unread: Int)
     case add(WorkspaceSectionType)
 }
 
@@ -99,6 +99,8 @@ class WorkspaceHomeViewModel: ViewModelType {
         
         let workspaceSections = PublishRelay<[WorkspaceSection]>()
         
+        let dmsRooms = PublishRelay<[DMsRoom]>()
+        
         input.navigationBarTapped
             .subscribe(with: self) { owner, _ in
                 print("워크스페이스 리스트로 보여줘용")
@@ -157,11 +159,8 @@ class WorkspaceHomeViewModel: ViewModelType {
                         .sorted { lhs, rhs in
                             lhs.createdAt < rhs.createdAt
                         }
-                        .map { WorkspaceSectionItem.dm($0) }
                     
-                    items.append(WorkspaceSectionItem.add(.dm))
-                    
-                    dmsItems.onNext(items)
+                    dmsRooms.accept(items)
                 }
                 
                 // 유저 정보 조회
@@ -189,6 +188,29 @@ class WorkspaceHomeViewModel: ViewModelType {
                     
                 case .failure(let error):
                     print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        dmsRooms
+            .subscribe(with: self) { owner, rooms in
+                var items: [WorkspaceSectionItem] = []
+                
+                let group = DispatchGroup()
+                
+                rooms.forEach { room in
+                    group.enter()
+                    
+                    owner.dmsRepository.fetchUnreadDms(id: room.roomID) { unreadCnt in
+                        items.append(WorkspaceSectionItem.dm(room: room, unread: unreadCnt))
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    items.append(WorkspaceSectionItem.add(.dm))
+                    
+                    dmsItems.onNext(items)
                 }
             }
             .disposed(by: disposeBag)

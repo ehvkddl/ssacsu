@@ -11,6 +11,7 @@ import Moya
 
 enum DmsAPI {
     case fetchDMsRoom(workspaceID: Int)
+    case fetchUnreadDM(workspaceID: Int, roomID: Int, date: String)
 }
 
 extension DmsAPI: BaseAPI {
@@ -21,25 +22,28 @@ extension DmsAPI: BaseAPI {
     
     var path: String {
         switch self {
-        case .fetchDMsRoom(let id): return "v1/workspaces/\(id)/dms"
+        case .fetchDMsRoom(let workspaceID): return "v1/workspaces/\(workspaceID)/dms"
+        case .fetchUnreadDM(let workspaceID, let roomID, _): return "v1/workspaces/\(workspaceID)/dms/\(roomID)/unreads"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchDMsRoom: return .get
+        case .fetchDMsRoom, .fetchUnreadDM: return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
         case .fetchDMsRoom: return .requestPlain
+        case .fetchUnreadDM(_, _, let date):
+            return .requestParameters(parameters: ["after": date], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .fetchDMsRoom:
+        case .fetchDMsRoom, .fetchUnreadDM:
             [
                 "Content-Type": "application/json",
                 "SesacKey": Configurations.SeSACKey

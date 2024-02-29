@@ -18,7 +18,10 @@ protocol RealmManager {
     func addChat(to channelID: Int, _ item: ChannelChatResponseDTO)
     
     // Dms
+    func checkLastDMDate(of roomID: Int) -> Date?
+    func fetchSingleDMsRoom(of roomID: Int) -> DMsRoomTB?
     func addDMsRoomInfo(_ room: DMsRoom)
+    func fetchDMChat(of roomID: Int) -> Results<DMChatTB>?
 }
 
 final class RealmManagerImpl: RealmManager {
@@ -138,6 +141,25 @@ extension RealmManagerImpl {
 // Dms
 extension RealmManagerImpl {
     
+    // MARK: - 마지막 채팅 날짜 확인 (채팅 없을 시 DMsRoom이 만들어진 날짜 return)
+    func checkLastDMDate(of roomID: Int) -> Date? {
+        guard let room = fetchSingleDMsRoom(of: roomID) else { return nil }
+        
+        guard let chats = fetchDMChat(of: roomID) else { return room.createdAt }
+        guard let lastChat = chats
+            .sorted(byKeyPath: "createdAt", ascending: true)
+            .last else { return room.createdAt }
+        
+        return lastChat.createdAt
+    }
+    
+    // MARK: - roomID의 방 정보 가져오기
+    func fetchSingleDMsRoom(of roomID: Int) -> DMsRoomTB? {
+        guard let realm else { return nil }
+        
+        return realm.object(ofType: DMsRoomTB.self, forPrimaryKey: roomID)
+    }
+    
     // MARK: - DM 방 정보 저장
     func addDMsRoomInfo(_ room: DMsRoom) {
         guard let realm else { return }
@@ -160,6 +182,15 @@ extension RealmManagerImpl {
         } catch {
             print("DM 방 정보 저장 실패", error)
         }
+    }
+    
+    // MARK: - roomID의 모든 DM 채팅 가져오기
+    func fetchDMChat(of roomID: Int) -> Results<DMChatTB>? {
+        guard let realm else { return nil }
+        
+        return realm.objects(DMChatTB.self)
+            .filter("room.roomID == \(roomID)")
+            .sorted(byKeyPath: "createdAt", ascending: true)
     }
     
 }

@@ -196,12 +196,14 @@ extension WorkspaceHomeViewController {
                 
                 return cell
                 
-            case .dm(let dm):
+            case .dm(let room, let unread):
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: WorkspaceDmsCollectionViewCell.description(),
                     for: indexPath
                 ) as? WorkspaceDmsCollectionViewCell else { return UICollectionViewCell() }
-                cell.bind(item: dm)
+                
+                cell.bind(item: room, unread)
+                cell.style(unread == 0 ? .plain : .unread)
                 
                 return cell
             
