@@ -50,23 +50,4 @@ extension WorkspaceRepositoryImpl: WorkspaceRepository {
             }
     }
     
-    func fetchMyChannels(id: Int, completion: @escaping ([Channel]) -> Void) {
-        networkService.processResponse(
-            api: .workspace(.fetchMyChannels(id: id)),
-            responseType: [ChannelResponseDTO].self) { response in
-                switch response {
-                case .success(let success):
-                    print("채널 정보 불러옴!", success)
-                    
-                    let channels = success.map { $0.toDomain() }
-                    channels.forEach { self.realmManager.addChannelInfo($0) }
-                    
-                    completion(channels)
-                    
-                case .failure(let failure):
-                    print("채널 조회 실패", failure)
-                }
-            }
-    }
-    
 }

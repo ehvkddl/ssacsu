@@ -15,7 +15,8 @@ final class AppDIContainer {
             signProvider: getSignProvider(),
             userProvider: getUserProvider(),
             workspaceProvider: getWorkspaceProvider(),
-            channelProvider: getChannelProvider()
+            channelProvider: getChannelProvider(),
+            dmsProvider: getDmsProvider()
         )
     }()
     
@@ -71,6 +72,12 @@ final class AppDIContainer {
     
     func getChannelProvider() -> MoyaProvider<ChannelAPI> {
         return MoyaProvider<ChannelAPI>(
+            session: Session(interceptor: accessTokenRefreshInterceptor)
+        )
+    }
+    
+    func getDmsProvider() -> MoyaProvider<DmsAPI> {
+        return MoyaProvider<DmsAPI>(
             session: Session(interceptor: accessTokenRefreshInterceptor)
         )
     }

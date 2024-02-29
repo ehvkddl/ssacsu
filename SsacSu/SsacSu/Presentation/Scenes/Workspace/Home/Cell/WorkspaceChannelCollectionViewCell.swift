@@ -9,6 +9,11 @@ import UIKit
 
 class WorkspaceChannelCollectionViewCell: BaseCollectionViewCell {
     
+    enum CellType {
+        case plain
+        case unread
+    }
+    
     let hashtagImage = UIImageView(image: .hashtagThin)
     
     let channelTitle = {
@@ -46,7 +51,42 @@ class WorkspaceChannelCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func bind(item: Channel) {
+}
+
+extension WorkspaceChannelCollectionViewCell {
+    
+    func bind(item: Channel, _ unreadCount: Int) {
         channelTitle.text = item.name
+        unreadCountLabel.text = "\(unreadCount)"
     }
+    
+    func style(_ cellType: CellType) {
+        switch cellType {
+        case .plain: plain()
+        case .unread: unread()
+        }
+    }
+    
+}
+
+extension WorkspaceChannelCollectionViewCell {
+    
+    func plain() {
+        hashtagImage.image = .hashtagThin
+        
+        channelTitle.font = SSFont.style(.body)
+        channelTitle.textColor = .Text.secondary
+        
+        unreadCountLabel.isHidden = true
+    }
+    
+    func unread() {
+        hashtagImage.image = .hashtagThick
+        
+        channelTitle.font = SSFont.style(.bodyBold)
+        channelTitle.textColor = .Text.primary
+        
+        unreadCountLabel.isHidden = false
+    }
+    
 }

@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-final class ChattingRepositoryImpl {
+final class ChannelRepositoryImpl {
     
     private let realmManager: RealmManager
     private let socketManager: SocketIOManager
@@ -27,7 +27,50 @@ final class ChattingRepositoryImpl {
     
 }
 
-extension ChattingRepositoryImpl: ChattingRepository {
+extension ChannelRepositoryImpl: ChannelRepository {
+    
+    func fetchMyChannels(id workspaceID: Int, completion: @escaping ([Channel]) -> Void) {
+        networkService.processResponse(
+            api: .channel(.fetchMyChannels(id: workspaceID)),
+            responseType: [ChannelResponseDTO].self) { response in
+                switch response {
+                case .success(let success):
+                    print("채널 정보 불러옴!", success)
+                    
+                    let channels = success.map { $0.toDomain() }
+                    channels.forEach { self.realmManager.addChannelInfo($0) }
+                    
+                    completion(channels)
+                    
+                case .failure(let failure):
+                    print("채널 조회 실패", failure)
+                }
+            }
+    }
+    
+    func fetchUnreadChannelChat(id channelID: Int, completion: @escaping (Int) -> Void) {
+        guard let channel = realmManager.fetchSingleChannel(of: channelID) else { print("#### Channel 정보 없음"); return }
+        
+        let dateStr = {
+            guard let date = realmManager.checkLastDate(of: channelID) else { return "" }
+            
+            return DateFormatter.iso8601.string(from: date)
+        }()
+        
+        networkService.processResponse(
+            api: .channel(.fetchUnreadChannelChat(workspaceID: channel.workspaceID, 
+                                                  channelName: channel.name,
+                                                  date: dateStr)),
+            responseType: ChannelChatUnreadsResponseDTO.self) { result in
+                switch result {
+                case .success(let success):
+                    completion(success.count)
+                    
+                case .failure(let failure):
+                    print("ChannelChatUnreads 조회 실패", failure)
+                }
+            }
+    }
     
     func fetchChat(of channelID: Int, completion: @escaping ([ChannelChat]) -> Void) {
         guard let channel = realmManager.fetchSingleChannel(of: channelID) else {
@@ -90,7 +133,7 @@ extension ChattingRepositoryImpl: ChattingRepository {
     
 }
 
-extension ChattingRepositoryImpl {
+extension ChannelRepositoryImpl {
     
     func openSocket(id channelID: Int, completion: @escaping (ChannelChat) -> ()) {
         socketManager.open(id: channelID) { [unowned self] chat in

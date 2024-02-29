@@ -13,6 +13,7 @@ final class OtherChattingBubbleTableViewCell: BaseTableViewCell {
         let view = UIImageView()
         view.backgroundColor = .systemYellow
         view.layer.cornerRadius = 8
+        view.clipsToBounds = true
         return view
     }()
     

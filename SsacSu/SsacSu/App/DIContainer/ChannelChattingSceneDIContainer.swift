@@ -7,12 +7,10 @@
 
 import UIKit
 
-final class ChattingSceneDIContainer {
+final class ChannelChattingSceneDIContainer {
     
     struct Dependencies {
-        let realmManager: RealmManager
-        let socketManager: SocketIOManager
-        let networkService: NetworkService
+        let channelRepository: ChannelRepository
     }
     
     private let dependencies: Dependencies
@@ -30,24 +28,15 @@ final class ChattingSceneDIContainer {
     
     func makeChattingViewModel() -> ChattingViewModel {
         return ChattingViewModel(
-            chattingRepository: getChattingRepository()
-        )
-    }
-    
-    // MARK: - Repositories
-    func getChattingRepository() -> ChattingRepository {
-        return ChattingRepositoryImpl(
-            realmManager: dependencies.realmManager,
-            socketManager: dependencies.socketManager,
-            networkService: dependencies.networkService
+            channelRepository: dependencies.channelRepository
         )
     }
     
     // MARK: - Flow Coordinators
-    func makeChattingCoordinator(navigationController: UINavigationController) -> ChattingCoordinator {
-        return ChattingCoordinator(
+    func makeChattingCoordinator(navigationController: UINavigationController) -> ChannelChattingCoordinator {
+        return ChannelChattingCoordinator(
             navigationController: navigationController,
-            chattingSceneDIContainer: self
+            channelChattingSceneDIContainer: self
         )
     }
     

@@ -187,21 +187,25 @@ extension WorkspaceHomeViewController {
         let dataSource = RxCollectionViewSectionedReloadDataSource<WorkspaceSection> { dataSource, collectionView, indexPath, item in
             
             switch item {
-            case .channel(let channel):
+            case .channel(let channel, let unread):
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: WorkspaceChannelCollectionViewCell.description(),
                     for: indexPath
                 ) as? WorkspaceChannelCollectionViewCell else { return UICollectionViewCell() }
-                cell.bind(item: channel)
+                
+                cell.bind(item: channel, unread)
+                cell.style(unread == 0 ? .plain : .unread)
                 
                 return cell
                 
-            case .dm(let dm):
+            case .dm(let room, let unread):
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: WorkspaceDmsCollectionViewCell.description(),
                     for: indexPath
                 ) as? WorkspaceDmsCollectionViewCell else { return UICollectionViewCell() }
-                cell.bind(item: dm)
+                
+                cell.bind(item: room, unread)
+                cell.style(unread == 0 ? .plain : .unread)
                 
                 return cell
             

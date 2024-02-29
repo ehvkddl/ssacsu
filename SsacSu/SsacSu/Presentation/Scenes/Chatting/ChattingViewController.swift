@@ -67,6 +67,17 @@ final class ChattingViewController: BaseViewController {
     
     let maxHeight: CGFloat = 46.6
     
+    var profileImageUrl: [Int: String] = [:] {
+        didSet {
+            print(profileImageUrl)
+        }
+    }
+    var profileImages: [Int: UIImage?] = [:] {
+        didSet {
+            print(profileImages)
+        }
+    }
+    
     static func create(
         with viewModel: ChattingViewModel
     ) -> ChattingViewController {
@@ -107,8 +118,10 @@ final class ChattingViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         output.chats.bind(to: chatTableView.rx.items) { [unowned self] (tableView, row, element) -> UITableViewCell in
+            let chatUser = element.user
+            
             let loginUserID = vm.loginUserID
-            let chatUserID = element.user.userID
+            let chatUserID = chatUser.userID
             
             switch chatUserID {
             case loginUserID:
@@ -123,8 +136,11 @@ final class ChattingViewController: BaseViewController {
             default:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: OtherChattingBubbleTableViewCell.description()) as? OtherChattingBubbleTableViewCell else { return UITableViewCell() }
                 
+                profileImageObserve(chatUser)
+                
                 cell.selectionStyle = .none
                 
+                cell.profileImage.image = profileImages[chatUserID] ?? .Profile.noPhotoA
                 cell.nicknameLabel.text = element.user.nickname
                 cell.chatBubbleLabel.text = element.content
                 
@@ -240,6 +256,33 @@ extension ChattingViewController {
     
     @objc func socketReopen() {
         vm.socketReopen()
+    }
+    
+}
+
+extension ChattingViewController {
+    
+    private func profileImageObserve(_ user: User) {
+        guard let url = user.profileImage else { return }
+        
+        if let imageUrl = profileImageUrl[user.userID] {
+            // nil이 아닌 경우
+            let isSame = imageUrl == url
+            if isSame == false {
+                updateProfileImage(key: user.userID, value: imageUrl)
+            }
+        } else {
+            updateProfileImage(key: user.userID, value: url)
+        }
+    }
+    
+    private func updateProfileImage(key userID: Int, value imageUrl: String) {
+        profileImageUrl[userID] = imageUrl
+        
+        ImageHelper.download(url: imageUrl, size: CGSize(width: 40, height: 40)) { [unowned self] image in
+            print("다운 성공했으니까 이미지 바꺼주께용")
+            profileImages[userID] = image
+        }
     }
     
 }

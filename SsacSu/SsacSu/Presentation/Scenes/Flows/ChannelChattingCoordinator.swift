@@ -7,22 +7,22 @@
 
 import UIKit
 
-class ChattingCoordinator: Coordinator {
+class ChannelChattingCoordinator: Coordinator {
     
     var finishDelegate: CoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    private let chattingSceneDIContainer: ChattingSceneDIContainer
+    private let channelChattingSceneDIContainer: ChannelChattingSceneDIContainer
     
     var type: CoordinatorType = .workspace
     
     init(navigationController: UINavigationController!,
-         chattingSceneDIContainer: ChattingSceneDIContainer
+         channelChattingSceneDIContainer: ChannelChattingSceneDIContainer
     ) {
         self.navigationController = navigationController
-        self.chattingSceneDIContainer = chattingSceneDIContainer
+        self.channelChattingSceneDIContainer = channelChattingSceneDIContainer
     }
     
     var channel: Channel?
@@ -33,10 +33,10 @@ class ChattingCoordinator: Coordinator {
     
 }
 
-extension ChattingCoordinator: ChattingViewModelDelegate {
+extension ChannelChattingCoordinator: ChattingViewModelDelegate {
     
     func showChattingView() {
-        let vc = chattingSceneDIContainer.makeChattingViewController()
+        let vc = channelChattingSceneDIContainer.makeChattingViewController()
         vc.vm.delegate = self
         
         guard let channel else { return }

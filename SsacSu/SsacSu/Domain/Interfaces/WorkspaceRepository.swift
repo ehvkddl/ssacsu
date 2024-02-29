@@ -13,6 +13,5 @@ protocol WorkspaceRepository {
     
     func fetchWorkspace() -> Single<Result<WorkspaceList, SsacsuError>>
     func fetchSingleWorkspace(id: Int, completion: @escaping (Workspace) -> Void)
-    func fetchMyChannels(id: Int, completion: @escaping ([Channel]) -> Void)
     
 }

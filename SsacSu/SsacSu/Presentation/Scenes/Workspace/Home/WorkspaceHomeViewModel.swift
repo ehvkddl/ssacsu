@@ -31,8 +31,8 @@ enum WorkspaceSectionType {
 }
 
 enum WorkspaceSectionItem {
-    case channel(Channel)
-    case dm(Dms)
+    case channel(channel: Channel, unread: Int)
+    case dm(room: DMsRoom, unread: Int)
     case add(WorkspaceSectionType)
 }
 
@@ -61,14 +61,20 @@ class WorkspaceHomeViewModel: ViewModelType {
     
     private let userRepository: UserRepository
     private let workspaceRepository: WorkspaceRepository
+    private let channelRepository: ChannelRepository
+    private let dmsRepository: DmsRepository
     private let disposeBag = DisposeBag()
     
     init(
         userRepository: UserRepository,
-        workspaceRepository: WorkspaceRepository
+        workspaceRepository: WorkspaceRepository,
+        channelRepository: ChannelRepository,
+        dmsRepository: DmsRepository
     ) {
         self.userRepository = userRepository
         self.workspaceRepository = workspaceRepository
+        self.channelRepository = channelRepository
+        self.dmsRepository = dmsRepository
     }
     
     struct Input {
@@ -92,6 +98,9 @@ class WorkspaceHomeViewModel: ViewModelType {
         let dmsItems = PublishSubject<[WorkspaceSectionItem]>()
         
         let workspaceSections = PublishRelay<[WorkspaceSection]>()
+        
+        let channels = PublishRelay<[Channel]>()
+        let dmsRooms = PublishRelay<[DMsRoom]>()
         
         input.navigationBarTapped
             .subscribe(with: self) { owner, _ in
@@ -127,20 +136,32 @@ class WorkspaceHomeViewModel: ViewModelType {
         workspaceID
             .compactMap { $0 }
             .subscribe(with: self) { owner, id in
+                // 워크스페이스 정보 조회
                 owner.workspaceRepository.fetchSingleWorkspace(id: id) { response in
                     workspace.onNext(response)
                 }
                 
-                owner.workspaceRepository.fetchMyChannels(id: id) { response in
-                    let items = response
-                        .sorted(by: { lhs, rhs in
+                // 내가 속한 채널 조회
+                owner.channelRepository.fetchMyChannels(id: id) { response in
+                    var items = response
+                        .sorted { lhs, rhs in
                             lhs.createdAt < rhs.createdAt
-                        })
-                        .map { WorkspaceSectionItem.channel($0) }
+                        }
                     
-                    channelItems.onNext(items)
+                    channels.accept(items)
                 }
                 
+                // DM 방 조회
+                owner.dmsRepository.fetchDmsRoom(id: id) { response in
+                    var items = response
+                        .sorted { lhs, rhs in
+                            lhs.createdAt < rhs.createdAt
+                        }
+                    
+                    dmsRooms.accept(items)
+                }
+                
+                // 유저 정보 조회
                 owner.userRepository.fetchMyProfile { response in
                     profile.accept(response.profileImage)
                 }
@@ -169,26 +190,52 @@ class WorkspaceHomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
-        // 임시 DM
-        let testUser = User(userID: 1, email: "test@sesac.com", nickname: "test", profileImage: nil)
+        channels
+            .subscribe(with: self) { owner, channels in
+                var items: [WorkspaceSectionItem] = []
+                
+                let group = DispatchGroup()
+                
+                channels.forEach { channel in
+                    group.enter()
+                    
+                    owner.channelRepository.fetchUnreadChannelChat(id: channel.channelID) { unreadCnt in
+                        items.append(WorkspaceSectionItem.channel(channel: channel, unread: unreadCnt))
+                        
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    items.append(WorkspaceSectionItem.add(.channel))
+                    
+                    channelItems.onNext(items)
+                }
+            }
+            .disposed(by: disposeBag)
         
-        Observable.just([
-            Dms(workspaceID: 182, RoomID: 1, createdAt: Date(), user: testUser),
-            Dms(workspaceID: 182, RoomID: 2, createdAt: Date(timeIntervalSinceNow: 1), user: testUser),
-            Dms(workspaceID: 182, RoomID: 3, createdAt: Date(timeIntervalSinceNow: 2), user: testUser),
-            Dms(workspaceID: 182, RoomID: 4, createdAt: Date(timeIntervalSinceNow: 3), user: testUser)
-        ])
-        .map { $0.map { dms in
-            WorkspaceSectionItem.dm(dms)
-        }}
-        .subscribe { items in
-            var items = items
-            items.append(WorkspaceSectionItem.add(.dm))
-            
-            dmsItems.onNext(items)
-        }
-        .disposed(by: disposeBag)
-        
+        dmsRooms
+            .subscribe(with: self) { owner, rooms in
+                var items: [WorkspaceSectionItem] = []
+                
+                let group = DispatchGroup()
+                
+                rooms.forEach { room in
+                    group.enter()
+                    
+                    owner.dmsRepository.fetchUnreadDms(id: room.roomID) { unreadCnt in
+                        items.append(WorkspaceSectionItem.dm(room: room, unread: unreadCnt))
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    items.append(WorkspaceSectionItem.add(.dm))
+                    
+                    dmsItems.onNext(items)
+                }
+            }
+            .disposed(by: disposeBag)
         
         input.createWorkspaceButtonTapped
             .subscribe { _ in
@@ -201,7 +248,7 @@ class WorkspaceHomeViewModel: ViewModelType {
                 print("[cell click]", indexPath, model)
                 
                 switch model {
-                case .channel(let channel):
+                case .channel(let channel, _):
                     delegate?.channelTapped(channel: channel)
                     
                 default: break
