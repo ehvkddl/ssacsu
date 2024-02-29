@@ -33,7 +33,9 @@ extension DmsRepositoryImpl {
             responseType: [DMsRoomResponseDTO].self) { result in
                 switch result {
                 case .success(let success):
+                    
                     let rooms = success.map { $0.toDomain() }
+                    rooms.forEach { self.realmManager.addDMsRoomInfo($0) }
                     
                     completion(rooms)
                     

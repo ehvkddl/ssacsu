@@ -9,12 +9,16 @@ import Foundation
 import RealmSwift
 
 protocol RealmManager {
+    // Channel
     func checkLastDate(of channelID: Int) -> Date?
     func fetchSingleChannel(of channelID: Int) -> ChannelTB?
     func addChannelInfo(_ channel: Channel)
     func fetchChat(of channelID: Int) -> Results<ChannelChatTB>?
     func fetchChat(of channelID: Int, _ count: Int) -> [ChannelChat]
     func addChat(to channelID: Int, _ item: ChannelChatResponseDTO)
+    
+    // Dms
+    func addDMsRoomInfo(_ room: DMsRoom)
 }
 
 final class RealmManagerImpl: RealmManager {
@@ -29,7 +33,12 @@ final class RealmManagerImpl: RealmManager {
             return nil
         }
     }()
+    
+}
 
+// Channel
+extension RealmManagerImpl {
+    
     // MARK: - 마지막 채팅 날짜 확인
     func checkLastDate(of channelID: Int) -> Date? {
         guard let chats = fetchChat(of: channelID) else { return nil }
@@ -121,6 +130,35 @@ final class RealmManagerImpl: RealmManager {
             }
         } catch {
             print("채팅 저장 실패", error)
+        }
+    }
+    
+}
+
+// Dms
+extension RealmManagerImpl {
+    
+    // MARK: - DM 방 정보 저장
+    func addDMsRoomInfo(_ room: DMsRoom) {
+        guard let realm else { return }
+        
+        let user = UserTB(userID: room.user.userID,
+                          email: room.user.email,
+                          nickname: room.user.nickname,
+                          profileImage: room.user.profileImage)
+        
+        let room = DMsRoomTB(roomID: room.roomID,
+                             workspaceID: room.workspaceID,
+                             createdAt: room.createdAt,
+                             user: user)
+        
+        do {
+            try realm.write {
+                realm.add(room, update: .modified)
+                print("DM 방 정보 저장", room)
+            }
+        } catch {
+            print("DM 방 정보 저장 실패", error)
         }
     }
     
