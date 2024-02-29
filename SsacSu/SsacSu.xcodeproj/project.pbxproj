@@ -137,7 +137,6 @@
 		EAFD0E072B8B5869007906A2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E062B8B5869007906A2 /* SocketIO */; };
 		EAFD0E0A2B8B5BF1007906A2 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */; };
 		EAFD0E102B8E6031007906A2 /* FcmDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E0F2B8E6031007906A2 /* FcmDeviceTokenDTO.swift */; };
-		EAFD0E142B8F1117007906A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */; };
 		EAFD0E172B8F12EF007906A2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E162B8F12EF007906A2 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		EAFD0E192B8F12EF007906A2 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E182B8F12EF007906A2 /* FirebaseCrashlytics */; };
 		EAFD0E1B2B8F12EF007906A2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = EAFD0E1A2B8F12EF007906A2 /* FirebaseMessaging */; };
@@ -154,6 +153,7 @@
 		EAFD0E382B8FBC68007906A2 /* DMsChatUnreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */; };
 		EAFD0E3A2B903ADE007906A2 /* ChannelChatUnreadsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E392B903ADE007906A2 /* ChannelChatUnreadsDTO.swift */; };
 		EAFD0E3C2B903B69007906A2 /* ChannelChatUnreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E3B2B903B69007906A2 /* ChannelChatUnreads.swift */; };
+		EAFD0E3E2B904A7D007906A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAFD0E3D2B904A7C007906A2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,7 +278,6 @@
 		EAFD0E032B8A7109007906A2 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		EAFD0E092B8B5BF1007906A2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		EAFD0E0F2B8E6031007906A2 /* FcmDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmDeviceTokenDTO.swift; sourceTree = "<group>"; };
-		EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAFD0E1C2B8F25CA007906A2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		EAFD0E1E2B8F2BFF007906A2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		EAFD0E242B8F77C7007906A2 /* DmsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsAPI.swift; sourceTree = "<group>"; };
@@ -292,6 +291,7 @@
 		EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsChatUnreads.swift; sourceTree = "<group>"; };
 		EAFD0E392B903ADE007906A2 /* ChannelChatUnreadsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatUnreadsDTO.swift; sourceTree = "<group>"; };
 		EAFD0E3B2B903B69007906A2 /* ChannelChatUnreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatUnreads.swift; sourceTree = "<group>"; };
+		EAFD0E3D2B904A7C007906A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +418,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		EAA6604A2B90E99B00DEB3A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAB4014C2B4DC5C000C1A14A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +543,7 @@
 				EAE494302B4733F1007461C0 /* Secrets.xcconfig */,
 				EAE493FE2B459B81007461C0 /* SsacSu */,
 				EAE493FD2B459B81007461C0 /* Products */,
+				EAA6604A2B90E99B00DEB3A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -606,7 +614,7 @@
 				EAE4942F2B4733A6007461C0 /* Assets */,
 				EAE494332B47496A007461C0 /* Fonts */,
 				EAE4940D2B459B82007461C0 /* Info.plist */,
-				EAFD0E132B8F1117007906A2 /* GoogleService-Info.plist */,
+				EAFD0E3D2B904A7C007906A2 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -954,7 +962,7 @@
 				EAE494192B45DC69007461C0 /* Colors.xcassets in Resources */,
 				EAE494092B459B82007461C0 /* Assets.xcassets in Resources */,
 				EAE494372B474E1C007461C0 /* SF-Pro.ttf in Resources */,
-				EAFD0E142B8F1117007906A2 /* GoogleService-Info.plist in Resources */,
+				EAFD0E3E2B904A7D007906A2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1233,9 +1241,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SsacSu/SsacSu.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R5LJ29W6V2;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VYC9A4SEQS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SsacSu/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1248,8 +1258,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chap.SsacSu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesac.SeSACTalkSLP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SeSACTalkSLP;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
