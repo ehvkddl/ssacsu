@@ -151,6 +151,8 @@
 		EAFD0E342B8FAC7D007906A2 /* DMChatTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E332B8FAC7D007906A2 /* DMChatTB.swift */; };
 		EAFD0E362B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E352B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift */; };
 		EAFD0E382B8FBC68007906A2 /* DMsChatUnreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */; };
+		EAFD0E3A2B903ADE007906A2 /* ChannelChatUnreadsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E392B903ADE007906A2 /* ChannelChatUnreadsDTO.swift */; };
+		EAFD0E3C2B903B69007906A2 /* ChannelChatUnreads.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFD0E3B2B903B69007906A2 /* ChannelChatUnreads.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -286,6 +288,8 @@
 		EAFD0E332B8FAC7D007906A2 /* DMChatTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMChatTB.swift; sourceTree = "<group>"; };
 		EAFD0E352B8FBBDB007906A2 /* DMsChatUnreadsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsChatUnreadsDTO.swift; sourceTree = "<group>"; };
 		EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMsChatUnreads.swift; sourceTree = "<group>"; };
+		EAFD0E392B903ADE007906A2 /* ChannelChatUnreadsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatUnreadsDTO.swift; sourceTree = "<group>"; };
+		EAFD0E3B2B903B69007906A2 /* ChannelChatUnreads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatUnreads.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +474,7 @@
 				EA922DC72B656E0F00D5A0A3 /* User.swift */,
 				EA922DC52B656E0400D5A0A3 /* Channel.swift */,
 				EAFD0DD02B8549BA007906A2 /* ChannelChat.swift */,
+				EAFD0E3B2B903B69007906A2 /* ChannelChatUnreads.swift */,
 				EA922DCA2B658C6600D5A0A3 /* Dms.swift */,
 				EAFD0E2F2B8F81B3007906A2 /* DMsRoom.swift */,
 				EAFD0E372B8FBC68007906A2 /* DMsChatUnreads.swift */,
@@ -803,6 +808,7 @@
 			children = (
 				EA922DC12B656CB800D5A0A3 /* ChannelDTO.swift */,
 				EAFD0DCE2B854858007906A2 /* ChannelChatDTO.swift */,
+				EAFD0E392B903ADE007906A2 /* ChannelChatUnreadsDTO.swift */,
 			);
 			path = Channel;
 			sourceTree = "<group>";
@@ -972,6 +978,7 @@
 				EAFD0DC02B837E20007906A2 /* ChannelChattingSceneDIContainer.swift in Sources */,
 				EAFD0DF02B866B67007906A2 /* ChannelRepository.swift in Sources */,
 				EA922DAB2B604C7100D5A0A3 /* AuthManager.swift in Sources */,
+				EAFD0E3A2B903ADE007906A2 /* ChannelChatUnreadsDTO.swift in Sources */,
 				EA922DCF2B668BDE00D5A0A3 /* UnreadLabel.swift in Sources */,
 				EAB401642B4F01C300C1A14A /* CommonErrorResponseDTO.swift in Sources */,
 				EA922DD32B66B0B400D5A0A3 /* WorkspaceFooterReusableView.swift in Sources */,
@@ -997,6 +1004,7 @@
 				EAE4946D2B4C7EDD007461C0 /* SSTextField.swift in Sources */,
 				EAE494552B4AAD9B007461C0 /* OnboardingViewController.swift in Sources */,
 				EA922DC22B656CB900D5A0A3 /* ChannelDTO.swift in Sources */,
+				EAFD0E3C2B903B69007906A2 /* ChannelChatUnreads.swift in Sources */,
 				EAE494582B4AB503007461C0 /* SSButton.swift in Sources */,
 				EAB401792B53237000C1A14A /* LoginDTO.swift in Sources */,
 				EAFCB6392B5488FD004DA2CD /* AppleLoginDTO.swift in Sources */,

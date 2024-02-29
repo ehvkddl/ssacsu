@@ -31,7 +31,7 @@ enum WorkspaceSectionType {
 }
 
 enum WorkspaceSectionItem {
-    case channel(Channel)
+    case channel(channel: Channel, unread: Int)
     case dm(room: DMsRoom, unread: Int)
     case add(WorkspaceSectionType)
 }
@@ -99,6 +99,7 @@ class WorkspaceHomeViewModel: ViewModelType {
         
         let workspaceSections = PublishRelay<[WorkspaceSection]>()
         
+        let channels = PublishRelay<[Channel]>()
         let dmsRooms = PublishRelay<[DMsRoom]>()
         
         input.navigationBarTapped
@@ -143,14 +144,11 @@ class WorkspaceHomeViewModel: ViewModelType {
                 // 내가 속한 채널 조회
                 owner.channelRepository.fetchMyChannels(id: id) { response in
                     var items = response
-                        .sorted(by: { lhs, rhs in
+                        .sorted { lhs, rhs in
                             lhs.createdAt < rhs.createdAt
-                        })
-                        .map { WorkspaceSectionItem.channel($0) }
+                        }
                     
-                    items.append(WorkspaceSectionItem.add(.channel))
-                    
-                    channelItems.onNext(items)
+                    channels.accept(items)
                 }
                 
                 // DM 방 조회
@@ -192,6 +190,30 @@ class WorkspaceHomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        channels
+            .subscribe(with: self) { owner, channels in
+                var items: [WorkspaceSectionItem] = []
+                
+                let group = DispatchGroup()
+                
+                channels.forEach { channel in
+                    group.enter()
+                    
+                    owner.channelRepository.fetchUnreadChannelChat(id: channel.channelID) { unreadCnt in
+                        items.append(WorkspaceSectionItem.channel(channel: channel, unread: unreadCnt))
+                        
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    items.append(WorkspaceSectionItem.add(.channel))
+                    
+                    channelItems.onNext(items)
+                }
+            }
+            .disposed(by: disposeBag)
+        
         dmsRooms
             .subscribe(with: self) { owner, rooms in
                 var items: [WorkspaceSectionItem] = []
@@ -226,7 +248,7 @@ class WorkspaceHomeViewModel: ViewModelType {
                 print("[cell click]", indexPath, model)
                 
                 switch model {
-                case .channel(let channel):
+                case .channel(let channel, _):
                     delegate?.channelTapped(channel: channel)
                     
                 default: break

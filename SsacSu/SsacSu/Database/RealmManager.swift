@@ -44,10 +44,12 @@ extension RealmManagerImpl {
     
     // MARK: - 마지막 채팅 날짜 확인
     func checkLastDate(of channelID: Int) -> Date? {
-        guard let chats = fetchChat(of: channelID) else { return nil }
+        guard let channel = fetchSingleChannel(of: channelID) else { return nil }
+        
+        guard let chats = fetchChat(of: channelID) else { return channel.createdAt }
         guard let lastChat = chats
             .sorted(byKeyPath: "createdAt", ascending: true)
-            .last else { return nil }
+            .last else { return channel.createdAt }
         
         return lastChat.createdAt
     }

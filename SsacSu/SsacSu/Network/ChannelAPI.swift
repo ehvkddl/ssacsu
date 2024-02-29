@@ -11,6 +11,7 @@ import Moya
 
 enum ChannelAPI {
     case fetchMyChannels(id: Int)
+    case fetchUnreadChannelChat(workspaceID: Int, channelName: String, date: String)
     case fetchChats(workspaceID: Int, channelName: String, date: String)
     case createChat(workspaceID: Int, channelName: String, chat: ChannelChatRequestDTO)
 }
@@ -24,6 +25,7 @@ extension ChannelAPI: BaseAPI {
     var path: String {
         switch self {
         case .fetchMyChannels(let id): return "v1/workspaces/\(id)/channels/my"
+        case .fetchUnreadChannelChat(let id, let name, _): return "v1/workspaces/\(id)/channels/\(name)/unreads"
         case .fetchChats(let id, let name, _): return "v1/workspaces/\(id)/channels/\(name)/chats"
         case .createChat(let id, let name, _): return "v1/workspaces/\(id)/channels/\(name)/chats"
         }
@@ -31,7 +33,7 @@ extension ChannelAPI: BaseAPI {
     
     var method: Moya.Method {
         switch self {
-        case .fetchMyChannels, .fetchChats: return .get
+        case .fetchMyChannels, .fetchUnreadChannelChat, .fetchChats: return .get
         case .createChat: return .post
         }
     }
@@ -72,6 +74,9 @@ extension ChannelAPI: BaseAPI {
         case .fetchMyChannels:
             return .requestPlain
             
+        case .fetchUnreadChannelChat(_, _, let date):
+            return .requestParameters(parameters: ["after": date], encoding: URLEncoding.queryString)
+            
         case .fetchChats(_, _, let date):
             return .requestParameters(parameters: ["cursor_date": date], encoding: URLEncoding.queryString)
         
@@ -84,7 +89,7 @@ extension ChannelAPI: BaseAPI {
     
     var headers: [String : String]? {
         switch self {
-        case .fetchMyChannels, .fetchChats:
+        case .fetchMyChannels, .fetchUnreadChannelChat, .fetchChats:
             [
                 "Content-Type": "application/json",
                 "SesacKey": Configurations.SeSACKey

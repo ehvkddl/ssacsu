@@ -29,9 +29,9 @@ final class ChannelRepositoryImpl {
 
 extension ChannelRepositoryImpl: ChannelRepository {
     
-    func fetchMyChannels(id: Int, completion: @escaping ([Channel]) -> Void) {
+    func fetchMyChannels(id workspaceID: Int, completion: @escaping ([Channel]) -> Void) {
         networkService.processResponse(
-            api: .channel(.fetchMyChannels(id: id)),
+            api: .channel(.fetchMyChannels(id: workspaceID)),
             responseType: [ChannelResponseDTO].self) { response in
                 switch response {
                 case .success(let success):
@@ -44,6 +44,30 @@ extension ChannelRepositoryImpl: ChannelRepository {
                     
                 case .failure(let failure):
                     print("채널 조회 실패", failure)
+                }
+            }
+    }
+    
+    func fetchUnreadChannelChat(id channelID: Int, completion: @escaping (Int) -> Void) {
+        guard let channel = realmManager.fetchSingleChannel(of: channelID) else { print("#### Channel 정보 없음"); return }
+        
+        let dateStr = {
+            guard let date = realmManager.checkLastDate(of: channelID) else { return "" }
+            
+            return DateFormatter.iso8601.string(from: date)
+        }()
+        
+        networkService.processResponse(
+            api: .channel(.fetchUnreadChannelChat(workspaceID: channel.workspaceID, 
+                                                  channelName: channel.name,
+                                                  date: dateStr)),
+            responseType: ChannelChatUnreadsResponseDTO.self) { result in
+                switch result {
+                case .success(let success):
+                    completion(success.count)
+                    
+                case .failure(let failure):
+                    print("ChannelChatUnreads 조회 실패", failure)
                 }
             }
     }
