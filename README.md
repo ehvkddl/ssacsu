@@ -1,10 +1,10 @@
 # SsacSu
 새싹 개발자들이 수다 떨 수 있는 채팅 앱
 
-|<img width="200" src="./images/appleLogin.gif">|<img width="200" src="kakaoLogin.gif">|<img width="200" src="emailSignIn.gif">|
+|<img width="200" src="./images/appleLogin.gif">|<img width="200" src="./images/kakaoLogin.gif">|<img width="200" src="./images/emailSignIn.gif">|
 |:-:|:-:|:-:|
 |애플 로그인|카카오 로그인|이메일 로그인|
-|<img width="200" src="signUp.gif">|<img width="200" src="remotePush.gif">|<img width="200" src="purchase.gif">|
+|<img width="200" src="./images/signUp.gif">|<img width="200" src="./images/remotePush.gif">|<img width="200" src="./images/purchase.gif">|
 |회원가입|푸시 알림|결제|
 
 |<img width="650" src="./images/chat.gif">|
@@ -60,7 +60,7 @@
 
 ### Architecture
 
-<img width="800" alt="ssacsu_cleanArchitecture" src="./images/cleanArchitecture.png">
+<img width="800" alt="ssacsu_cleanArchitecture" src="./images/architecture.png">
 <img width="800" alt="ssacsu_coordinator" src="./images/coordinator.png">
 
 ## 문제 및 해결
