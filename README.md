@@ -1,13 +1,13 @@
 # SsacSu
 새싹 개발자들이 수다 떨 수 있는 채팅 앱
 
-|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/12e0b533-8f3e-4754-a3ab-4b3a501807d5">|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/f052a5c8-fa79-4906-82e7-26b252bcb214">|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/949307f7-c424-462f-a6e7-5dd48c42503f">|
+|<img width="200" src="./images/appleLogin.gif">|<img width="200" src="kakaoLogin.gif">|<img width="200" src="emailSignIn.gif">|
 |:-:|:-:|:-:|
 |애플 로그인|카카오 로그인|이메일 로그인|
-|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/949307f7-c424-462f-a6e7-5dd48c42503f">|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/e53adc03-2542-4467-83f5-1714b3ed27c9">|<img width="200" src="https://github.com/ehvkddl/bit-compass/assets/57763334/a4fb1f83-4fa8-4e9c-854a-50072d236e94">|
+|<img width="200" src="signUp.gif">|<img width="200" src="remotePush.gif">|<img width="200" src="purchase.gif">|
 |회원가입|푸시 알림|결제|
 
-|<img width="650" src="https://github.com/ehvkddl/bit-compass/assets/57763334/a4159963-c023-43a5-b486-576adac3958b">|
+|<img width="650" src="./images/chat.gif">|
 |:-:|
 |채팅|
 
@@ -56,12 +56,12 @@
 
 ### ERD
 
-<img width="650" alt="ssacsu_erd" src="https://github.com/ehvkddl/bit-compass/assets/57763334/a197f0c5-57e7-427a-9126-e06c30dfd6e8">
+<img width="650" alt="ssacsu_erd" src="./images/erd.png">
 
 ### Architecture
 
-<img width="800" alt="ssacsu_cleanArchitecture" src="https://github.com/ehvkddl/bit-compass/assets/57763334/9550baa1-fa4d-43af-874b-02b4effb288c">
-<img width="800" alt="ssacsu_coordinator" src="https://github.com/ehvkddl/bit-compass/assets/57763334/6fc8bbdf-380a-4a4f-9542-72dd097f793f">
+<img width="800" alt="ssacsu_cleanArchitecture" src="./images/cleanArchitecture.png">
+<img width="800" alt="ssacsu_coordinator" src="./images/coordinator.png">
 
 ## 문제 및 해결
 
