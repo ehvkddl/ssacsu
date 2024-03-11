@@ -1,4 +1,4 @@
-<img width="50" alt="ssacsuIcon" src="./images/ssacsu.png">  
+<img width="80" alt="ssacsuIcon" src="./images/ssacsu.png">  
 
 # SsacSu
 새싹 개발자들이 수다 떨 수 있는 채팅 앱
